@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import CardEpisodios from "./CardEpisodios";
 import { PiCardsFill } from "react-icons/pi";
 import { Spinner } from "@chakra-ui/react";
-import { set } from "lodash";
 
 const Episodios = () => {
   const [imagenFondo, setImagenFondo] = useState([]);
