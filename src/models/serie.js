@@ -30,6 +30,10 @@ const serieSchema = new Schema(
       type: Array,
       required: true,
     },
+    publico: {
+      type: String,
+      required: false,
+    },
     temporadas: {
       type: Object,
       default: {

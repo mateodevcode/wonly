@@ -10,8 +10,8 @@ const CardEpisodios = ({
   duracion,
   descripcion,
   Url,
+  edad,
 }) => {
-  const edad = 13;
 
   return (
     <div

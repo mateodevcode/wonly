@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import CardEpisodios from "./CardEpisodios";
 import { PiCardsFill } from "react-icons/pi";
 import { Spinner } from "@chakra-ui/react";
+import { set } from "lodash";
 
 const Episodios = () => {
   const [imagenFondo, setImagenFondo] = useState([]);
@@ -16,6 +17,7 @@ const Episodios = () => {
   const [urlTemporada, setUrlTemporada] = useState("");
   const [tempActual, setTempActual] = useState("");
   const [numeroEpisodios, setNumeroEpisodios] = useState(0);
+  const [edad, setEdad] = useState("");
 
   const params = useParams();
 
@@ -34,6 +36,8 @@ const Episodios = () => {
       const resultado = data.find((objeto) => objeto[key] === value);
       setDatosSeries(resultado);
       setTemporada(resultado.temporadas);
+
+      setEdad(resultado.publico);
 
       const url = window.location.href;
       const segments = url.split("/");
@@ -62,6 +66,8 @@ const Episodios = () => {
     };
     cargarTemporada();
   }, []);
+  
+
 
   return (
     <div className="bg-black w-full flex flex-col justify-center items-center">
@@ -106,6 +112,7 @@ const Episodios = () => {
             duracion={epi.duracion}
             descripcion={epi.descripcion}
             Url={`/series/${url}/${urlTemporada}/${epi.episodio}`}
+            edad={edad}
           />
         ))}
       </div>

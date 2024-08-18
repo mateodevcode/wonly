@@ -11,8 +11,8 @@ export async function GET() {
 
 
 export async function POST(request) {
-    const { titulo, imagen_fondo, imagen_perfil, id, descripcion, year, generos, temporadas } = await request.json();
+    const { titulo, imagen_fondo, imagen_perfil, id, descripcion, year, generos, publico, temporadas } = await request.json();
     await connectMongoDB();
-    await Serie.create({ titulo, imagen_fondo, imagen_perfil, id, descripcion, year, generos, temporadas });
+    await Serie.create({ titulo, imagen_fondo, imagen_perfil, id, descripcion, year, generos, publico, temporadas });
     return NextResponse.json({message: "Serie creada"}, {status: 201});
   }
