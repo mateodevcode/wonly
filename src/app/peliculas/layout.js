@@ -1,0 +1,15 @@
+import Navbar from "@/components/navbar/Navbar";
+
+export const metadata = {
+  title: "Peliculas - Wonly",
+  description: "Peliculas y series en un solo lugar",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <>
+      <Navbar />
+      {children}
+    </>
+  );
+}

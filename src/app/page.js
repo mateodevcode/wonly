@@ -1,6 +1,6 @@
 import Navbar from "@/components/navbar/Navbar"
 import Principal from "@/components/homepage/Principal";
-// import Videos from "@/components/tendencias/Videos";
+import Videos from "@/components/tendencias/Videos";
 
 export default function Home() {
   return (

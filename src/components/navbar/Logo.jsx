@@ -7,7 +7,7 @@ const Logo = () => {
       <Image
         width={400}
         height={400}
-        src={"/logo-hor-3.png"}
+        src={"/logo.png"}
         className="w-52 mx-5 select-none h-16"
         alt="Logo de wonly"
       />
