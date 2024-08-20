@@ -1,13 +1,13 @@
-import Navbar from "@/components/navbar/Navbar"
+import Navbar from "@/components/navbar/Navbar";
 import Principal from "@/components/homepage/Principal";
-import Videos from "@/components/tendencias/Videos";
+import CarruselCards from "@/components/tendencias/CarruselCards";
 
 export default function Home() {
   return (
-    <main className="w-full flex-col justify-center items-center fondo_1 bg-black">
+    <main className="w-full flex-col justify-center items-center  bg-black">
       <Navbar />
       <Principal />
-      {/* <Videos /> */}
+      <CarruselCards />
     </main>
   );
 }

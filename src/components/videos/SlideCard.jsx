@@ -1,43 +1,33 @@
 "use client";
-import { MdArrowForwardIos } from "react-icons/md";
-import CardVideo from "../tendencias/CardVideo";
-import { useState } from "react";
-import { tendencias } from "@/data/tendencias";
 import Slider from "react-slick";
 import Image from "next/image";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const SlideCard = () => {
+const SlideCard = ({videos, Url}) => {
   var settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 5,
     slidesToScroll: 1,
   };
 
   return (
-    <div className="flex flex-row justify-center items-center">
-      {/* <MdArrowForwardIos
-        // onClick={ImagenAnterior}
-        className="text-white text-6xl hover:bg-white/10 rotate-180 p-1 cursor-pointer"
-      /> */}
-      {/* <Slider {...settings}> */}
-        {tendencias.map((tendencia, index) => (
+    <div className="w-full">
+      <Slider {...settings}>
+        {videos.map((tendencia, index) => (
           <div key={index}>
             <Image
               src={tendencia.imagen_perfil}
               alt="imagen_perfil"
               width={400}
               height={400}
-              className="w-80 h-60 rounded-md"
+              className="w-56 h-40 rounded-md hover:scale-[102%] transition duration-200 ease-in-out"
             />
           </div>
         ))}
-      {/* </Slider> */}
-      {/* <MdArrowForwardIos
-        // onClick={ImagenSiguiente}
-        className="text-white text-6xl hover:bg-white/10 p-1 cursor-pointer"
-      /> */}
+      </Slider>
     </div>
   );
 };

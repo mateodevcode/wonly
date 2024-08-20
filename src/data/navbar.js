@@ -17,10 +17,6 @@ export const enlaces = [
   },
   {
     nombre: "Tendencias",
-    Url: "/tendencias",
-  },
-  {
-    nombre: "Mi Lista",
-    Url: "/mi-lista",
+    Url: "#tendencias",
   },
 ];
