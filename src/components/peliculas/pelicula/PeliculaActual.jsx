@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import CardPelicula from "./CardPelicula";
+import { Spinner } from "@chakra-ui/react";
 
 const PeliculaActual = () => {
   const [datosPeliculas, setDatosPeliculas] = useState([]);
@@ -27,13 +28,24 @@ const PeliculaActual = () => {
 
   return (
     <div className="w-full bg-black h-full flex flex-col justify-center items-center">
-      <div className="w-8/12">
-        <CardPelicula
-          titulo={datosPeliculas.titulo}
-          descripcion={datosPeliculas.descripcion}
-          url={datosPeliculas.url}
-          duracion={datosPeliculas.duracion}
-        />
+      <div className="w-8/12 flex flex-row justify-center items-center">
+        {datosPeliculas.titulo ? (
+          <CardPelicula
+            titulo={datosPeliculas.titulo}
+            descripcion={datosPeliculas.descripcion}
+            url={datosPeliculas.url}
+            duracion={datosPeliculas.duracion}
+          />
+        ) : (
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="red.500"
+            size="xl"
+            className="mt-80 mb-80"
+          />
+        )}
       </div>
     </div>
   );

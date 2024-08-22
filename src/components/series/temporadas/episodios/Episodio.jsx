@@ -1,7 +1,8 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import CardEpisodio from "./CardEpisodio";
 import { useParams } from "next/navigation";
+import { Spinner } from "@chakra-ui/react";
 
 const Episodio = () => {
   const [imagenFondo, setImagenFondo] = useState([]);
@@ -54,19 +55,31 @@ const Episodio = () => {
     cargarTemporada();
   }, []);
 
-  
-  return <div className="w-full bg-black h-full flex flex-col justify-center items-center">
-    <div className="w-8/12">
-    <CardEpisodio
-        titulo={episodioActual.titulo}
-        temporada={episodioActual.temporada}
-        episodio={episodioActual.episodio}
-        descripcion={episodioActual.descripcion}
-        url={episodioActual.url}
-        duracion={episodioActual.duracion}
-    />
+  return (
+    <div className="w-full bg-black h-full flex flex-col justify-center items-center">
+      <div className="w-8/12 flex flex-row justify-center items-center">
+        {episodioActual.titulo ? (
+          <CardEpisodio
+            titulo={episodioActual.titulo}
+            temporada={episodioActual.temporada}
+            episodio={episodioActual.episodio}
+            descripcion={episodioActual.descripcion}
+            url={episodioActual.url}
+            duracion={episodioActual.duracion}
+          />
+        ) : (
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="red.500"
+            size="xl"
+            className="mt-80 mb-80"
+          />
+        )}
+      </div>
     </div>
-  </div>;
+  );
 };
 
 export default Episodio;
