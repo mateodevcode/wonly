@@ -1,4 +1,4 @@
-# Mateo Lizcano Noriega
+# Wonly
 
 ## Deploy on Vercel
 Para visualizar la pagina desplegada en GitHub Pages puedes dar click en el siguiente enlace. [Ir a la web](https://wonly.vercel.app)
