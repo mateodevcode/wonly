@@ -3,7 +3,7 @@
 ## Deploy on Vercel
 Para visualizar la pagina desplegada en GitHub Pages puedes dar click en el siguiente enlace. [Ir a la web](https://wonly.vercel.app)
 
-**🎬🍿 ¡Descubre Wonly! Tu Destino Gratis para Series y Películas 🍿🎬** ¡Hola a todos! 😄 Estoy súper emocionado de presentarles Wonly, una web diseñada para que disfrutes de tus series y películas favoritas totalmente gratis. 🎉 He creado esta plataforma utilizando Next.js, Tailwind CSS y Chakra UI, combinando tecnología moderna con una experiencia de usuario increíble. 🚀
+**🎬🍿 ¡Descubre Wonly! Tu Destino Gratis para Series y Películas 🍿🎬** ¡Hola a todos! 😄 Estoy súper emocionado de presentarles **Wonly**, una web diseñada para que disfrutes de tus series y películas favoritas totalmente gratis. 🎉 He creado esta plataforma utilizando **Next.js**, **Tailwind CSS** y **Chakra UI**, combinando tecnología moderna con una experiencia de usuario increíble. 🚀
 
 [![image](https://github.com/user-attachments/assets/b391162f-d65b-4dcb-9426-bf0cc1b97b4d)](https://wonly.vercel.app)
 
