@@ -28,6 +28,6 @@ Para visualizar la pagina desplegada en GitHub Pages puedes dar click en el sigu
 
 ## 🌐 ¡Visita Wonly y empieza a disfrutar de tus series y películas favoritas hoy mismo! 🎉🍿
 
-👉 [https://mateo-lizcano-noriega.vercel.app/]
+👉 [https://wonly.vercel.app]
 
 ¡Espero que disfrutes usando Wonly tanto como yo disfruté creándola! 🎬✨
