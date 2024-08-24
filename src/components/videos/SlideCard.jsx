@@ -3,8 +3,9 @@ import Slider from "react-slick";
 import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
 
-const SlideCard = ({videos, Url}) => {
+const SlideCard = ({ cards }) => {
   var settings = {
     dots: true,
     infinite: true,
@@ -16,16 +17,16 @@ const SlideCard = ({videos, Url}) => {
   return (
     <div className="w-full">
       <Slider {...settings}>
-        {videos.map((tendencia, index) => (
-          <div key={index}>
+        {cards.map((card, index) => (
+          <Link href={card.Url} key={index} className="cursor-pointer">
             <Image
-              src={tendencia.imagen_perfil}
+              src={card.imagen_perfil}
               alt="imagen_perfil"
               width={400}
               height={400}
               className="w-56 h-40 rounded-md hover:scale-[102%] transition duration-200 ease-in-out"
             />
-          </div>
+          </Link>
         ))}
       </Slider>
     </div>

@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { logo } from "../../data/navbar";
 
 const Logo = () => {
   return (
-    <Link href={"/"}>
+    <Link href={`${logo.href}`}>
       <Image
-        width={400}
-        height={400}
-        src={"/logo.png"}
+        width={logo.width}
+        height={logo.height}
+        src={logo.src}
         className="w-52 mx-5 select-none h-16"
-        alt="Logo de wonly"
+        alt={logo.alt}
       />
     </Link>
   );

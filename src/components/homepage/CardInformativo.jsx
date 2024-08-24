@@ -1,5 +1,3 @@
-
-
 const CardInformativo = ({titulo, descripcion, generos, numeroTemp, year}) => {
   return (
     <>
@@ -19,11 +17,11 @@ const CardInformativo = ({titulo, descripcion, generos, numeroTemp, year}) => {
           </p>
         ))}
       </div>
-      <div className="flex px-2 font-bold font-mono mt-2">
-        <p className="text-white mx-2 text-sm">
+      <div className="flex px-4 font-bold font-mono mt-2 text-lg">
+        <p className="text-white mx-2">
           {numeroTemp} {numeroTemp ? "Temporadas" : ""}
         </p>
-        <p className="text-white mx-2 text-sm">{year}</p>
+        <p className="text-white mx-2">{year}</p>
       </div>
     </>
   );

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { Spinner } from "@chakra-ui/react";
 import CardTemporadas from "./CardTemporadas";
@@ -23,12 +23,10 @@ const Temporadas = () => {
       const resultado = data.find((objeto) => objeto[key] === value);
       setDatosSeries(resultado);
       setTemporada(resultado.temporadas);
-
     };
     cargarTemporada();
   }, []);
   
- 
 
   return (
     <>
@@ -36,7 +34,7 @@ const Temporadas = () => {
         <h2 className="uppercase text-center font-bold text-5xl dark:text-white mb-5">
           {datosSeries.titulo}
         </h2>
-        <div className="flex flex-wrap w-full justify-center items-center">
+        <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid grid-cols-3 gap-2">
           {temporada.map((temp, index) => (
             <CardTemporadas
               key={index}

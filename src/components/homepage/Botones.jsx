@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { BsInfoCircleFill } from "react-icons/bs";
 import { MdPlayArrow } from "react-icons/md";
 import { IoMusicalNotes } from "react-icons/io5";

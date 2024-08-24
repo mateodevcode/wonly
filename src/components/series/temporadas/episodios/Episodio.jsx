@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CardEpisodio from "./CardEpisodio";
 import { useParams } from "next/navigation";
 import { Spinner } from "@chakra-ui/react";

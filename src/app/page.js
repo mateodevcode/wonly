@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar/Navbar";
 import Principal from "@/components/homepage/Principal";
 import CarruselCards from "@/components/tendencias/CarruselCards";
+import Footer from "@/components/footer/Footer";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Navbar />
       <Principal />
       <CarruselCards />
+      <Footer />
     </main>
   );
 }

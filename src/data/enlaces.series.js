@@ -7,8 +7,4 @@ export const enlacesSeries = [
     nombre: "Proximanente",
     Url: "/proximanente",
   },
-  {
-    nombre: "Peliculas",
-    Url: "/peliculas",
-  },
 ];

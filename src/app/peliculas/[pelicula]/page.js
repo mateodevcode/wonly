@@ -1,7 +1,5 @@
 import PeliculaActual from "@/components/peliculas/pelicula/PeliculaActual";
 
-
-
 const page = () => {
   
   return (
