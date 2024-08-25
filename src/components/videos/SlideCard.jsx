@@ -24,7 +24,7 @@ const SlideCard = ({ cards }) => {
               alt="imagen_perfil"
               width={400}
               height={400}
-              className="w-56 h-40 rounded-md hover:scale-[102%] transition duration-200 ease-in-out"
+              className="lg:w-56 sm:w-20 lg:h-40 sm:h-16 rounded-md hover:scale-[102%] transition duration-200 ease-in-out"
             />
           </Link>
         ))}

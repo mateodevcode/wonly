@@ -27,7 +27,7 @@ const CarruselCards = () => {
         <div
           id={slider.id}
           key={index}
-          className="flex flex-col justify-center items-center pb-10 mb-10"
+          className="flex flex-col justify-center items-center pb-10 lg:mb-10 sm:mb-5 lg:mt-10 sm:mt-5"
         >
           <Cards
             titulo={slider.titulo}

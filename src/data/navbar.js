@@ -54,6 +54,10 @@ const enlacesGenero = [
     nombre: "Aventura",
     Url: "/generos/aventura",
   },
+  {
+    nombre: "Marvel",
+    Url: "/generos/marvel",
+  },
 ]
 
  // Ordenar lista de generos

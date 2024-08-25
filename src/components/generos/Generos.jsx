@@ -39,8 +39,8 @@ const Generos = () => {
 
   return (
     <div className="w-full bg-black flex flex-row justify-center items-start pt-24 pb-40">
-      <div className="w-2/12 bg-gray-950">
-        <h1 className="text-white text-4xl px-2 font-bold">Generos</h1>
+      <div className="lg:w-2/12 sm:w-5/12 bg-gray-950">
+        <h1 className="text-white lg:text-4xl sm:text-2xl px-2 font-bold">Generos</h1>
         <ul className="text-white mt-5">
           {enlacesOrdenados.map((genero, index) => (
             <li
@@ -57,8 +57,8 @@ const Generos = () => {
           ))}
         </ul>
       </div>
-      <div className="bg-gray-950 flex flex-col justify-center items-center w-10/12">
-        <div className="flex flex-row justify-between items-center lg:text-base md:text-base sm:text-sm bg-gray-950 w-full h-10 text-white">
+      <div className="bg-gray-950 flex flex-col justify-center items-center lg:w-10/12 sm:w-7/12">
+        <div className="flex flex-row justify-between items-center lg:text-base md:text-base sm:text-sm bg-gray-950 w-full h-10 text-white lg:mb-0 sm:mb-5">
           <div>
             <div
               className="font-semibold py-2 px-3 cursor-pointer select-none"
@@ -98,12 +98,12 @@ const Generos = () => {
             </h1>
           </div>
         )}
-        <div className="w-full grid grid-cols-5 gap-4 h-full p-3 text-white">
+        <div className="w-full grid lg:grid-cols-5 sm:grid-cols-1 lg:gap-4 sm:gap-8 h-full lg:p-3 sm:p-2 text-white">
           {filtrarPeliculas.map((pelicula, index) => (
             <Link
               href={`/peliculas/${pelicula.id}`}
               key={index}
-              className="w-60 h-60 flex flex-col justify-center items-center hover:bg-gray-900 cursor-pointer"
+              className="lg:w-60 sm:w-44 lg:h-60 sm:h-44 flex flex-col justify-center items-center cursor-pointer"
             >
               <Image
                 src={pelicula.imagen_perfil}
@@ -111,7 +111,7 @@ const Generos = () => {
                 width={200}
                 height={200}
               />
-              <span className="text-sm cursor-pointer py-1">
+              <span className="lg:text-sm sm:text-xs cursor-pointer pt-1">
                 {pelicula.titulo}
               </span>
             </Link>

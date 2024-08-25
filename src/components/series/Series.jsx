@@ -32,7 +32,7 @@ const Series = () => {
   );
 
   return (
-    <div className="flex flex-col justify-center items-center pt-20 w-full bg-black text-white">
+    <div className="flex flex-col justify-center items-center pt-20 w-full bg-black text-white pb-20">
       <div className="flex flex-col items-start justify-center lg:w-10/12 md:w-10/12 sm:w-11/12 mt-10">
         <p className="lg:text-2xl md:text-2xl sm:text-lg">
           {`No te pierdas de las mejores ${
@@ -76,7 +76,7 @@ const Series = () => {
           </div>
         </div>
       </div>
-      <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid grid-cols-3 gap-2 mt-5 mb-10">
+      <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid lg:grid-cols-4 sm:grid-cols-1 gap-2 mt-5 mb-10">
         {filtrarSeries.map((serie, index) => (
           <CardSerie
             key={index}

@@ -30,11 +30,11 @@ const Temporadas = () => {
 
   return (
     <>
-      <div className="w-full flex flex-col justify-center items-center bg-black pt-40">
-        <h2 className="uppercase text-center font-bold text-5xl dark:text-white mb-5">
+      <div className="w-full flex flex-col justify-center items-center bg-black lg:pt-40 sm:pt-20 lg:pb-40 sm:pb-20">
+        <h2 className="uppercase text-center font-bold lg:text-5xl sm:text-3xl dark:text-white mb-10">
           {datosSeries.titulo}
         </h2>
-        <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid grid-cols-3 gap-2">
+        <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid lg:grid-cols-4 sm:grid-cols-1 gap-2">
           {temporada.map((temp, index) => (
             <CardTemporadas
               key={index}

@@ -20,9 +20,9 @@ const CardSerie = ({index, imagen_perfil, titulo, id}) => {
         height={500}
         alt={titulo}
         id={id}
-        className="w-96 h-96"
+        className="w-72 h-72"
       />
-      <p className="text-xl mt-2">{titulo}</p>
+      <p className="text-base mt-2">{titulo}</p>
     </div>
   );
 };

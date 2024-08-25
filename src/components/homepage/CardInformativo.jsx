@@ -1,6 +1,6 @@
 const CardInformativo = ({titulo, descripcion, generos, numeroTemp, year}) => {
   return (
-    <>
+    <div className="lg:w-[600px] sm:w-full">
       <h1 className="lg:text-6xl md:text-6xl sm:text-4xl text-white font-bold font-serif text-left px-4">
         {titulo}
       </h1>
@@ -23,7 +23,7 @@ const CardInformativo = ({titulo, descripcion, generos, numeroTemp, year}) => {
         </p>
         <p className="text-white mx-2">{year}</p>
       </div>
-    </>
+    </div>
   );
 };
 

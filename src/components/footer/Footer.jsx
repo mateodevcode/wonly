@@ -4,20 +4,24 @@ import { tops } from "@/data/tops";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-black pt-4  0">
-      <div className="flex flex-col justify-center items-center mx-20">
-        <div className="w-full flex flex-row justify-between items-start px-10 text-white text-xl font-mono mb-10 text-center">
+    <div className="w-full bg-black">
+      <div className="w-full flex flex-col justify-between items-center">
+        <div className="w-full flex lg:flex-row sm:flex-col justify-between items-start lg:px-10 sm:px-2 text-white text-xl font-mono mb-10 text-center">
+          <div className="lg:w-8/12 sm:w-full grid grid-cols-3 gap-4">
           {tops.map((top, i) => (
-            <div key={i}>
-              <h3 className="text-3xl mb-2 font-bold">{top.titulo}</h3>
+            <div key={i} className="sm:h-44 flex flex-col justify-between items-center">
+              <h3 className="lg:text-3xl sm:text-base mb-2 font-bold">{top.titulo}</h3>
+              <div>
               {top.items.map((item, index) => (
-                <p key={index} className="py-1 hover:text-green-600 text-xl">
+                <p key={index} className="py-1 hover:text-green-600 lg:text-xl sm:text-sm">
                   {item}
                 </p>
               ))}
+                </div>
             </div>
           ))}
-          <div className="flex flex-col justify-center items-center h-72">
+          </div>
+          <div className="flex flex-col justify-center items-center lg:h-72 sm:h-44 lg:w-4/12 sm:w-full">
             <Image
               src="/logo.png"
               width={800}
@@ -28,7 +32,8 @@ const Footer = () => {
           </div>
         </div>
         <p className="text-white text-center py-5">
-          © 2024 Todos los derechos reservados. Desarollado por <strong>One Second CyberSecurity</strong>
+          © 2024 Todos los derechos reservados. Desarollado por{" "}
+          <strong>One Second CyberSecurity</strong>
         </p>
       </div>
     </div>
