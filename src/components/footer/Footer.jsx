@@ -4,7 +4,7 @@ import { tops } from "@/data/tops";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-black">
+    <div className="w-full bg-black pt-4  0">
       <div className="flex flex-col justify-center items-center mx-20">
         <div className="w-full flex flex-row justify-between items-start px-10 text-white text-xl font-mono mb-10 text-center">
           {tops.map((top, i) => (

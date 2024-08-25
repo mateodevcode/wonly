@@ -17,40 +17,50 @@ export const enlaces = [
   },
 ];
 
-export const enlacesGenero = [
+const enlacesGenero = [
   {
     nombre: "Acción",
-    Url: "/accion",
+    Url: "/generos/accion",
   },
   {
     nombre: "Comedia",
-    Url: "/comedia",
+    Url: "/generos/comedia",
   },
   {
     nombre: "Drama",
-    Url: "/drama",
+    Url: "/generos/drama",
   },
   {
     nombre: "Terror",
-    Url: "/terror",
+    Url: "/generos/terror",
   },
   {
     nombre: "Ciencia Ficción",
-    Url: "/ciencia-ficcion",
+    Url: "/generos/ciencia-ficcion",
   },
   {
     nombre: "Documentales",
-    Url: "/documentales",
+    Url: "/generos/documentales",
   },
   {
     nombre: "Anime",
-    Url: "/anime",
+    Url: "/generos/anime",
   },
   {
     nombre: "Niños",
-    Url: "/kids",
+    Url: "/generos/kids",
+  },
+  {
+    nombre: "Aventura",
+    Url: "/generos/aventura",
   },
 ]
+
+ // Ordenar lista de generos
+export const enlacesOrdenados = enlacesGenero.sort(function (a, b) {
+    return a.nombre.localeCompare(b.nombre);
+  });
+
 
 export const generos = {
   nombre: "Géneros",

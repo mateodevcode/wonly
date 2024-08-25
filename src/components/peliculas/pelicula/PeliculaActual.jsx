@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 const PeliculaActual = () => {
   const [datosPeliculas, setDatosPeliculas] = useState([]);
   const [Data, setData] = useState([]);
+  const [genero, setGenero] = useState([]);
   const params = useParams();
 
   let path = usePathname();
@@ -30,9 +31,18 @@ const PeliculaActual = () => {
       const value = params.pelicula;
       const resultado = data.find((objeto) => objeto[key] === value);
       setDatosPeliculas(resultado);
+      setGenero(resultado.generos.sort()[0]);
+      
+
     };
     cargarTemporada();
   }, []);  
+  
+
+  const filtrarPeliculas = Data.filter((pelicula) =>
+    pelicula.generos.includes(genero)
+  );
+
 
   return (
     <div className="w-full bg-black h-full flex flex-col justify-center items-center">
@@ -66,7 +76,7 @@ const PeliculaActual = () => {
           </div>
         </div>
         <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid grid-cols-3 gap-2 mt-5 mb-10">
-          {Data.map((pelicula, index) => (
+          {filtrarPeliculas.map((pelicula, index) => (
             <Pelicula
               key={index}
               idUrl={pelicula.id}

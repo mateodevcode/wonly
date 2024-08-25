@@ -2,7 +2,7 @@
 import { Menu, MenuButton, MenuList } from "@chakra-ui/react";
 import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
 import { useState } from "react";
-import { enlacesGenero } from "@/data/navbar";
+import { enlacesGenero, enlacesOrdenados } from "@/data/navbar";
 import Link from "next/link";
 import { generos } from "@/data/navbar";
 
@@ -26,15 +26,18 @@ const Generos = () => {
       </MenuButton>
       <MenuList style={generos.estilosLista}>
         <ul className="flex flex-col justify-center items-center">
-          {enlacesGenero.map((enlace, index) => (
+          {enlacesOrdenados.map((enlace, index) => (
             <Link
-              href={enlace.Url}
+              href={`generos#${enlace.nombre}`}
               key={index}
               className="w-full px-2 py-1 hover:bg-green-700 select-none cursor-pointer"
             >
               {enlace.nombre}
             </Link>
           ))}
+          <Link href="/generos" className="w-full px-2 py-1 hover:bg-green-700 select-none cursor-pointer">
+            Todos
+          </Link>
         </ul>
       </MenuList>
     </Menu>
