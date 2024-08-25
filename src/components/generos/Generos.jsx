@@ -111,7 +111,7 @@ const Generos = () => {
                 width={200}
                 height={200}
               />
-              <span className="lg:text-sm sm:text-xs cursor-pointer pt-1">
+              <span className="lg:text-sm sm:text-xs cursor-pointer pt-1 h-10">
                 {pelicula.titulo}
               </span>
             </Link>
