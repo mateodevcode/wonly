@@ -57,7 +57,7 @@ const Episodio = () => {
 
   return (
     <div className="w-full bg-black h-full flex flex-col justify-center items-center">
-      <div className="w-8/12 flex flex-row justify-center items-center">
+      <div className="lg:w-8/12 md:w-8/12 sm:w-full flex flex-row justify-center items-center">
         {episodioActual.titulo ? (
           <CardEpisodio
             titulo={episodioActual.titulo}

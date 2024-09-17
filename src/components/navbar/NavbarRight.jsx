@@ -14,7 +14,7 @@ const NavbarRight = () => {
       <Tooltip label="Perfil" fontSize="md" bg={"green.600"}>
         <BsPersonCircle className="mx-2 text-2xl dark:text-white dark:hover:text-gray-300 cursor-pointer" />
       </Tooltip>
-      <MenuHamburguer />
+      <MenuHamburguer menuResponsive={false} />
     </div>
   );
 };

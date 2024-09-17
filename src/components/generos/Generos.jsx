@@ -4,13 +4,15 @@ import { Input, InputGroup, InputLeftElement, Spinner } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { BsSearch } from "react-icons/bs";
+import { BsArrowLeft, BsSearch } from "react-icons/bs";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 const Generos = () => {
   const [Data, setData] = useState([]);
   const [buscar, setBuscar] = useState("");
   const [genero, setGenero] = useState("Acción");
   const [pelisOseries, setPelisOseries] = useState("peliculas");
+  const [mostrarGeneros, setMostrarGeneros] = useState(false);
 
   useEffect(() => {
     const cargarTemporada = async () => {
@@ -39,8 +41,8 @@ const Generos = () => {
 
   return (
     <div className="w-full bg-black flex flex-row justify-center items-start pt-24 pb-40">
-      <div className="lg:w-2/12 sm:w-5/12 bg-gray-950">
-        <h1 className="text-white lg:text-4xl sm:text-2xl px-2 font-bold">Generos</h1>
+      <div className="lg:w-2/12 sm:w-5/12 bg-gray-950" id="aside-generos">
+        <h1 className="text-white lg:text-4xl sm:text-2xl px-2 font-bold flex flex-row justify-start items-end select-none">Generos</h1>
         <ul className="text-white mt-5">
           {enlacesOrdenados.map((genero, index) => (
             <li

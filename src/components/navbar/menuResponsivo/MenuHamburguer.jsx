@@ -10,6 +10,7 @@ import {
   DrawerOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
+import BloquearAnuncios from "../bloqueadorAnuncios/BloquearAnuncios";
 
 function MenuHamburguer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -26,7 +27,7 @@ function MenuHamburguer() {
         onClose={onClose}
       >
         <DrawerOverlay />
-        <DrawerContent className="dark:bg-blue-950/80 text-white">
+        <DrawerContent className="dark:bg-black/80 text-white">
           <DrawerCloseButton color={"white"} />
           <div className="w-full text-white">
             <Logo />
@@ -42,7 +43,11 @@ function MenuHamburguer() {
                   {enlace.nombre}
                 </Link>
               </div>
+              
             ))}
+            <div className="">
+            <BloquearAnuncios menuResponsive={true} />
+            </div>
           </div>
         </DrawerContent>
       </Drawer>

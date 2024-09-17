@@ -7,7 +7,7 @@ const NavbarLeft = () => {
   return (
     <div className="flex flex-row justify-center items-center">
       <Logo />
-      <div className="lg:flex md:flex sm:hidden">
+      <div className="lg:flex md:hidden sm:hidden">
         {enlaces.map((enlace, index) => (
           <Enlace key={index} nombre={enlace.nombre} Url={enlace.Url} />
         ))}

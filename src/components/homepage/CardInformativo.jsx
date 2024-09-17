@@ -1,10 +1,16 @@
-const CardInformativo = ({titulo, descripcion, generos, numeroTemp, year}) => {
+const CardInformativo = ({
+  titulo,
+  descripcion,
+  generos,
+  numeroTemp,
+  year,
+}) => {
   return (
     <div className="lg:w-[600px] sm:w-full">
       <h1 className="lg:text-6xl md:text-6xl sm:text-4xl text-white font-bold font-serif text-left px-4">
         {titulo}
       </h1>
-      <p className="text-white font-semibold px-4 lg:text-lg md:text-lg sm:text-sm mt-3 lg:w-[500px] md:w-[500px] sm:w-[450px]">
+      <p className="text-white font-semibold px-4 lg:text-lg md:text-lg sm:text-sm mt-3 lg:w-[500px] md:w-[500px] sm:w-full">
         {descripcion}
       </p>
       <div className="px-4">

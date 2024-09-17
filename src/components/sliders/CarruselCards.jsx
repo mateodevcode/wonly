@@ -1,42 +1,36 @@
 "use client";
-import { carruselSliders } from "@/data/carrusel.sliders";
 import { useEffect, useState } from "react";
 import Cards from "./Cards";
 
 const CarruselCards = () => {
-  const [datosPeliculas, setDatosPeliculas] = useState([]);
+  const [datosSliders, setDatosSliders] = useState([]);
 
   useEffect(() => {
     const cargarTemporada = async () => {
-      const res = await fetch(`/api/series`, {
+      const res = await fetch(`/api/sliders`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
       });
       const data = await res.json();
-      setDatosPeliculas(data);
+      setDatosSliders(data);
     };
     cargarTemporada();
   }, []);
- 
 
   return (
-    <>
-      {carruselSliders.map((slider, index) => (
+    <div className="pt-20">
+      {datosSliders.map((slider, index) => (
         <div
           id={slider.id}
           key={index}
-          className="flex flex-col justify-center items-center pb-10 lg:mb-10 sm:mb-5 lg:mt-10 sm:mt-5"
+          className="flex flex-col justify-center items-center pb-10 lg:mb-10 sm:mb-5 lg:pt-10 sm:pt-5"
         >
-          <Cards
-            titulo={slider.titulo}
-            cards={slider.cards}
-            Url={slider.url}
-          />
+          <Cards titulo={slider.titulo} cards={slider.cards} Url={slider.url} />
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

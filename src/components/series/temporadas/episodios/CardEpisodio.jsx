@@ -5,9 +5,10 @@ import BotonesNextBack from "./BotonesNextBack";
 
 const CardEpisodio = ({ titulo, descripcion, url, duracion }) => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center w-full">
       <div className="flex flex-row justify-center items-center mt-20">
         <iframe
+        className="sm:w-full lg:w-[750px] md:w-[750px] lg:h-[500px] md:h-[500px] sm:h-[300px]"
           src={url}
           width="750"
           height="500"

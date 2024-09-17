@@ -28,7 +28,7 @@ const Generos = () => {
         <ul className="flex flex-col justify-center items-center">
           {enlacesOrdenados.map((enlace, index) => (
             <Link
-              href={`generos#${enlace.nombre}`}
+              href={`${enlace.nombre}`}
               key={index}
               className="w-full px-2 py-1 hover:bg-green-700 select-none cursor-pointer"
             >

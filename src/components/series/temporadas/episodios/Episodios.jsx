@@ -85,22 +85,23 @@ const Episodios = () => {
         style={{
           backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)),url('${imagenFondo.imagen_fondo}')`,
           backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         {tempActual && (
           <div className="flex flex-col justify-center items-center h-screen">
-            <h2 className="text-7xl text-white font-semibold">{tempActual}</h2>
+            <h2 className="lg:text-7xl md:text-7xl sm:text-4xl text-white font-semibold">{tempActual}</h2>
             <div className="text-white text-6xl flex flex-row justify-center items-center mt-5">
-              <span className="bg-blue-600 px-4 py-2 rounded-xl font-semibold text-4xl">
+              <span className="bg-blue-600 lg:px-4 md:px-4 sm:px-2 lg:py-2 md:py-2 sm:py-1 rounded-xl font-semibold lg:text-4xl md:text-4xl sm:text-base">
                 {numeroEpisodios}
               </span>{" "}
-              <p className="mx-4 text-5xl font-semibold">Episodios</p>{" "}
-              <PiCardsFill className="text-8xl text-yellow-400" />
+              <p className="mx-4 lg:text-5xl md:text-5xl sm:text-2xl font-semibold">Episodios</p>{" "}
+              <PiCardsFill className="lg:text-8xl md:text-8xl sm:text-4xl text-yellow-400" />
             </div>
           </div>
         )}
       </div>
-      <div className="w-full flex flex-col justify-center items-center px-40 pb-20">
+      <div className="w-full flex flex-col justify-center items-center lg:px-40 md:px-40 sm:px-2 pb-20">
         {temporadaActual.map((epi, index) => (
           <CardEpisodios
             key={index}

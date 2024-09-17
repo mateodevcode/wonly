@@ -13,7 +13,7 @@ export const enlaces = [
   },
   {
     nombre: "Tendencias",
-    Url: "#tendencias",
+    Url: "/",
   },
 ];
 

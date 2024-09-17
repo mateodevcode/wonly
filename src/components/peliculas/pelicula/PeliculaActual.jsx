@@ -46,7 +46,7 @@ const PeliculaActual = () => {
 
   return (
     <div className="w-full bg-black h-full flex flex-col justify-center items-center">
-      <div className="w-8/12 flex flex-row justify-center items-center">
+      <div className="lg:w-8/12 md:w-8/12 sm:w-full flex flex-row justify-center items-center">
         {datosPeliculas.titulo ? (
           <CardPelicula
             titulo={datosPeliculas.titulo}
@@ -75,7 +75,7 @@ const PeliculaActual = () => {
             </p>
           </div>
         </div>
-        <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid grid-cols-3 gap-2 mt-5 mb-10">
+        <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 mt-5 mb-10">
           {filtrarPeliculas.map((pelicula, index) => (
             <Pelicula
               key={index}
