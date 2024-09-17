@@ -39,7 +39,7 @@ const Principal = () => {
           backgroundPosition: "center",
         }}
       ></div>
-      <div className="absolute top-[300px] lg:w-[800px] md:w-[800px] sm:w-[450px] lg:mx-10 md:mx-10 sm:mx-0">
+      <div className="absolute top-[300px] lg:w-[800px] md:w-[800px] sm:w-[380px] lg:mx-10 md:mx-10 sm:mx-0">
         {Data.length !== 0 ? (
           <>
             <CardInformativo
