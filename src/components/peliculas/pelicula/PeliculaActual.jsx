@@ -41,7 +41,7 @@ const PeliculaActual = () => {
 
   return (
     <div className="w-full bg-black h-full flex flex-col justify-center items-center">
-      <div className="lg:w-8/12 md:w-8/12 sm:w-full flex flex-row justify-center items-center">
+      <div className="lg:w-10/12 md:w-8/12 sm:w-full flex flex-row justify-center items-center">
         {datosPeliculas.titulo ? (
           <CardPelicula
             titulo={datosPeliculas.titulo}

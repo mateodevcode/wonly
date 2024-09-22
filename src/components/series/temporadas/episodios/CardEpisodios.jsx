@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Boton from "./Boton";
+import { useRouter } from "next/navigation";
 
 const CardEpisodios = ({
   index,
@@ -12,10 +12,17 @@ const CardEpisodios = ({
   Url,
   edad,
 }) => {
+  const router = useRouter();
+
   return (
     <div
+      id={episodio}
+      onClick={(e) => {
+        e.preventDefault();
+        router.push(Url);
+      }}
       key={index}
-      className="w-full lg:h-60 md:h-60 sm:h-44 flex flex-row items-center justify-center bg-slate-800/50 my-2 rounded-xl text-white hover:bg-slate-800/70"
+      className="w-full lg:h-60 md:h-60 sm:h-44 flex flex-row items-center justify-center bg-slate-800/50 my-2 rounded-xl text-white hover:bg-slate-800/70 cursor-pointer"
     >
       <div className="flex flex-row justify-start items-start w-full">
         <div className="rounded-lg lg:w-2/12 md:w-72 sm:w-40 lg:p-5 md:p-5 sm:p-2 h-60 flex flex-row items-center justify-center">
@@ -44,9 +51,6 @@ const CardEpisodios = ({
             <p className="lg:mx-2 md:mx-2 sm:mx-0 lg:text-lg md:text-lg sm:text-[8px] font-semibold text-gray-400">
               {descripcion}
             </p>
-          </div>
-          <div className="flex flex-row justify-end items-end w-full">
-            <Boton episodio={episodio} Url={Url} nombre="Ver episodio" />
           </div>
         </div>
       </div>

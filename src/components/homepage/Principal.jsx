@@ -12,7 +12,7 @@ const Principal = () => {
 
   useEffect(() => {
     const cargarTemporada = async () => {
-      const res = await fetch(`/api/series`, {
+      const res = await fetch(`/api/series/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

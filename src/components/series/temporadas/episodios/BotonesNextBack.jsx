@@ -37,9 +37,9 @@ const BotonesNextBack = () => {
   }, []);
 
   return (
-    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full lg:w-[750px] md:w-[750px] px-2">
+    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full lg:w-[950px] md:w-[750px] px-2">
       <div
-        className="flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-2xl md:text-2xl sm:text-base"
+        className="flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-xl md:text-2xl sm:text-base"
         onClick={() => {
           if (numeroEpisodio === 1) {
             router.push(`/series/${params.serie}/${params.temporada}`);
@@ -57,7 +57,7 @@ const BotonesNextBack = () => {
         Episodio Anterior
       </div>
       <div
-        className="flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-2xl md:text-2xl sm:text-base"
+        className="flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-xl md:text-2xl sm:text-base"
         onClick={() => {
           if (numeroEpisodio === numeroEpisodios) {
             router.push(`/series/${params.serie}/${params.temporada}`);
