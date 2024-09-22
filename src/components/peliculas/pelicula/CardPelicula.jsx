@@ -1,5 +1,4 @@
 "use client";
-
 import BotonPantallaCompleta from "./BotonPantallaCompleta";
 import CardDescripcion from "./CardDescripcion";
 
@@ -18,7 +17,11 @@ const CardPelicula = ({ titulo, descripcion, url, duracion }) => {
         />
       </div>
       <BotonPantallaCompleta />
-      <CardDescripcion titulo={titulo} descripcion={descripcion} duracion={duracion} />
+      <CardDescripcion
+        titulo={titulo}
+        descripcion={descripcion}
+        duracion={duracion}
+      />
     </div>
   );
 };

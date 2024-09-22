@@ -11,7 +11,7 @@ const NavbarRight = () => {
         <BsInfoCircleFill className="mr-2 lg:text-xl md:text-xl sm:text-base" />{" "}
         Mi Lista
       </button>
-      <Tooltip label="Perfil" fontSize="md" bg={"green.600"}>
+      <Tooltip label="Perfil" fontSize="md" bg="green.600">
         <BsPersonCircle className="mx-2 text-2xl dark:text-white dark:hover:text-gray-300 cursor-pointer" />
       </Tooltip>
       <MenuHamburguer menuResponsive={false} />

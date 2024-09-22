@@ -38,21 +38,14 @@ export async function PUT(request, { params }) {
 }
 
 export async function DELETE(request, { params }) {
+  await connectMongoDB();
   try {
-    const UsuarioEliminado = await Serie.findByIdAndDelete(params.id);
-    if (!ProductoEliminado)
-      return NextResponse.json(
-        {
-          message: "Producto no encontrado",
-        },
-        {
-          status: 404,
-        }
-      );
-    return NextResponse.json(UsuarioEliminado);
+    const SerieEliminada = await Serie.findByIdAndDelete(params.id);
+    if (!SerieEliminada) {
+      return NextResponse.json({ message: "Serie no encontrada" }, { status: 404 });
+    }
+    return NextResponse.json({ message: "La Serie se ha eliminado con éxito" });
   } catch (error) {
-    return NextResponse.json(error.message, {
-      status: 400,
-    });
+    return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import CardEpisodio from "./CardEpisodio";
 import { useParams } from "next/navigation";
-import { Spinner } from "@chakra-ui/react";
+import SpinnerGlobal from "@/components/spinner/SpinnerGlobal";
 
 const Episodio = () => {
   const [imagenFondo, setImagenFondo] = useState([]);
@@ -68,14 +68,7 @@ const Episodio = () => {
             duracion={episodioActual.duracion}
           />
         ) : (
-          <Spinner
-            thickness="4px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="red.500"
-            size="xl"
-            className="mt-80 mb-80"
-          />
+          <SpinnerGlobal />
         )}
       </div>
     </div>

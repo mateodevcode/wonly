@@ -3,7 +3,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import CardEpisodios from "./CardEpisodios";
 import { PiCardsFill } from "react-icons/pi";
-import { Spinner } from "@chakra-ui/react";
+import SpinnerGlobal from "@/components/spinner/SpinnerGlobal";
 
 const Episodios = () => {
   const [imagenFondo, setImagenFondo] = useState([]);
@@ -71,14 +71,9 @@ const Episodios = () => {
   return (
     <div className="bg-black w-full flex flex-col justify-center items-center">
       {temporadaActual && temporadaActual.length === 0 && (
-        <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="red.500"
-          size="xl"
-          className="mt-96"
-        />
+        <div className="my-40">
+          <SpinnerGlobal />
+        </div>
       )}
       <div
         className="w-full h-svh"

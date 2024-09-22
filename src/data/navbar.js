@@ -15,6 +15,10 @@ export const enlaces = [
     nombre: "Tendencias",
     Url: "/",
   },
+  {
+    nombre: "Blog",
+    Url: "/blog",
+  }
 ];
 
 const enlacesGenero = [
@@ -85,8 +89,6 @@ export const generos = {
 
 export const logo = {
   alt: "Logo de wonly",
-  src: "/logo.png",
-  width: 400,
-  height: 400,
+  src: "https://i.postimg.cc/qBKvQZYs/Logo-wonly-5.png",
   href: "/",
 };

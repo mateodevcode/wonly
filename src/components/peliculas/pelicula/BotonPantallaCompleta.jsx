@@ -8,7 +8,7 @@ const BotonPantallaCompleta = () => {
         document.getElementById("videoplayer").requestFullscreen();
       }}
     >
-     <LuScreenShare className="mx-4" /> Ver en pantalla completa 
+      <LuScreenShare className="mx-4" /> Ver en pantalla completa
     </div>
   );
 };

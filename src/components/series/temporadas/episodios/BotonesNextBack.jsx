@@ -36,7 +36,6 @@ const BotonesNextBack = () => {
     cargarTemporada();
   }, []);
 
-
   return (
     <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full lg:w-[750px] md:w-[750px] px-2">
       <div
@@ -54,7 +53,8 @@ const BotonesNextBack = () => {
           }
         }}
       >
-        <TiArrowBack className="lg:text-4xl md:text-4xl sm:text-base mr-2" /> Episodio Anterior
+        <TiArrowBack className="lg:text-4xl md:text-4xl sm:text-base mr-2" />{" "}
+        Episodio Anterior
       </div>
       <div
         className="flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-2xl md:text-2xl sm:text-base"

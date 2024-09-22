@@ -1,11 +1,12 @@
 "use client";
-import { Input, InputGroup, InputLeftElement, Spinner } from "@chakra-ui/react";
+import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Pelicula from "./Pelicula";
 import { enlacesSeries } from "@/data/enlaces.series";
 import { usePathname } from "next/navigation";
 import { BsSearch } from "react-icons/bs";
 import Link from "next/link";
+import SpinnerGlobal from "../spinner/SpinnerGlobal";
 
 const Peliculas = () => {
   const [datosPeliculas, setDatosPeliculas] = useState([]);
@@ -87,16 +88,7 @@ const Peliculas = () => {
           />
         ))}
       </div>
-      {datosPeliculas && datosPeliculas.length === 0 && (
-        <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="red.500"
-          size="xl"
-          className="mt-32 mb-56"
-        />
-      )}
+      {datosPeliculas && datosPeliculas.length === 0 && <SpinnerGlobal />}
     </div>
   );
 };

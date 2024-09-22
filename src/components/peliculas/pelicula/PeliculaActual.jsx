@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import CardPelicula from "./CardPelicula";
-import { Spinner } from "@chakra-ui/react";
 import Pelicula from "../Pelicula";
 import { usePathname } from "next/navigation";
+import SpinnerGlobal from "@/components/spinner/SpinnerGlobal";
 
 const PeliculaActual = () => {
   const [datosPeliculas, setDatosPeliculas] = useState([]);
@@ -14,7 +14,6 @@ const PeliculaActual = () => {
 
   let path = usePathname();
   path = path.includes("peliculas") ? "peliculas" : "series";
-
 
   useEffect(() => {
     const cargarTemporada = async () => {
@@ -32,17 +31,13 @@ const PeliculaActual = () => {
       const resultado = data.find((objeto) => objeto[key] === value);
       setDatosPeliculas(resultado);
       setGenero(resultado.generos.sort()[0]);
-      
-
     };
     cargarTemporada();
-  }, []);  
-  
+  }, []);
 
   const filtrarPeliculas = Data.filter((pelicula) =>
     pelicula.generos.includes(genero)
   );
-
 
   return (
     <div className="w-full bg-black h-full flex flex-col justify-center items-center">
@@ -55,23 +50,18 @@ const PeliculaActual = () => {
             duracion={datosPeliculas.duracion}
           />
         ) : (
-          <Spinner
-            thickness="4px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="red.500"
-            size="xl"
-            className="mt-80 mb-80"
-          />
+          <div className="my-40">
+            <SpinnerGlobal />
+          </div>
         )}
       </div>
       <div className="flex flex-col justify-center items-center w-full bg-black text-white">
         <div className="flex flex-col items-start justify-center lg:w-10/12 md:w-10/12 sm:w-11/12">
           <div className="flex flex-row justify-start items-center lg:text-base md:text-base sm:text-sm bg-gray-900 w-full h-10">
-            <p         
-              className="font-semibold hover:bg-green-600/50 py-2 px-3 select-none"
-            >
-              {path === "peliculas" ? "Peliculas Similares" : "Series Similares"}
+            <p className="font-semibold hover:bg-green-600/50 py-2 px-3 select-none">
+              {path === "peliculas"
+                ? "Peliculas Similares"
+                : "Series Similares"}
             </p>
           </div>
         </div>
@@ -86,16 +76,7 @@ const PeliculaActual = () => {
             />
           ))}
         </div>
-        {datosPeliculas && datosPeliculas.length === 0 && (
-          <Spinner
-            thickness="4px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="red.500"
-            size="xl"
-            className="mt-32 mb-56"
-          />
-        )}
+        {datosPeliculas && datosPeliculas.length === 0 && <SpinnerGlobal />}
       </div>
     </div>
   );

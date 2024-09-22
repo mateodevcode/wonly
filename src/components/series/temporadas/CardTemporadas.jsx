@@ -1,49 +1,46 @@
-import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { FaPlay } from "react-icons/fa";
 
 const CardTemporadas = ({
   index,
   temporada,
   url,
   titulo,
-  cantidad,
   linkTo,
   serie,
+  episodios,
 }) => {
   const router = useRouter();
 
   return (
     <div
+      className="w-60 h-72 font-mono flex flex-col justify-between items-center"
       key={index}
-      className="flex flex-col items-center justify-start bg-gray-950 rounded-xl text-white hover:bg-gray-900 m-2 p-2 h-full"
+      style={{
+        backgroundImage: `url(${url})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
-      <p className="text-4xl font-semibold my-5">{temporada}</p>
-      <div className="w-64 my-2 mx-4">
-        <Image
-          src={url}
-          alt={titulo}
-          width={300}
-          height={550}
-          className="w-full h-80"
-        />
-      </div>
-      <div className="flex flex-row justify-center items-center">
-        <p className="mx-2 font-semibold bg-green-600 px-2 rounded-md my-3 py-1">
-          {titulo}
+      <p className="text-white text-2xl my-2 bg-black/80 w-full text-center">
+        {temporada}
+      </p>
+      <div className="w-full flex flex-col">
+        <p className="text-white text-lg my-2 bg-black/80 text-center">
+          {titulo} - <span className="bg-red-900 p-1 ">{episodios.length}</span> Episodios
         </p>
-        <p className="mx-2 font-semibold bg-blue-600 px-2 rounded-md my-3 py-1">
-          {cantidad} Episodios
-        </p>
-      </div>
-      <div
-        className="bg-blue-600 dark:bg-red-600 text-white dark:text-white font-semibold px-4 py-2 rounded-md cursor-pointer hover:bg-blue-600/50 dark:hover:bg-red-600/50 mx-2 select-none"
-        id={linkTo}
-        onClick={async (e) => {
-          e.preventDefault();
-          router.push(`/series/${serie}/${e.target.id}`);
-        }}
-      >
-        Ver mas
+        <div
+          className="bg-blue-600 dark:bg-green-800/80 text-white dark:text-white font-semibold cursor-pointer hover:bg-blue-600/50 dark:hover:bg-green-700/80 select-none text-center py-2 flex flex-row justify-center items-center"
+          id={linkTo}
+          onClick={async (e) => {
+            e.preventDefault();
+            router.push(`/series/${serie}/${e.target.id}`);
+          }}
+        >
+          <FaPlay className="mx-2" />
+          Reproducir
+          
+        </div>
       </div>
     </div>
   );

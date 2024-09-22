@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const CardSerie = ({index, imagen_perfil, titulo, id}) => {
-    const router = useRouter();
+const CardSerie = ({ index, imagen_perfil, titulo, id }) => {
+  const router = useRouter();
 
   return (
     <div
