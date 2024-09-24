@@ -20,7 +20,7 @@ const CarruselCards = () => {
   }, []);
 
   return (
-    <div className="pt-20">
+    <div className="pt-10">
       {datosSliders.map((slider, index) => (
         <div
           id={slider.id}

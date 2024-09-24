@@ -92,5 +92,5 @@ export const carruselSliders = [
         Url: "/pelicula-4",
       },
     ],
-  },
+  }
 ];

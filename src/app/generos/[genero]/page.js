@@ -1,9 +1,11 @@
-import React from 'react'
+import GenerosId from "@/components/generos/GenerosId";
 
 const page = () => {
   return (
-    <div>page</div>
-  )
-}
+    <div>
+      <GenerosId />
+    </div>
+  );
+};
 
-export default page
+export default page;

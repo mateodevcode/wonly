@@ -3,16 +3,17 @@ import { enlacesOrdenados } from "@/data/navbar";
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { BsArrowLeft, BsSearch } from "react-icons/bs";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-
-const Generos = () => {
+import { BsSearch } from "react-icons/bs";
+const GenerosId = () => {
   const [Data, setData] = useState([]);
   const [buscar, setBuscar] = useState("");
   const [genero, setGenero] = useState("Acción");
   const [pelisOseries, setPelisOseries] = useState("peliculas");
   const [mostrarGeneros, setMostrarGeneros] = useState(false);
+  const [filtrarPeliculasoSeries, setFiltrarPeliculasoSeries] = useState([]);
+  const params = useParams();
 
   useEffect(() => {
     const cargarTemporada = async () => {
@@ -28,21 +29,40 @@ const Generos = () => {
     cargarTemporada();
   }, [pelisOseries]);
 
-  // Filtrar peliculas por genero
-  const peliculasFiltradasGeneros = Data.filter((pelicula) =>
-    pelicula.generos.includes(genero)
-  );
+  useEffect(() => {
+    const cargarGenero = async () => {
+      const textoNormal = decodeURIComponent(params.genero);
 
-  // Filtrar peliculas por busqueda
-  let filtrarPeliculas = [];
-  filtrarPeliculas = peliculasFiltradasGeneros.filter((pelicula) =>
-    pelicula.titulo.toLowerCase().includes(buscar.toLowerCase())
-  );
+      if (params.genero) {
+        setGenero(textoNormal);
+      }
+    };
+    cargarGenero();
+  }, [params.genero]);
+
+  useEffect(() => {
+    const cargarGeneros = async () => {
+      // Filtrar peliculas por genero
+      const peliculasFiltradasGeneros = Data.filter((pelicula) =>
+        pelicula.generos.includes(genero)
+      );
+
+      // Filtrar peliculas por busqueda
+      let filtrarPeliculas = [];
+      filtrarPeliculas = peliculasFiltradasGeneros.filter((pelicula) =>
+        pelicula.titulo.toLowerCase().includes(buscar.toLowerCase())
+      );
+      setFiltrarPeliculasoSeries(filtrarPeliculas);
+    };
+    cargarGeneros();
+  }, [Data, buscar, params.genero, genero]);
 
   return (
     <div className="w-full bg-black flex flex-row justify-center items-start pt-24 pb-40">
       <div className="lg:w-2/12 sm:w-5/12 bg-black" id="aside-generos">
-        <h1 className="text-white lg:text-4xl sm:text-2xl px-2 font-bold flex flex-row justify-start items-end select-none">Generos</h1>
+        <h1 className="text-white lg:text-4xl sm:text-2xl px-2 font-bold flex flex-row justify-start items-end select-none">
+          Generos
+        </h1>
         <ul className="text-white mt-5">
           {enlacesOrdenados.map((genero, index) => (
             <li
@@ -62,17 +82,7 @@ const Generos = () => {
       <div className="bg-black flex flex-col justify-center items-center lg:w-10/12 sm:w-7/12">
         <div className="flex flex-row justify-between items-center lg:text-base md:text-base sm:text-sm bg-gray-950 w-full h-10 text-white lg:mb-0 sm:mb-5">
           <div>
-            <div
-              className="font-semibold py-2 px-3 cursor-pointer select-none"
-              // onClick={() => {
-              // if (pelisOseries === "peliculas") {
-              //   setPelisOseries("series");
-              // }
-              // if (pelisOseries === "series") {
-              //   setPelisOseries("peliculas");
-              // }
-              // }}
-            >
+            <div className="font-semibold py-2 px-3 cursor-pointer select-none">
               {pelisOseries === "peliculas" ? "Peliculas" : "Series"}
             </div>
           </div>
@@ -93,7 +103,7 @@ const Generos = () => {
             </InputGroup>
           </div>
         </div>
-        {filtrarPeliculas.length === 0 && (
+        {filtrarPeliculasoSeries.length === 0 && (
           <div className="w-full h-full flex flex-col justify-center items-center pt-10">
             <h1 className="text-white text-3xl font-semibold">
               No hay resultados
@@ -101,7 +111,7 @@ const Generos = () => {
           </div>
         )}
         <div className="w-full grid lg:grid-cols-5 sm:grid-cols-1 lg:gap-4 sm:gap-8 h-full lg:p-3 sm:p-2 text-white">
-          {filtrarPeliculas.map((pelicula, index) => (
+          {filtrarPeliculasoSeries.map((pelicula, index) => (
             <Link
               href={`/peliculas/${pelicula.id}`}
               key={index}
@@ -124,4 +134,4 @@ const Generos = () => {
   );
 };
 
-export default Generos;
+export default GenerosId;

@@ -11,5 +11,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// bg-blue-950/80

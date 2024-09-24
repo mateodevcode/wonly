@@ -12,71 +12,78 @@ export const enlaces = [
     Url: "/peliculas",
   },
   {
-    nombre: "Tendencias",
-    Url: "/",
-  },
-  {
     nombre: "Blog",
     Url: "/blog",
-  }
+  },
 ];
 
 const enlacesGenero = [
   {
     nombre: "Acción",
-    Url: "/generos/accion",
+    // Url: `/generos/${this.nombre}`,
+    Url: "/generos/Acción",
   },
   {
     nombre: "Comedia",
-    Url: "/generos/comedia",
+    // Url: `/generos/${this.nombre}`,
+    Url: "/generos/Comedia",
   },
   {
     nombre: "Drama",
-    Url: "/generos/drama",
+    // Url: `/generos/${this.nombre}`,
+    Url: "/generos/Drama",
   },
   {
     nombre: "Terror",
-    Url: "/generos/terror",
+    // Url: `/generos/${this.nombre}`,
+    Url: "/generos/Terror",
   },
   {
     nombre: "Ciencia Ficción",
-    Url: "/generos/ciencia-ficcion",
+    // Url: `/generos/${this.nombre}`,
+    Url: "/generos/Ficción",
   },
   {
     nombre: "Documentales",
-    Url: "/generos/documentales",
+    // Url: `/generos/${this.nombre}`,
+    Url: "/generos/Documentales",
   },
   {
     nombre: "Anime",
-    Url: "/generos/anime",
+    // Url: `/generos/${this.nombre}`,
+    Url: "/generos/Anime",
   },
   {
     nombre: "Niños",
-    Url: "/generos/kids",
+    // Url: `/generos/${this.nombre}`,
+    Url: "/generos/Niños",
   },
   {
     nombre: "Aventura",
-    Url: "/generos/aventura",
+    // Url: `/generos/${this.nombre}`,
+    Url: "/generos/Aventura",
   },
   {
     nombre: "Marvel",
-    Url: "/generos/marvel",
+    // Url: `/generos/${this.nombre}`,
+    Url: "/generos/Marvel",
   },
   {
     nombre: "Misterio",
-    Url: "/generos/misterio",
+    // Url: `/generos/${this.nombre}`,
+    Url: "/generos/Misterio",
   },
   {
     nombre: "Fantasía",
-    Url: "/generos/fantasia",
+    // Url: `/generos/${this.nombre}`,
+    Url: "/generos/Fantasía",
   },
-]
+];
 
- // Ordenar lista de generos
+// Ordenar lista de generos
 export const enlacesOrdenados = enlacesGenero.sort(function (a, b) {
-    return a.nombre.localeCompare(b.nombre);
-  });
-
+  return a.nombre.localeCompare(b.nombre);
+});
 
 export const generos = {
   nombre: "Géneros",

@@ -37,9 +37,9 @@ const BotonesNextBack = () => {
   }, []);
 
   return (
-    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full lg:w-[950px] md:w-[750px] px-2">
+    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full lg:w-[950px] md:w-[750px]">
       <div
-        className="flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-xl md:text-2xl sm:text-base"
+        className="flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base"
         onClick={() => {
           if (numeroEpisodio === 1) {
             router.push(`/series/${params.serie}/${params.temporada}`);
@@ -53,11 +53,11 @@ const BotonesNextBack = () => {
           }
         }}
       >
-        <TiArrowBack className="lg:text-4xl md:text-4xl sm:text-base mr-2" />{" "}
+        <TiArrowBack className="lg:text-3xl md:text-3xl sm:text-base mr-2" />{" "}
         Episodio Anterior
       </div>
       <div
-        className="flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-xl md:text-2xl sm:text-base"
+        className="flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base"
         onClick={() => {
           if (numeroEpisodio === numeroEpisodios) {
             router.push(`/series/${params.serie}/${params.temporada}`);
@@ -72,7 +72,7 @@ const BotonesNextBack = () => {
         }}
       >
         Episodio Siguiente
-        <TiArrowForward className="lg:text-4xl md:text-4xl sm:text-base ml-2" />
+        <TiArrowForward className="lg:text-3xl md:text-4xl sm:text-base ml-2" />
       </div>
     </div>
   );
