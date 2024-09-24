@@ -5,3 +5,42 @@
 .text-border {
     text-shadow: 2px 2px 0px #ffffff, -2px -2px 0px #ffffff, 2px -2px 0px #ffffff, -2px 2px 0px #ffffff;
   }
+
+/* styles/ImageSlider.module.css */
+.slider {
+  position: relative;
+  height: 700px; /* Altura del slider */
+  overflow: hidden;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
+}
+
+.slider-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.6s;
+}
+
+.dot.active {
+  opacity: 1;
+}

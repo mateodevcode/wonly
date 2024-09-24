@@ -6,7 +6,7 @@ const CardInformativo = ({
   year,
 }) => {
   return (
-    <div className="lg:w-[600px] sm:w-full">
+    <div className="lg:w-[700px] sm:w-full h-[220px]">
       <h1 className="lg:text-6xl md:text-6xl sm:text-4xl text-white font-bold font-serif text-left px-4">
         {titulo}
       </h1>
