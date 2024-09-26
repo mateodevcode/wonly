@@ -1,16 +1,49 @@
 export const topPeliculas = {
     titulo: 'Top 5 Peliculas',
-    items: ['Pelicula 1', 'Pelicula 2', 'Pelicula 3', 'Pelicula 4']
+    items: [{
+        nombre: "El castillo de Cagliostro",
+        url: "peliculas/el-castillo-de-cagliostro-lupin-iii"
+    },
+    {
+        nombre: "John Wick: Capítulo 3",
+        url: "peliculas/john-wick-3"
+    },
+    {
+        nombre: "Iron Man 3",
+        url: "peliculas/iron-man-3"
+    },
+    {
+        nombre: "John Wick 1",
+        url: "peliculas/john-wick-1"
+    }]
 }
 
 export const topSeries = {
     titulo: 'Top 5 Series',
-    items: ['Serie 1', 'Serie 2', 'Serie 3', 'Serie 4']
+    items: [{
+        nombre: "Mr. Robot",
+        url: "series/mr-robot"
+    },
+    {
+        nombre: "Vikingos",
+        url: "series/vikingos"
+    },
+    {
+        nombre: "Juegos de tronos",
+        url: "series/juegos-de-tronos"
+    },
+    {
+        nombre: "Wayne",
+        url: "series/wayne"
+    }]
 }
 
 export const proximamente = {
     titulo: 'Proximamente',
-    items: ['Serie 1', 'Serie 2', 'Serie 3', 'Serie 4']
+    items: [{
+        nombre: "Joker 2",
+        url: "#"
+    }]
 }
 
 export const tops = [

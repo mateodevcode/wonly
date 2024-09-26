@@ -1,4 +1,5 @@
 import { tops } from "@/data/tops";
+import Link from "next/link";
 
 const Tops = () => {
   return (
@@ -6,19 +7,20 @@ const Tops = () => {
       {tops.map((top, i) => (
         <div
           key={i}
-          className="sm:h-44 flex flex-col justify-between items-center"
+          className="sm:h-40 flex flex-col justify-start items-center"
         >
-          <h3 className="lg:text-3xl sm:text-base mb-2 font-bold">
+          <h3 className="lg:text-3xl sm:text-xs mb-2 font-bold">
             {top.titulo}
           </h3>
-          <div>
+          <div className="flex flex-col justify-center items-center">
             {top.items.map((item, index) => (
-              <p
+              <Link
+              href={`/${item.url}`}
                 key={index}
-                className="py-1 hover:text-green-600 lg:text-xl sm:text-sm cursor-pointer"
+                className="lg:py-1 md:py-1 sm:py-0 hover:text-green-600 lg:text-xl sm:text-[9px] cursor-pointer"
               >
-                {item}
-              </p>
+                {item.nombre}
+              </Link>
             ))}
           </div>
         </div>
