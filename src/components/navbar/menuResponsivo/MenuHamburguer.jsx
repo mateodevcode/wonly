@@ -30,11 +30,13 @@ function MenuHamburguer() {
         <DrawerContent className="dark:bg-black/80 text-white">
           <DrawerCloseButton color={"white"} />
           <div className="w-full text-white">
+            <div className="my-10">
             <Logo />
+            </div>
             {enlaces.map((enlace, index) => (
               <div
                 key={index}
-                className="flex flex-row justify-center items-center mt-5 px-5 w-full"
+                className="flex flex-row justify-center items-center  w-full"
               >
                 <Link
                   href={enlace.Url}
@@ -45,7 +47,7 @@ function MenuHamburguer() {
               </div>
               
             ))}
-            <div className="">
+            <div className="my-20">
             <BloquearAnuncios menuResponsive={true} />
             </div>
           </div>

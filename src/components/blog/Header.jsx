@@ -3,6 +3,7 @@ import { Tooltip } from "@chakra-ui/react";
 import { logo } from "@/data/navbar";
 import Link from "next/link";
 import Image from "next/image";
+import MenuHamburguer from "../navbar/menuResponsivo/MenuHamburguer";
 
 const Header = () => {
   return (
@@ -20,7 +21,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex flex-row lg:justify-center md:justify-end sm:justify-center items-center mx-4 lg:w-40 md:w-40 sm:w-10">
-          <Tooltip
+          {/* <Tooltip
             label="Menu"
             fontSize="md"
             color={"white"}
@@ -28,7 +29,8 @@ const Header = () => {
             px={5}
           >
             <FiMenu className="text-2xl cursor-pointer" />
-          </Tooltip>
+          </Tooltip> */}
+          <MenuHamburguer />
         </div>
       </nav>
     </header>
