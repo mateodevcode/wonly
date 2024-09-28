@@ -43,7 +43,7 @@ const peliculaSchema = new Schema(
       required: false,
     },
     url: {
-      type: String,
+      type: Array,
       required: true,
     },
   },

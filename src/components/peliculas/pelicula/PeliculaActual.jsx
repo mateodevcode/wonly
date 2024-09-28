@@ -11,6 +11,8 @@ const PeliculaActual = () => {
   const [Data, setData] = useState([]);
   const [genero, setGenero] = useState([]);
   const params = useParams();
+  const [Url1, setUrl1] = useState("");
+  const [Url2, setUrl2] = useState("");
 
   let path = usePathname();
   path = path.includes("peliculas") ? "peliculas" : "series";
