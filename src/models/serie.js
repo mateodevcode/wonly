@@ -49,7 +49,7 @@ const serieSchema = new Schema(
             titulo: "",
             duracion: "",
             descripcion: "",
-            url: "",
+            url: [],
             imagen_perfil: "",
           },
         ],
