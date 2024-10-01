@@ -29,18 +29,18 @@ function MenuHamburguer() {
         <DrawerOverlay />
         <DrawerContent className="dark:bg-black/80 text-white">
           <DrawerCloseButton color={"white"} />
-          <div className="w-full text-white">
+          <div className="w-full text-white flex flex-col justify-center items-center">
             <div className="my-10">
             <Logo />
             </div>
             {enlaces.map((enlace, index) => (
               <div
                 key={index}
-                className="flex flex-row justify-center items-center  w-full"
+                className="flex flex-row justify-center items-center w-full"
               >
                 <Link
                   href={enlace.Url}
-                  className="hover:bg-green-600 w-full p-2"
+                  className="hover:bg-green-600 w-full p-2 text-center"
                 >
                   {enlace.nombre}
                 </Link>
