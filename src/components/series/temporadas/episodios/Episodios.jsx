@@ -87,7 +87,7 @@ const Episodios = () => {
           <div className="flex flex-col justify-center items-center h-screen">
             <h2 className="lg:text-7xl md:text-7xl sm:text-4xl text-white font-semibold">{tempActual}</h2>
             <div className="text-white text-6xl flex flex-row justify-center items-center mt-5">
-              <span className="bg-blue-600 lg:px-4 md:px-4 sm:px-2 lg:py-2 md:py-2 sm:py-1 rounded-xl font-semibold lg:text-4xl md:text-4xl sm:text-base">
+              <span className="bg-blue-600 lg:px-4 md:px-4 sm:px-2 lg:py-2 md:py-2 sm:py-1 rounded-xl font-semibold lg:text-5xl md:text-4xl sm:text-base font-mono">
                 {numeroEpisodios}
               </span>{" "}
               <p className="mx-4 lg:text-5xl md:text-5xl sm:text-2xl font-semibold">Episodios</p>{" "}

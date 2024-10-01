@@ -27,7 +27,7 @@ const CardTemporadas = ({
       </p>
       <div className="w-full flex flex-col">
         <p className="text-white text-lg my-2 bg-black/80 text-center">
-          {titulo} - <span className="bg-red-900 p-1 ">{episodios.length}</span> Episodios
+          {titulo} - <span className="bg-red-900 p-1">{episodios.length}</span> Episodios
         </p>
         <div
           className="bg-blue-600 dark:bg-green-800/80 text-white dark:text-white font-semibold cursor-pointer hover:bg-blue-600/50 dark:hover:bg-green-700/80 select-none text-center py-2 flex flex-row justify-center items-center"

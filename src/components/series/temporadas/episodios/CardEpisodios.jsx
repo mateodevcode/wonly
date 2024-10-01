@@ -22,10 +22,10 @@ const CardEpisodios = ({
         router.push(Url);
       }}
       key={index}
-      className="w-full lg:h-60 md:h-60 sm:h-44 flex flex-row items-center justify-center bg-slate-800/50 my-2 rounded-xl text-white hover:bg-slate-800/70 cursor-pointer"
+      className="w-full lg:h-60 md:h-60 sm:h-32 flex flex-row items-center justify-center bg-slate-800/50 my-2 rounded-xl text-white hover:bg-slate-800/70 cursor-pointer"
     >
       <div className="flex flex-row justify-start items-start w-full">
-        <div className="rounded-lg lg:w-2/12 md:w-72 sm:w-40 lg:p-5 md:p-5 sm:p-2 h-60 flex flex-row items-center justify-center">
+        <div className="rounded-lg lg:w-2/12 md:w-72 sm:w-40 lg:p-5 md:p-5 sm:p-2 lg:h-60 md:h-60 sm:h-24 flex flex-row items-center justify-center">
           <Image
             src={imagen_perfil}
             alt="imagen"
@@ -34,8 +34,8 @@ const CardEpisodios = ({
             className="w-full rounded-full"
           />
         </div>
-        <div className="w-10/12 flex flex-col justify-between items-start mx-5 lg:h-60 md:h-72 sm:h-32">
-          <div className="flex flex-col justify-start items-start mt-4">
+        <div className="w-10/12 flex flex-col justify-between items-start mx-5 lg:h-60 md:h-72 sm:h-24">
+          <div className="flex flex-col justify-start items-start lg:mt-4 md:mt-4 sm:mt-0">
             <h1 className="lg:text-xl md:text-xl sm:text-xs font-bold lg:mx-2 md:mx-2 sm:mx-0">
               {temporada} {episodio} - {titulo}
             </h1>
