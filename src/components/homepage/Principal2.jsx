@@ -8,6 +8,10 @@ import { slides } from "@/data/slide.principal";
 const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  slides.map((slide) => {
+    return slide.generos.sort();
+  })
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>

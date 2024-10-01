@@ -6,7 +6,7 @@ const CardInformativo = ({
   year,
 }) => {
   return (
-    <div className="lg:w-[700px] sm:w-full h-[220px]">
+    <div className="lg:w-[700px] sm:w-full lg:h-[220px] md:h-[220px] sm:h-[170px]">
       <h1 className="lg:text-6xl md:text-6xl sm:text-4xl text-white font-bold font-serif text-left px-4">
         {titulo}
       </h1>
@@ -17,13 +17,13 @@ const CardInformativo = ({
         {generos.map((genero, index) => (
           <p
             key={index}
-            className="text-white px-2 py-1 italic mt-2 bg-green-600 w-max inline-block mx-1 rounded-md text-sm"
+            className="text-white px-2 py-1 mt-2 bg-green-600 w-max inline-block lg:mx-1 md:mx-1 sm:mx-0.5 rounded-md text-sm"
           >
             {genero}
           </p>
         ))}
       </div>
-      <div className="flex px-4 font-bold font-mono mt-2 text-lg">
+      <div className="flex px-4 font-bold font-mono mt-2 lg:text-lg md:text-lg sm:text-sm">
         <p className="text-white mx-2">
           {numeroTemp} {numeroTemp ? "Temporadas" : ""}
         </p>

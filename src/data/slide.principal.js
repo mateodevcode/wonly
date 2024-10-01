@@ -3,7 +3,7 @@ export const slides = [
     image: "https://i.postimg.cc/zXqrXMPQ/juego-de-tronos-8x01-1556785704.jpg",
     titulo: "Juegos de Tronos",
     descripcion:
-      "Donde los veranos duran décadas y los inviernos pueden durar una vida, los problemas acechan. Desde las maquinaciones del sur a las salvajes tierras del este...",
+      "Donde los veranos duran décadas y los inviernos pueden durar una vida, los problemas acechan. Desde las maquinaciones del sur a las salvajes tierras...",
     generos: ["Drama", "Acción", "Fantasía", "Ciencia Ficción"],
     numeroTemp: 8,
     year: 2011,
