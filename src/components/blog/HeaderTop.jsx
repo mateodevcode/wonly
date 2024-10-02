@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const HeaderTop = () => {
   return (
-    <div className="w-full bg-blue-800/15 lg:h-40 md:h-40 sm:h-20 flex flex-row justify-between items-center">
+    <div className="w-full bg-white lg:h-32 md:h-32 sm:h-20 flex flex-row justify-between items-center">
       <div className="lg:mx-40 md:mx-40 sm:mx-5">
         <p className="lg:text-2xl md:text-2xl sm:text-base dark:text-black hover:text-gray-800 dark:hover:text-gray-800 cursor-pointer font-semibold">
           Noticias de Wonly

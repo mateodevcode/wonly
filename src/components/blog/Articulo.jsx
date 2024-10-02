@@ -5,7 +5,7 @@ import { FaRegComments } from "react-icons/fa";
 
 const Articulo = () => {
   return (
-    <div className="w-full h-full flex flex-col justify-start items-center">
+    <div className="w-full h-full flex flex-col justify-start items-center bg-black">
       <div className="grid grid-cols-5 grid-rows-5 gap-0 lg:h-[500px] md:h-[500px] sm:h-[150px] lg:w-9/12 md:w-9/12 sm:w-full">
         <Link
           href={`/blog/${articulos[0].url}`}
@@ -49,9 +49,9 @@ const Articulo = () => {
           {articulo.nombre}
         </Link>
       ))} */}
-      <div className="lg:w-9/12 md:w-9/12 sm:w-full h-full flex flex-row">
-        <div className="w-9/12 grid grid-cols-1 gap-2 place-content-start place-items-center lg:p-0 md:p-2 sm:p-2">
-          <div className="w-full lg:h-[340px] md:h-[340px] sm:h-[150px] flex flex-row justify-center items-center text-3xl">
+      <div className="lg:w-9/12 md:w-9/12 sm:w-full h-full flex flex-row py-10 bg-gray-100">
+        <div className="w-9/12 grid grid-cols-1 gap-1 place-content-start place-items-center lg:p-0 md:p-2 sm:p-2 border-t-2 border-gray-400">
+          <div className="w-full lg:h-[340px] md:h-[340px] sm:h-[150px] flex flex-row justify-center items-center text-3xl bg-white">
             <div className="px-2 text-xl h-full py-2 flex flex-col justify-between lg:leading-none md:leading-none sm:leading-4">
               <p className="lg:text-3xl md:text-3xl sm:text-[9px] font-bold lg:h-28 md:h-28 sm:h-20 w-full leading-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem
@@ -82,7 +82,7 @@ const Articulo = () => {
           </div>         
           
 
-          <div className="w-full lg:h-[340px] md:h-[340px] sm:h-[150px] flex flex-row justify-center items-center text-3xl">
+          <div className="w-full lg:h-[340px] md:h-[340px] sm:h-[150px] flex flex-row justify-center items-center text-3xl bg-white">
             <div className="px-2 text-xl h-full py-2 flex flex-col justify-between lg:leading-none md:leading-none sm:leading-4">
               <p className="lg:text-3xl md:text-3xl sm:text-[9px] font-bold lg:h-28 md:h-28 sm:h-20 w-full leading-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem
@@ -110,10 +110,10 @@ const Articulo = () => {
               height={300}
               className="lg:px-2 md:px-2 sm:px-0 lg:w-[300px] md:w-[300px] lg:h-[300px] md:h-[300px] sm:w-32 sm:h-32"
             />
-          </div> 
+          </div>  
         </div>
         <div className="w-3/12 h-[400px]">
-          <div className="w-full p-2 h-full bg-blue-100/50"></div>
+          <div className="w-full p-2 h-full bg-white border-t-[2px] border-gray-400"></div>
         </div>
       </div>
     </div>
