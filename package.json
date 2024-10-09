@@ -13,6 +13,7 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
+    "@madzadev/audio-player": "^2.1.14",
     "framer-motion": "^11.3.21",
     "gsap": "^3.12.5",
     "mongoose": "^8.5.2",

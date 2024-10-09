@@ -1,5 +1,4 @@
 import Header from "@/components/blog/Header";
-import HeaderTop from "@/components/blog/HeaderTop";
 import Footer from "@/components/footer/Footer";
 
 export const metadata = {

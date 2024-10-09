@@ -78,7 +78,9 @@ const Episodio = () => {
             Id={Id}
           />
         ) : (
-          <SpinnerGlobal />
+          <div className="my-40">
+            <SpinnerGlobal />
+          </div>
         )}
       </div>
     </div>
