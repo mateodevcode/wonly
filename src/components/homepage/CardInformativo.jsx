@@ -23,7 +23,7 @@ const CardInformativo = ({
           </p>
         ))}
       </div>
-      <div className="flex px-4 font-bold font-mono mt-2 lg:text-lg md:text-lg sm:text-sm">
+      <div className="flex px-4 font-bold font-mono mt-2 lg:text-base md:text-base sm:text-sm">
         <p className="text-white mx-2">
           {numeroTemp} {numeroTemp ? "Temporadas" : ""}
         </p>

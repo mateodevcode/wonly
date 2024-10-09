@@ -32,7 +32,7 @@ const Botones = ({ Url, musica }) => {
         <BsInfoCircleFill className="mr-2 lg:text-xl md:text-xl sm:text-base" />{" "}
         Mi lista
       </button>
-      {musica && (
+      {/* {musica && (
         <div
           className="bg-blue-600 hover:bg-blue-600/80 text-white font-semibold px-4 py-2 mt-4 rounded-md flex flex-row justify-center items-center select-none cursor-pointer mx-2 lg:text-base md:text-base sm:text-xs"
           onClick={togglePlayPause}
@@ -43,7 +43,7 @@ const Botones = ({ Url, musica }) => {
             {isPlaying ? "Pausar" : "Escuchar música"}
           </span>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

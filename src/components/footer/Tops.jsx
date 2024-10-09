@@ -17,7 +17,7 @@ const Tops = () => {
               <Link
               href={`/${item.url}`}
                 key={index}
-                className="lg:py-1 md:py-1 sm:py-0 hover:text-green-600 lg:text-xl sm:text-[9px] cursor-pointer"
+                className="lg:py-1 md:py-1 sm:py-0 hover:text-green-600 lg:text-xl sm:text-[9px] cursor-pointer hover:scale-[105%] transition-all duration-300"
               >
                 {item.nombre}
               </Link>
