@@ -1,6 +1,5 @@
 "use client";
 import {
-  Button,
   Input,
   InputGroup,
   Modal,
@@ -18,12 +17,6 @@ const OverlayOne = () => (
     bg="blackAlpha.300"
     backdropFilter="blur(10px) hue-rotate(90deg)"
   />
-  //   <ModalOverlay
-  //     bg="none"
-  //     backdropFilter="auto"
-  //     backdropInvert="80%"
-  //     backdropBlur="2px"
-  //   />
 );
 
 const AgregarPeliculas = () => {

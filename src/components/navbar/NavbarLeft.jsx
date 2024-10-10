@@ -9,7 +9,7 @@ import { Tooltip } from "@chakra-ui/react";
 const NavbarLeft = () => {
   return (
     <div className="flex flex-row justify-center items-center">
-      <div className="flex flex-row justify-center items-center lg:w-40 md:w-40 sm:w-32 mx-4">
+      <div className="flex flex-row justify-center items-center lg:w-40 md:w-40 sm:w-32 lg:mx-10 md:mx-10 sm:mx-2">
       <Logo />
       </div>
       <div className="lg:flex md:hidden sm:hidden">
