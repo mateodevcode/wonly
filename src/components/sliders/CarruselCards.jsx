@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Cards from "./Cards";
+import SpinnerGlobal from "../spinner/SpinnerGlobal";
 
 const CarruselCards = () => {
   const [datosSliders, setDatosSliders] = useState([]);
@@ -20,17 +21,29 @@ const CarruselCards = () => {
   }, []);
 
   return (
-    <div className="pt-10">
-      {datosSliders.map((slider, index) => (
-        <div
-          id={slider.id}
-          key={index}
-          className="flex flex-col justify-center items-center pb-10 lg:mb-10 sm:mb-5 lg:pt-10 sm:pt-5"
-        >
-          <Cards titulo={slider.titulo} cards={slider.cards} Url={slider.url} />
+    <>
+      {datosSliders.length > 0 ? (
+        <div className="pt-10">
+          {datosSliders.map((slider, index) => (
+            <div
+              id={slider.id}
+              key={index}
+              className="flex flex-col justify-center items-center pb-10 lg:mb-10 sm:mb-5 lg:pt-10 sm:pt-5"
+            >
+              <Cards
+                titulo={slider.titulo}
+                cards={slider.cards}
+                Url={slider.url}
+              />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      ) : (
+        <div className="flex flex-row justify-center items-center">
+          <SpinnerGlobal />
+        </div>
+      )}
+    </>
   );
 };
 
