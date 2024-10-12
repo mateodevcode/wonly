@@ -7,7 +7,7 @@ const CardSerie = ({ index, imagen_perfil, titulo, id }) => {
   return (
     <div
       key={index}
-      className="flex flex-col justify-center items-center my-5 mx-4 cursor-pointer"
+      className="flex flex-col justify-center items-center my-5 mx-4 cursor-pointer active:scale-95 transition-all duration-300"
       onClick={(e) => {
         e.preventDefault();
         const idUrl = e.target.id;

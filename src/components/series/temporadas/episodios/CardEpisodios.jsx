@@ -34,7 +34,7 @@ const CardEpisodios = ({
             className="w-full rounded-full"
           />
         </div>
-        <div className="w-10/12 flex flex-col justify-between items-start mx-5 lg:h-60 md:h-72 sm:h-24">
+        <div className="w-10/12 flex flex-col justify-between items-start mx-5 lg:h-60 md:h-72 sm:h-24 select-none">
           <div className="flex flex-col justify-start items-start lg:mt-4 md:mt-4 sm:mt-0">
             <h1 className="lg:text-xl md:text-xl sm:text-xs font-bold lg:mx-2 md:mx-2 sm:mx-0">
               {temporada} {episodio} - {titulo}
