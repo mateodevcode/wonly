@@ -12,9 +12,10 @@ const Api = () => {
       <div className="w-full flex flex-row items-center justify-center">
         <Image
           src="https://i.postimg.cc/qBKvQZYs/Logo-wonly-5.png"
-          width={200}
-          height={200}
+          width={400}
+          height={400}
           alt="Logo de Wonly"
+          className="lg:w-96 md:w-96 sm:w-60 my-4"
         />
       </div>
       <div className="flex flex-row justify-center items-center">
