@@ -17,9 +17,9 @@ const NavbarLeft = () => {
           <Enlace key={index} nombre={enlace.nombre} Url={enlace.Url} />
         ))}
         <Generos />
-        <Tooltip label="API Musica Wonly" fontSize="md" color={"white"} bg={"rebeccapurple"} px={5}>
-        <Link href="https://api-wonly-music.vercel.app/" className="flex flex-row justify-center items-center">
-          <Image src="https://i.postimg.cc/Bvfn9sH7/logo-wonly-music.png" width={30} height={30} alt="API de musica wonly" />
+        <Tooltip label="API Peliculas y Series" fontSize="md" color={"white"} bg={"rebeccapurple"} px={5}>
+        <Link href="https://wonly.vercel.app/api" className="flex flex-row justify-center items-center text-white font-mono dark:hover:bg-green-500/50 px-2">
+         REST API
         </Link>
         </Tooltip>
       </div>
