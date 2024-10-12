@@ -14,7 +14,7 @@ const CarruselCards = () => {
         },
       });
       const data = await res.json();
-      setDatosSliders(data);
+      setDatosSliders(data.reverse());
     };
     cargarTemporada();
   }, []);

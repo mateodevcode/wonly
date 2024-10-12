@@ -38,8 +38,6 @@ const Peliculas = () => {
 
   const peliculasCargadas = filtrarPeliculas.slice(inicio, fin);
 
-  console.log(buscar);
-  console.log(filtrarPeliculas);
 
   return (
     <div className="flex flex-col justify-center items-center pt-20 pb-20 w-full bg-black text-white">
@@ -142,7 +140,7 @@ const Peliculas = () => {
                 <Link
                   href={"#page"}
                   className={`py-2 px-4 border-white hover:bg-white/10 ${
-                    fin === filtrarPeliculas.length + 2 ||
+                    peliculasCargadas.length < numeroPeliculas ||
                     filtrarPeliculas.length <= numeroPeliculas
                       ? "hidden"
                       : ""
@@ -157,17 +155,17 @@ const Peliculas = () => {
                 <Link
                   href={"#page"}
                   onClick={() => {
-                    if (fin === filtrarPeliculas.length + 2) return;
+                    if (peliculasCargadas.length < numeroPeliculas) return;
                     if (filtrarPeliculas.length <= numeroPeliculas) return;
                     setInicio(fin);
                     setFin(fin + numPelPorPagina);
                   }}
                   className={`${
-                    fin === filtrarPeliculas.length + 2 ||
+                    peliculasCargadas.length < numeroPeliculas ||
                     filtrarPeliculas.length <= numeroPeliculas
-                      ? "text-gray-500"
-                      : ""
-                  } p-2 hover:bg-white/10 border-l-[1px]`}
+                      ? "text-gray-500 "
+                      : "border-l-[1px]"
+                  } p-2 hover:bg-white/10`}
                 >
                   Siguiente
                 </Link>

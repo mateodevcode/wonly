@@ -28,13 +28,15 @@ const SlideCard = ({ cards }) => {
               }}
             >
               <div className="w-52 h-52">
-                <Image
-                  src="https://i.postimg.cc/JzKQwjc7/logo-wonly-4.png"
-                  alt="Inicial De Wonly"
-                  width={400}
-                  height={400}
-                  className="lg:w-12 md:w-12 sm:w-8  lg:h-12 md:h-12 sm:h-8 mx-2"
-                />
+                <div className="w-full flex flex-row justify-between items-center">
+                  <Image
+                    src="https://i.postimg.cc/JzKQwjc7/logo-wonly-4.png"
+                    alt="Inicial De Wonly"
+                    width={400}
+                    height={400}
+                    className="lg:w-12 md:w-12 sm:w-8  lg:h-12 md:h-12 sm:h-8 mx-2"
+                  />
+                </div>
                 <p className="text-center font-semibold font-mono lg:text-8xl md:text-8xl sm:text-5xl lg:py-14 md:py-14 sm:py-0.1 -ml-52 text-border text-black">
                   {index + 1}
                 </p>
