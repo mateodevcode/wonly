@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import { BsSearch } from "react-icons/bs";
 import Link from "next/link";
 import SpinnerGlobal from "../spinner/SpinnerGlobal";
-import { set } from "lodash";
 
 const Peliculas = () => {
   const numeroPeliculas = 16;
