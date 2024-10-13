@@ -17,7 +17,7 @@ const Pagination = ({
     <div className="w-full flex flex-row justify-center items-center font-mono">
       <div className="w-[600px]">
         <nav className="flex flex-row justify-center items-center text-sky-500">
-          <ul className=" flex flex-row justify-center items-center  border-[1px] border-white rounded-md select-none font-semibol cursor-pointer">
+          <ul className=" flex flex-row justify-center items-center lg:text-base md:text-base sm:text-[10px] border-[1px] border-white rounded-md select-none font-semibol cursor-pointer">
             <li
               className={`p-2 hover:bg-white/10 rounded-l-md ${
                 inicio === 0 ? "text-gray-500" : ""

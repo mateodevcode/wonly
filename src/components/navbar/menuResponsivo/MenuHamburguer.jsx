@@ -33,6 +33,17 @@ function MenuHamburguer() {
             <div className="my-10">
             <Logo />
             </div>
+            <div
+                className="flex flex-row justify-center items-center w-full"
+              >
+                <Link
+                  href={"/"}
+                  className="hover:bg-green-600 w-full p-2 text-center"
+                  onClick={onClose}
+                >
+                  Inicio
+                </Link>
+              </div>
             {enlaces.map((enlace, index) => (
               <div
                 key={index}

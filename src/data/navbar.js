@@ -1,9 +1,5 @@
 export const enlaces = [
   {
-    nombre: "Inicio",
-    Url: "/",
-  },
-  {
     nombre: "Series",
     Url: "/series",
   },

@@ -40,21 +40,21 @@ const Peliculas = () => {
 
   return (
     <div className="flex flex-col justify-center items-center pt-20 pb-20 w-full bg-black text-white">
-      <div className="flex flex-col items-start justify-center lg:w-10/12 md:w-10/12 sm:w-11/12 mt-10">
-        <p className="lg:text-2xl md:text-2xl sm:text-lg">
+      <div className="flex flex-col items-start justify-center lg:w-10/12 md:w-10/12 sm:w-11/12 lg:mt-10 md:mt-10 sm:mt-3">
+        <p className="lg:text-2xl md:text-2xl sm:text-sm">
           {`No te pierdas de las mejores ${
             path == "peliculas" ? "peliculas" : "series"
           }, disfruta de contenido exclusivo y
           de calidad.`}
         </p>
         <div
-          className="flex flex-row justify-between items-center mt-10 lg:text-base md:text-base sm:text-sm bg-gray-900 w-full h-10"
+          className="flex flex-row justify-between items-center lg:mt-10 md:mt-10 sm:mt-5 lg:text-base md:text-base sm:text-[10px] bg-gray-900 w-full lg:h-10 md:h-10 sm:h-6"
           id="page"
         >
           <div>
             <Link
               href={`${path === "series" ? "/peliculas" : "/series"}`}
-              className="font-semibold hover:bg-green-600/50 py-2 px-3 cursor-pointer"
+              className="font-semibold hover:bg-green-600/50 lg:py-2 md:py-2 sm:py-1.5 px-3 cursor-pointer"
             >
               {path === "series" ? "Peliculas" : "Series"}
             </Link>
@@ -62,16 +62,21 @@ const Peliculas = () => {
               <Link
                 key={index}
                 href={`${enlace.Url}`}
-                className="font-semibold hover:bg-green-600/50 py-2 px-3 cursor-pointer"
+                className="font-semibold hover:bg-green-600/50 lg:py-2 md:py-2 sm:py-1.5 px-3 cursor-pointer"
               >
                 {enlace.nombre}
               </Link>
             ))}
           </div>
           <div className="flex flex-row justify-center items-center">
-            <InputGroup size="sm" border={"none"}>
+            <InputGroup size={{
+              base: "xs",
+              sm: "md",
+              md: "md",
+              lg: "md",
+            }} >
               <InputLeftElement pointerEvents="none">
-                <BsSearch color="gray.300" />
+                <BsSearch className="lg:text-xl md:text-xl sm:text-xs" />
               </InputLeftElement>
               <Input
                 type="text"
@@ -88,7 +93,7 @@ const Peliculas = () => {
           </div>
         </div>
       </div>
-      <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid lg:grid-cols-4 sm:grid-cols-1 gap-2 mt-5 mb-10">
+      <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid lg:grid-cols-4 sm:grid-cols-4 lg:gap-2 md:gap-2 sm:gap-1 mt-5 mb-10">
         {peliculasCargadas.map((pelicula, index) => (
           <Pelicula
             key={index}

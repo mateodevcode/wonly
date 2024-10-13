@@ -7,7 +7,7 @@ const Tops = () => {
       {tops.map((top, i) => (
         <div
           key={i}
-          className="sm:h-40 flex flex-col justify-start items-center"
+          className="sm:h-32 flex flex-col justify-start items-center"
         >
           <h3 className="lg:text-3xl sm:text-xs mb-2 font-bold">
             {top.titulo}
