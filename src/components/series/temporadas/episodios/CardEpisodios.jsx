@@ -24,7 +24,7 @@ const CardEpisodios = ({
       key={index}
       className="w-full lg:h-60 md:h-60 sm:h-32 flex flex-row items-center justify-center bg-slate-800/50 my-2 rounded-xl text-white hover:bg-slate-800/70 cursor-pointer"
     >
-      <div className="flex flex-row justify-start items-start w-full">
+      <div className="flex flex-row justify-start items-center w-full">
         <div className="rounded-lg lg:w-2/12 md:w-72 sm:w-40 lg:p-5 md:p-5 sm:p-2 lg:h-60 md:h-60 sm:h-24 flex flex-row items-center justify-center">
           <Image
             src={imagen_perfil}
@@ -34,16 +34,16 @@ const CardEpisodios = ({
             className="w-full rounded-full"
           />
         </div>
-        <div className="w-10/12 flex flex-col justify-between items-start mx-5 lg:h-60 md:h-72 sm:h-24 select-none">
+        <div className="w-10/12 flex flex-col justify-between items-start mx-5 lg:h-60 md:h-72 sm:h-28 select-none">
           <div className="flex flex-col justify-start items-start lg:mt-4 md:mt-4 sm:mt-0">
-            <h1 className="lg:text-xl md:text-xl sm:text-xs font-bold lg:mx-2 md:mx-2 sm:mx-0">
+            <h1 className="lg:text-xl md:text-xl sm:text-[10px] font-bold lg:mx-2 md:mx-2 sm:mx-0">
               {temporada} {episodio} - {titulo}
             </h1>
             <div className="flex flex-row justify-center items-center">
-              <p className="lg:mx-2 md:mx-2 sm:mx-0 font-bold lg:my-2 md:my-3 sm:my-1 py-1 md:text-base sm:text-[5px]">
+              <p className="lg:mx-2 md:mx-2 sm:mx-0 font-bold lg:my-2 md:my-3 sm:my-0 py-1 md:text-base sm:text-[8px]">
                 {duracion} min
               </p>
-              <p className="mx-2 font-bold bg-red-600 lg:px-2 md:px-2 sm:px-1 rounded-md lg:my-2 md:my-3 sm:my-1 py-1 md:text-base sm:text-[5px]">
+              <p className="mx-2 font-bold bg-red-600 lg:px-2 md:px-2 sm:px-1 rounded-md lg:my-2 md:my-3 sm:my-0 py-0.5 md:text-base sm:text-[7px]">
                 {edad}
                 {"+"}
               </p>
