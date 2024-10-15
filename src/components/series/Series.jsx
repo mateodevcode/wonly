@@ -89,7 +89,7 @@ const Series = () => {
           </div>
         </div>
       </div>
-      <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid lg:grid-cols-4 sm:grid-cols-4 lg:gap-2 md:gap-2 sm:gap-1 mt-5 mb-10">
+      <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid lg:grid-cols-4 sm:grid-cols-2 lg:gap-2 md:gap-2 sm:gap-1 mt-5 mb-10">
         {SeriesCargadas.map((serie, index) => (
           <CardSerie
             key={index}
