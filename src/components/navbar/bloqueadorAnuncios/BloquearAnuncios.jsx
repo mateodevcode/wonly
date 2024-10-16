@@ -13,13 +13,14 @@ import Boton from "./Boton";
 import DatosModal from "./DatosModal";
 import { bloqueador } from "@/data/bloqueadorAnuncios";
 import BotonBloqueador from "./BotonBloqueador";
+import BotonStandar from "@/components/botones/BotonStandar";
 
-const BloquearAnuncios = ({menuResponsive}) => {
+const BloquearAnuncios = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <BotonBloqueador nombreBoton={bloqueador.nombreBoton} abrir={onOpen} menuResponsive={menuResponsive} />
+      <BotonBloqueador abrir={onOpen} />
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent style={bloqueador.estilosBloqueador}>
@@ -34,7 +35,7 @@ const BloquearAnuncios = ({menuResponsive}) => {
           </ModalBody>
 
           <ModalFooter>
-            <Boton nombre="Cerrar" cerrar={onClose} />
+            <BotonStandar nombre="Cerrar" color={"blanco"} cerrar={onClose} />
           </ModalFooter>
         </ModalContent>
       </Modal>

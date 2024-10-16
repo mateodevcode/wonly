@@ -1,13 +1,9 @@
-import { GoAlertFill } from "react-icons/go";
+import { SiAdblockplus } from "react-icons/si";
 
-const BotonBloqueador = ({nombreBoton, abrir, menuResponsive}) => {
+const BotonBloqueador = ({ abrir }) => {
   return (
-    <div
-      onClick={abrir}
-      className={`hover:bg-blue-500 bg-blue-600 text-white font-semibold lg:px-4 md:px-4 sm:px-2 lg:py-2 md:py-2 sm:py-1 rounded-md flex flex-row justify-center items-center lg:text-base md:text-base sm:text-sm mx-1 select-none cursor-pointer h-auto `}
-    >
-      <GoAlertFill className="lg:text-xl md:text-xl sm:text-lg" />{" "}
-      <p className={`lg:flex md:flex mx-2 text-base ${menuResponsive ? "sm:flex" : "sm:hidden"}`}>{nombreBoton}</p>
+    <div onClick={abrir} className="mx-2 select-none cursor-pointer">
+      <SiAdblockplus className="lg:text-3xl md:text-3xl sm:text-2xl text-red-600 hover:text-red-500" />
     </div>
   );
 };

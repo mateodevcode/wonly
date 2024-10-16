@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+// Cors middleware to add the CORS headers to the response object for the specified paths in the config object below   
+
 export function middleware() {
   // retrieve the current response
   const res = NextResponse.next();
