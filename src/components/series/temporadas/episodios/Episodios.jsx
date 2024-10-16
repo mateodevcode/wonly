@@ -96,7 +96,7 @@ const Episodios = () => {
           </div>
         )}
       </div>
-      <div className="w-full flex flex-col justify-center items-center lg:px-40 md:px-40 sm:px-2 pb-20">
+      <div className="w-full flex flex-col justify-center items-center lg:px-40 md:px-10 sm:px-2">
         {temporadaActual.map((epi, index) => (
           <CardEpisodios
             key={index}

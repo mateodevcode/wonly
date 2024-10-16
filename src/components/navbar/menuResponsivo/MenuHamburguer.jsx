@@ -18,7 +18,7 @@ function MenuHamburguer() {
   return (
     <>
       <RxHamburgerMenu
-        className="mx-2 text-2xl dark:text-white dark:hover:text-gray-300 cursor-pointer lg:hidden md:hidden sm:flex"
+        className="mx-2 text-2xl dark:text-white dark:hover:text-gray-300 cursor-pointer lg:hidden md:flex sm:flex"
         onClick={onOpen}
       />
       <Drawer

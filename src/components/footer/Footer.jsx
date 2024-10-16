@@ -11,7 +11,7 @@ const Footer = () => {
           <Tops />
           <Link
             href={"/"}
-            className="flex flex-col justify-center items-center lg:h-60 md:h-60 sm:h-16 lg:w-4/12 sm:w-full"
+            className="flex flex-col justify-center items-center lg:h-60 md:h-40 sm:h-16 lg:w-4/12 sm:w-full "
           >
             <Image
               src={logo.src}
@@ -22,7 +22,7 @@ const Footer = () => {
             />
           </Link>
         </div>
-        <p className="text-white text-center py-5 lg:text-xl md:text-xl sm:text-[8px]">
+        <p className="text-white text-center py-5 lg:text-lg md:text-base sm:text-[8px]">
           © 2024 Todos los derechos reservados. Desarollado por{" "}
           <Link href={"https://one-second-cybersecurity.vercel.app/"}>
             <strong className="hover:text-blue-600">One Second CyberSecurity</strong>

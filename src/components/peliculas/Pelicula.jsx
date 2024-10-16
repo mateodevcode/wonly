@@ -16,7 +16,7 @@ const Pelicula = ({index, imagen_perfil, titulo, id, year}) => {
       }}
     >
       <div className="w-full">
-      <p className="absolute bg-black/50 lg:px-3 md:px-3 sm:px-1.5 lg:py-1 md:py-1 sm:py-0.5 lg:rounded-md md:rounded-md sm:rounded-sm lg:text-sm md:text-sm sm:text-[10px] lg:m-2 md:m-2 sm:m-1 font-mono lg:mx-2 md:mx-2 sm:mx-1 font-bold">
+      <p className="absolute bg-black/50 lg:px-3 md:px-1.5 sm:px-1.5 lg:py-1 md:py-1 sm:py-0.5 lg:rounded-md md:rounded-md sm:rounded-sm lg:text-sm md:text-sm sm:text-[10px] lg:m-2 md:m-2 sm:m-1 font-mono lg:mx-2 md:mx-3 sm:mx-1 font-bold">
         {year}
       </p>
       </div>

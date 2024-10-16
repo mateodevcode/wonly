@@ -67,7 +67,7 @@ const PeliculaActual = () => {
             </p>
           </div>
         </div>
-        <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-2 mt-5 mb-10">
+        <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 gap-2 mt-5 mb-10">
           {filtrarPeliculas.map((pelicula, index) => (
             <Pelicula
               key={index}

@@ -9,9 +9,9 @@ const SlideCard = ({ cards, size }) => {
   var settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: size,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
   };
 
   return (
