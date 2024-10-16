@@ -11,6 +11,7 @@ const Logo = () => {
         height={150}
         className="select-none w-40 lg:h-12 md:h-12 sm:h-10 cursor-pointer"
         alt={logo.alt}
+        title={logo.alt}
       />
     </Link>
   );
