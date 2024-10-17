@@ -8,6 +8,7 @@ import {
   DrawerCloseButton,
   DrawerContent,
   DrawerOverlay,
+  Tooltip,
   useDisclosure,
 } from "@chakra-ui/react";
 
@@ -50,6 +51,16 @@ function MenuHamburguer() {
                 </Link>
               </div>
             ))}
+            <div
+              className="flex flex-row justify-center items-center w-full"
+            >
+              <Link
+                href="/api"
+                className="hover:bg-green-600 w-full p-2 text-center"
+              >
+                REST API
+              </Link>
+            </div>
           </div>
         </DrawerContent>
       </Drawer>

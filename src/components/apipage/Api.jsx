@@ -82,7 +82,7 @@ const Api = () => {
       </div>
       <div className="w-full">
         <span
-          className="lg:text-xl md:text-xl sm:text-xs text-center font-mono text-white px-4 bg-slate-900 py-2 cursor-pointer hover:bg-slate-700 select-none"
+          className={`lg:text-xl md:text-xl sm:text-xs text-center font-mono text-white px-4 bg-slate-900 py-2 cursor-pointer select-none ${lenguaje === "nodejs" ? "bg-slate-700" : ""}`}
           id="nodejs"
           onClick={() => {
             setLenguaje("nodejs");
@@ -91,7 +91,7 @@ const Api = () => {
           node.js
         </span>
         <span
-          className="lg:text-xl md:text-xl sm:text-xs text-center font-mono text-white px-4 bg-slate-900 py-2 cursor-pointer hover:bg-slate-700 select-none"
+          className={`lg:text-xl md:text-xl sm:text-xs text-center font-mono text-white px-4 bg-slate-900 py-2 cursor-pointer select-none ${lenguaje === "python" ? "bg-slate-700" : ""}`}
           id="python"
           onClick={() => {
             setLenguaje("python");
