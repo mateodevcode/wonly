@@ -9,7 +9,6 @@ import {
   ModalOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
-import Boton from "./Boton";
 import DatosModal from "./DatosModal";
 import { bloqueador } from "@/data/bloqueadorAnuncios";
 import BotonBloqueador from "./BotonBloqueador";

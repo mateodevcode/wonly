@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 const PreLenguaje = ({ lenguaje }) => {
   switch (lenguaje) {
     case "nodejs":
