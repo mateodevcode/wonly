@@ -39,11 +39,16 @@ export const topSeries = {
 }
 
 export const proximamente = {
-    titulo: 'Proximamente',
+    titulo: 'Estrenos',
     items: [{
         nombre: "Joker 2",
-        url: "#"
-    }]
+        url: "peliculas/joker-2"
+    },
+    {
+        nombre: "Deadpool & Wolverine",
+        url: "peliculas/deadpool-y-wolverine"
+    },
+    ]
 }
 
 export const tops = [

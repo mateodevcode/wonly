@@ -20,7 +20,7 @@ const Botones = ({ Url, musica }) => {
   return (
     <div className="flex px-4">
       <button
-        className="bg-white hover:bg-white/80 text-black font-semibold px-4 py-2 mt-4 rounded-md flex flex-row justify-center items-center lg:text-base md:text-base sm:text-xs"
+        className="bg-white hover:bg-white/80 text-black font-semibold pr-4 pl-3 py-2 mt-4 rounded-md flex flex-row justify-center items-center lg:text-base md:text-base sm:text-xs"
         onClick={() => {
           window.location.href = `/series/${Url}`;
         }}
