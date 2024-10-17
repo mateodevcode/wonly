@@ -18,10 +18,10 @@ const OpcionesReproductor = ({ url, setUrlSeleccionada }) => {
             setUrlSeleccionada(url);
           }}
         >
-          <span className="mr-3 lg:text-base md:text-base sm:text-[10px]">
+          <span className="mr-3 lg:text-sm md:text-sm sm:text-[10px]">
             Opción {index + 1}
           </span>{" "}
-          <CgOptions className="lg:text-lg md:text-lg sm:text-sm" />
+          <CgOptions className="lg:text-base md:text-base sm:text-sm" />
         </div>
       ))}
     </div>
