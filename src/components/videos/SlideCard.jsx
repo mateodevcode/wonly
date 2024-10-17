@@ -20,7 +20,7 @@ const SlideCard = ({ cards, size }) => {
         {cards.map((card, index) => (
           <Link href={card.Url} key={index} className="cursor-pointer">
             <div
-              className="lg:w-52 md:w-52 sm:w-16 lg:h-52 md:h-52 sm:h-16 rounded-lg"
+              className="lg:w-52 md:w-52 sm:w-28 lg:h-52 md:h-52 sm:h-28 rounded-lg"
               style={{
                 backgroundImage: `url(${card.imagen_perfil})`,
                 backgroundSize: "cover",
@@ -40,8 +40,8 @@ const SlideCard = ({ cards, size }) => {
                 {/* <div className="text-center font-semibold font-mono lg:text-8xl md:text-8xl sm:text-5xl lg:py-14 md:py-14 sm:py-0.1 text-border text-black">
                   {index + 1}
                 </div> */}
-                <div className="w-full lg:h-40 md:h-40 sm:h-10 flex flex-col items-start justify-end">
-                  <h1 className="text-center font-semibold font-mono lg:text-8xl md:text-8xl sm:text-5xl text-border text-black lg:-ml-6 md:-ml-6 sm:-ml-2">
+                <div className="w-full lg:h-40 md:h-40 sm:h-20 flex flex-col items-start justify-end">
+                  <h1 className="text-center font-semibold font-mono lg:text-8xl md:text-8xl sm:text-7xl text-border text-black lg:-ml-6 md:-ml-6 sm:-ml-5">
                     {index + 1}
                   </h1>
                 </div>
