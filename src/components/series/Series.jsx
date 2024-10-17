@@ -5,7 +5,7 @@ import { enlacesSeries } from "@/data/enlaces.series";
 import { usePathname } from "next/navigation";
 import SpinnerGlobal from "../spinner/SpinnerGlobal";
 import Pagination from "../pagination/Pagination";
-import TopSearch from "../topSearch/topSearch";
+import TopSearch from "../topSearch/TopSearch";
 
 const Series = () => {
   const numeroSeries = 16;
