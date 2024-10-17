@@ -7,17 +7,19 @@ import Link from "next/link";
 const Api = () => {
   const [lenguaje, setLenguaje] = useState("nodejs");
 
+  console.log(lenguaje);
+
   return (
     <div className="lg:w-8/12 md:w-8/12 sm:w-full flex flex-col justify-start items-center">
       <div className="w-full flex flex-row items-center justify-center">
         <Link href="/">
-        <Image
-          src="https://i.postimg.cc/qBKvQZYs/Logo-wonly-5.png"
-          width={400}
-          height={400}
-          alt="Logo de Wonly"
-          className="lg:w-96 md:w-96 sm:w-60 my-4"
-        />
+          <Image
+            src="https://i.postimg.cc/qBKvQZYs/Logo-wonly-5.png"
+            width={400}
+            height={400}
+            alt="Logo de Wonly"
+            className="lg:w-96 md:w-96 sm:w-60 my-4"
+          />
         </Link>
       </div>
       <div className="flex flex-row justify-center items-center">
@@ -82,7 +84,11 @@ const Api = () => {
       </div>
       <div className="w-full">
         <span
-          className={`lg:text-xl md:text-xl sm:text-xs text-center font-mono text-white px-4 bg-slate-900 py-2 cursor-pointer select-none ${lenguaje === "nodejs" ? "bg-slate-700" : ""}`}
+          className={`lg:text-xl md:text-xl sm:text-xs text-center font-mono text-white px-4 py-2 cursor-pointer select-none ${
+            lenguaje === "nodejs"
+              ? "bg-slate-700"
+              : "bg-slate-900 hover:bg-slate-700/50"
+          }`}
           id="nodejs"
           onClick={() => {
             setLenguaje("nodejs");
@@ -91,7 +97,11 @@ const Api = () => {
           node.js
         </span>
         <span
-          className={`lg:text-xl md:text-xl sm:text-xs text-center font-mono text-white px-4 bg-slate-900 py-2 cursor-pointer select-none ${lenguaje === "python" ? "bg-slate-700" : ""}`}
+          className={`lg:text-xl md:text-xl sm:text-xs text-center font-mono text-white px-4 py-2 cursor-pointer select-none ${
+            lenguaje === "python"
+              ? "bg-slate-700"
+              : "bg-slate-900 hover:bg-slate-700/50"
+          }`}
           id="python"
           onClick={() => {
             setLenguaje("python");
