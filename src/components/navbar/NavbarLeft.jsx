@@ -24,7 +24,7 @@ const NavbarLeft = () => {
           px={5}
         >
           <Link
-            href="https://wonly.vercel.app/api"
+            href="/api"
             className="flex flex-row justify-center items-center text-white font-mono dark:hover:bg-green-500/50 px-2"
           >
             REST API

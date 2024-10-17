@@ -10,6 +10,7 @@ const Api = () => {
   return (
     <div className="lg:w-8/12 md:w-8/12 sm:w-full flex flex-col justify-start items-center">
       <div className="w-full flex flex-row items-center justify-center">
+        <Link href="/">
         <Image
           src="https://i.postimg.cc/qBKvQZYs/Logo-wonly-5.png"
           width={400}
@@ -17,6 +18,7 @@ const Api = () => {
           alt="Logo de Wonly"
           className="lg:w-96 md:w-96 sm:w-60 my-4"
         />
+        </Link>
       </div>
       <div className="flex flex-row justify-center items-center">
         <h2 className="lg:text-5xl md:text-5xl sm:text-lg text-center lg:mx-5 md:mx-5 sm:mx-2 font-extrabold font-mono">
