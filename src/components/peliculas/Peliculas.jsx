@@ -39,7 +39,7 @@ const Peliculas = () => {
   return (
     <div className="flex flex-col justify-center items-center pt-20 pb-20 w-full bg-black text-white">
       <TopSearch path={path} enlacesSeries={enlacesSeries} setInicio={setInicio} setFin={setFin} setBuscar={setBuscar} numeroPeliculas={numeroPeliculas} />
-      <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid lg:grid-cols-4 sm:grid-cols-2 lg:gap-2 md:gap-2 sm:gap-1 mt-5 mb-10">
+      <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-2 lg:gap-2 md:gap-2 sm:gap-1 mt-5 mb-10">
         {peliculasCargadas.map((pelicula, index) => (
           <Pelicula
             key={index}

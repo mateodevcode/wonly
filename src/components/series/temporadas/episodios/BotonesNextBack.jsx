@@ -37,7 +37,7 @@ const BotonesNextBack = () => {
   }, []);
 
   return (
-    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full lg:w-[950px] md:w-[750px]">
+    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full xl:w-[1440px] lg:w-[950px] md:w-[750px]">
       <div
         className="flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base"
         onClick={() => {
