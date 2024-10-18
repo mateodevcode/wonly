@@ -40,6 +40,7 @@ const CardEpisodio = ({
         url={url}
         setUrlSeleccionada={setUrlSeleccionada}
         UrlSeleccionada={UrlSeleccionada}
+        temporadaActual={temporadaActual}
       />
       <div className="w-full flex flex-col justify-center items-center">
         {temporadaActual.map((epi, index) => (

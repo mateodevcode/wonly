@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaRegListAlt } from "react-icons/fa";
 
-const BotonesNextBack = () => {
+const BotonesNextBack = ({temporadaActual}) => {
   const [temporada, setTemporada] = useState([]);
   const [numeroEpisodios, setNumeroEspisodios] = useState([]);
   const router = useRouter();
@@ -41,6 +41,8 @@ const BotonesNextBack = () => {
 
   console.log(typeof temporada[0]?.episodios?.length);
   console.log(typeof numeroEpisodio);
+  console.log(typeof temporadaActual?.length);
+  
   
 
   return (
@@ -64,7 +66,7 @@ const BotonesNextBack = () => {
         Episodio Anterior
       </div>
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base ${temporada[0]?.episodios?.length === numeroEpisodio || numeroEpisodio === 1 ? "" : "hidden"}`}
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base ${temporadaActual?.length === numeroEpisodio || numeroEpisodio === 1 ? "" : "hidden"}`}
         onClick={() => {
             router.push(`/series/${params.serie}/${params.temporada}`);
         }}
@@ -73,7 +75,7 @@ const BotonesNextBack = () => {
         Lista de Episodios
       </div>
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base ${temporada[0]?.episodios?.length === numeroEpisodio ? "hidden" : ""}`}
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base ${temporadaActual?.length === numeroEpisodio ? "hidden" : ""}`}
         onClick={() => {
           if (numeroEpisodio === numeroEpisodios) {
             router.push(`/series/${params.serie}/${params.temporada}`);

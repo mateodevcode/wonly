@@ -7,7 +7,7 @@ const Videos = ({titulo, cards, Url}) => {
         {titulo}
       </h1>
       <div className="w-9/12 xl:flex flex-col justify-center items-center p-1 lg:flex md:hidden sm:hidden">
-        <SlideCard cards={cards} Url={Url} size={5} />
+        <SlideCard cards={cards} Url={Url} size={4} />
       </div>
       <div className="w-9/12 sm:flex xl:hidden flex-col justify-center items-center p-1 lg:hidden md:flex">
         <SlideCard cards={cards} Url={Url} size={2} />
