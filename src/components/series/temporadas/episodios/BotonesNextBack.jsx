@@ -39,12 +39,6 @@ const BotonesNextBack = ({temporadaActual}) => {
   }, []);
 
 
-  console.log(typeof temporada[0]?.episodios?.length);
-  console.log(typeof numeroEpisodio);
-  console.log(typeof temporadaActual?.length);
-  
-  
-
   return (
     <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full xl:w-[1440px] lg:w-[950px] md:w-[750px]">
       <div
