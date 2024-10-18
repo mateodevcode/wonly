@@ -3,6 +3,7 @@ import { TiArrowBack, TiArrowForward } from "react-icons/ti";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { FaRegListAlt } from "react-icons/fa";
 
 const BotonesNextBack = () => {
   const [temporada, setTemporada] = useState([]);
@@ -11,6 +12,7 @@ const BotonesNextBack = () => {
   const params = useParams();
   const nombreEpisodio = parseInt(params.episodio.replace("E", ""));
   const numeroEpisodio = Number(nombreEpisodio);
+
 
   useEffect(() => {
     const cargarTemporada = async () => {
@@ -36,10 +38,15 @@ const BotonesNextBack = () => {
     cargarTemporada();
   }, []);
 
+
+  console.log(typeof temporada[0]?.episodios?.length);
+  console.log(typeof numeroEpisodio);
+  
+
   return (
     <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full xl:w-[1440px] lg:w-[950px] md:w-[750px]">
       <div
-        className="flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base"
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base ${numeroEpisodio === 1 ? "hidden" : ""}`}
         onClick={() => {
           if (numeroEpisodio === 1) {
             router.push(`/series/${params.serie}/${params.temporada}`);
@@ -57,7 +64,16 @@ const BotonesNextBack = () => {
         Episodio Anterior
       </div>
       <div
-        className="flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base"
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base ${temporada[0]?.episodios?.length === numeroEpisodio || numeroEpisodio === 1 ? "" : "hidden"}`}
+        onClick={() => {
+            router.push(`/series/${params.serie}/${params.temporada}`);
+        }}
+      >
+        <FaRegListAlt className="lg:text-3xl md:text-4xl sm:text-base mr-2" />
+        Lista de Episodios
+      </div>
+      <div
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base ${temporada[0]?.episodios?.length === numeroEpisodio ? "hidden" : ""}`}
         onClick={() => {
           if (numeroEpisodio === numeroEpisodios) {
             router.push(`/series/${params.serie}/${params.temporada}`);
