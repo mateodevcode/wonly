@@ -3,6 +3,7 @@ import "./globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Analytics } from "@vercel/analytics/react";
 import { MoviesProvider } from "@/context/MoviesContext";
+import { AuthProvider } from "./Providers";
 
 export const metadata = {
   title: "Wonly - Peliculas y Series",
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body className="dark">
+      <AuthProvider>
         <MoviesProvider>
           <AgregarPeliculas />
           <ChakraProvider>
@@ -20,6 +22,7 @@ export default function RootLayout({ children }) {
             <Analytics />
           </ChakraProvider>
         </MoviesProvider>
+        </AuthProvider>
       </body>
     </html>
   );

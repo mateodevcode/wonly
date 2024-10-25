@@ -2,6 +2,7 @@
 import { useToast } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import React, { createContext, useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
 
 export const MoviesContext = createContext();
 
@@ -10,6 +11,7 @@ export const MoviesProvider = ({ children }) => {
   const toast = useToast();
   const router = useRouter();
   const [isAdded, setIsAdded] = useState(false);
+  const { data: session, status } = useSession();
 
   const cargarLista = async (_id) => {
     try {
@@ -40,6 +42,19 @@ export const MoviesProvider = ({ children }) => {
   const handleAgregarMiLista = async (e) => {
     e.stopPropagation();
     e.preventDefault();
+
+    if (status !== "authenticated") {
+      toast({
+        title: "Inicia sesión",
+        description: "Debes iniciar sesión para agregar a tu lista",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+        position: "top",
+      });
+      return;
+    }
+
     try {
       const res = await fetch("/api/milista/", {
         method: "POST",
