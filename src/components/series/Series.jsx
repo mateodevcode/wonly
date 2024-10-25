@@ -59,6 +59,7 @@ const Series = () => {
             imagen_perfil={serie.imagen_perfil}
             titulo={serie.titulo}
             id={serie.id}
+            _id={serie._id}
           />
         ))}
       </div>

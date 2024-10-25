@@ -84,7 +84,7 @@ export const enlacesOrdenados = enlacesGenero.sort(function (a, b) {
 export const generos = {
   nombre: "Géneros",
   estilosLista: {
-    backgroundColor: "rgba(0, 0, 0, 0.8)",
+    backgroundColor: "rgba(0, 0, 0, 0.9)",
     color: "white",
     marginTop: "0.5rem",
   },

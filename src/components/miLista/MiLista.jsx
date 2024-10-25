@@ -1,13 +1,83 @@
+"use client";
 import { generos } from "@/data/navbar";
-import { Menu, MenuButton, MenuList } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, useToast } from "@chakra-ui/react";
 import Image from "next/image";
 import { BsInfoCircleFill } from "react-icons/bs";
-import { FaPlay } from "react-icons/fa";
-import { RiDeleteBin5Line } from "react-icons/ri";
 import { SlOptions } from "react-icons/sl";
 import { IoCheckmarkDoneOutline } from "react-icons/io5";
+import { useContext, useEffect, useState } from "react";
+import { GoTasklist } from "react-icons/go";
+import Link from "next/link";
+import { MoviesContext } from "@/context/MoviesContext";
 
 const MiLista = () => {
+  const [peliculas, setPeliculas] = useState([]);
+  const [series, setSeries] = useState([]);
+  const toast = useToast();
+  const { miLista, handleDeletePelicula } = useContext(MoviesContext);
+
+  useEffect(() => {
+    const cargarPeliculas = async () => {
+      try {
+        const res = await fetch(`/api/peliculas`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await res.json();
+        setPeliculas(data);
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Error al cargar las peliculas",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+      }
+    };
+    cargarPeliculas();
+  }, []);
+
+  useEffect(() => {
+    const CargarSeries = async () => {
+      try {
+        const res = await fetch(`/api/series`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await res.json();
+        setSeries(data);
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Error al cargar las series",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+      }
+    };
+    CargarSeries();
+  }, []);
+
+  let seriesYpeliculas = [...peliculas, ...series];
+
+  const prueba = miLista.sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  );
+
+  let Listas = prueba.map((pelicula) => pelicula.id);
+
+  let peliculasFiltradas = seriesYpeliculas.filter((pelicula) =>
+    Listas.includes(pelicula._id)
+  );
+
   return (
     <Menu>
       <MenuButton className="hover:bg-white/10 rounded-md">
@@ -17,42 +87,73 @@ const MiLista = () => {
         </div>
       </MenuButton>
       <MenuList style={generos.estilosLista}>
-        <ul className="flex flex-col justify-center items-center mx-2 w-72">
-          <li className="w-full px-2 py-1 hover:bg-white/10 select-none cursor-pointer flex flex-row justify-between items-center">
-            <div className="flex flex-row justify-center items-center">
-              <Image
-                src={"https://i.postimg.cc/JzKQwjc7/logo-wonly_(4).png"}
-                alt="logo"
-                height={75}
-                width={75}
-              />
-              <p className="text-white font-semibold text-sm mx-1">Wonly</p>
-            </div>
-            <div className="flex flex-row justify-between items-center">
-              {/* <SlOptions className="text-white hover:text-gray-400 text-lg" /> */}
-              <Menu>
-                <MenuButton className="hover:scale-[110%]">
-                  <SlOptions className="text-white hover:text-gray-400 text-xl mx-2" />
-                </MenuButton>
-                <MenuList style={generos.estilosLista} className="mt-40 z-20">
-                  <ul className="flex flex-col justify-center items-center mx-2">
-                    <li className="w-full px-2 py-1 select-none cursor-pointer flex flex-row justify-between items-center">
-                      <div className="flex flex-row justify-center items-center">
-                      <p className="text-white font-semibold text-sm mx-1">
-                        Marcar como visto 
-                      </p>
-                      <IoCheckmarkDoneOutline className="mx-2" />
-                      </div>
-                      <div className="flex flex-row justify-between items-center">
-                      <RiDeleteBin5Line className="text-white hover:text-gray-400 text-lg hover:scale-[105%]" />
-                      </div>
-                    </li>
-                  </ul>
-                </MenuList>
-              </Menu>
-              {/* <FaPlay className="text-white hover:text-gray-400 text-2xl hover:scale-[110%]" /> */}
-            </div>
-          </li>
+        <ul className="flex flex-col justify-start items-center mx-2 w-96 ste z-40">
+          {peliculasFiltradas.length <= 0 ? (
+            <li className="w-80 px-2 py-1 select-none text-center flex flex-col justify-center items-center h-full">
+              <p className="">Upps!!! Lista vacia. </p>
+              <GoTasklist className="text-7xl my-5" />
+              <p className="">Agrega una Pelicula o Serie</p>
+            </li>
+          ) : (
+            <>
+              {peliculasFiltradas.map((pelicula, index) => (
+                <li
+                  className="w-80 px-2 py-1 hover:bg-white/10 select-none cursor-pointer flex flex-row justify-between items-center"
+                  key={index}
+                >
+                  <Link
+                    href={`/${pelicula.temporadas ? "series" : "peliculas"}/${
+                      pelicula.id
+                    }`}
+                    className="flex flex-row justify-center items-center"
+                  >
+                    <Image
+                      src={pelicula.imagen_perfil}
+                      alt="logo"
+                      height={75}
+                      width={75}
+                    />
+                    <p className="text-white font-semibold text-sm mx-1">
+                      {pelicula.titulo}
+                    </p>
+                  </Link>
+                  <div className="flex flex-row justify-between items-center">
+                    <Menu>
+                      <MenuButton className="hover:scale-[110%]">
+                        <SlOptions className="text-white hover:text-gray-400 text-xl mx-2" />
+                      </MenuButton>
+                      <MenuList
+                        style={generos.estilosLista}
+                        className="mt-40 z-20"
+                      >
+                        <ul className="flex flex-col justify-center items-center mx-2">
+                          <li className="w-full px-2 py-1 select-none cursor-pointer flex flex-row justify-between items-center">
+                            <div className="flex flex-row justify-center items-center">
+                              <p className="text-white font-semibold text-sm mx-1">
+                                Marcar como visto
+                              </p>
+                              <IoCheckmarkDoneOutline className="mx-2" />
+                            </div>
+                            <div className="flex flex-row justify-between items-center">
+                              <button className="p-2 bg-green-400">
+                                <p
+                                  className="text-white hover:text-gray-400 text-lg hover:scale-[105%]"
+                                  id={pelicula._id}
+                                  onClick={handleDeletePelicula}
+                                >
+                                  Delete
+                                </p>
+                              </button>
+                            </div>
+                          </li>
+                        </ul>
+                      </MenuList>
+                    </Menu>
+                  </div>
+                </li>
+              ))}
+            </>
+          )}
         </ul>
       </MenuList>
     </Menu>

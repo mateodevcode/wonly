@@ -2,6 +2,7 @@ import AgregarPeliculas from "@/components/agregarPeliculas/AgregarPeliculas";
 import "./globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Analytics } from "@vercel/analytics/react";
+import { MoviesProvider } from "@/context/MoviesContext";
 
 export const metadata = {
   title: "Wonly - Peliculas y Series",
@@ -12,11 +13,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body className="dark">
-        <AgregarPeliculas />
-        <ChakraProvider>
-          {children}
-          <Analytics />
-        </ChakraProvider>
+        <MoviesProvider>
+          <AgregarPeliculas />
+          <ChakraProvider>
+            {children}
+            <Analytics />
+          </ChakraProvider>
+        </MoviesProvider>
       </body>
     </html>
   );

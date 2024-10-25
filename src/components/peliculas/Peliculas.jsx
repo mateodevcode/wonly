@@ -48,6 +48,7 @@ const Peliculas = () => {
             titulo={pelicula.titulo}
             id={pelicula.id}
             year={pelicula.year}
+            _id={pelicula._id}
           />
         ))}
       </div>
