@@ -9,8 +9,9 @@ import { useContext, useEffect, useState } from "react";
 import { GoTasklist } from "react-icons/go";
 import Link from "next/link";
 import { MoviesContext } from "@/context/MoviesContext";
+import { RiDeleteBin5Line } from "react-icons/ri";
 
-const MiLista = () => {
+const MiLista = ({menuResponsive}) => {
   const [peliculas, setPeliculas] = useState([]);
   const [series, setSeries] = useState([]);
   const toast = useToast();
@@ -81,7 +82,7 @@ const MiLista = () => {
   return (
     <Menu>
       <MenuButton className="hover:bg-white/10 rounded-md">
-        <div className="hover:bg-white/20 text-white font-semibold px-4 py-2 rounded-md flex flex-row justify-center items-center lg:text-base md:text-base sm:text-sm mx-1 lg:flex md:flex sm:hidden cursor-pointer select-none">
+        <div className={`hover:bg-white/20 text-white font-semibold px-4 py-2 rounded-md flex flex-row justify-center items-center lg:text-base md:text-base sm:text-sm mx-1 lg:flex md:flex cursor-pointer select-none ${menuResponsive ? "sm:flex" : "sm:hidden"}`}>
           <BsInfoCircleFill className="mr-2 lg:text-xl md:text-xl sm:text-base" />{" "}
           Mi Lista
         </div>
@@ -119,7 +120,7 @@ const MiLista = () => {
                   </Link>
                   <div className="flex flex-row justify-between items-center">
                     <Menu>
-                      <MenuButton className="hover:scale-[110%]">
+                      <MenuButton className="hover:scale-[105%]">
                         <SlOptions className="text-white hover:text-gray-400 text-xl mx-2" />
                       </MenuButton>
                       <MenuList
@@ -127,24 +128,17 @@ const MiLista = () => {
                         className="mt-40 z-20"
                       >
                         <ul className="flex flex-col justify-center items-center mx-2">
-                          <li className="w-full px-2 py-1 select-none cursor-pointer flex flex-row justify-between items-center">
-                            <div className="flex flex-row justify-center items-center">
-                              <p className="text-white font-semibold text-sm mx-1">
-                                Marcar como visto
-                              </p>
-                              <IoCheckmarkDoneOutline className="mx-2" />
-                            </div>
-                            <div className="flex flex-row justify-between items-center">
-                              <button className="p-2 bg-green-400">
+                          <li className="w-full px-2 py-1 select-none cursor-pointer flex flex-row justify-between items-center text-white hover:text-gray-400 hover:scale-[103%]">
+                              <button className="p-2 flex flex-row justify-between items-center w-full">
                                 <p
-                                  className="text-white hover:text-gray-400 text-lg hover:scale-[105%]"
+                                  className="text-sm"
                                   id={pelicula._id}
                                   onClick={handleDeletePelicula}
                                 >
-                                  Delete
+                                  Eliminar de la lista 
                                 </p>
+                                <RiDeleteBin5Line className="text-xl" />
                               </button>
-                            </div>
                           </li>
                         </ul>
                       </MenuList>
