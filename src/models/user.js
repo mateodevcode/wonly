@@ -24,6 +24,10 @@ const userSchema = new Schema(
         default: [],
       },
     ],
+    bloqueado: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,

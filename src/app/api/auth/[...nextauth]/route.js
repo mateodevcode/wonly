@@ -1,8 +1,6 @@
 
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from "bcrypt";
-// import Google from "next-auth/providers/google";
 import GoogleProvider from "next-auth/providers/google";
 import User from "@/models/user";
 import { connectMongoDB } from "@/libs/mongoDB";
@@ -21,8 +19,13 @@ export const authOptions = {
           if (!user) {
             return null;
           }
-          const passwordsMatch = await bcrypt.compare(password, user.password);
-          if (!passwordsMatch) {
+          // const passwordsMatch = await bcrypt.compare(password, user.password);
+          // if (!passwordsMatch) {
+          //   return null;
+          // }
+
+          const verificarPassword = await password === user.password;
+          if (!verificarPassword) {
             return null;
           }
 

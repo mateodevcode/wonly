@@ -151,7 +151,7 @@ const MiPerfil = () => {
 
   return (
     <div className="w-full h-screen place-content-center grid">
-      <div className="absolute top-10 left-10">
+      <div className="absolute lg:top-10 md:top-10 sm:top-0 lg:left-10 md:left-10 sm:left-5">
         <button
           className="bg-black hover:bg-black/80 text-white py-2 px-4 rounded-lg"
           onClick={() => router.push("/")}
@@ -236,7 +236,7 @@ const MiPerfil = () => {
           </div>
         </form>
       ) : (
-        <div className="flex flex-col justify-start items-center w-[450px] h-full rounded-lg border-gray-300 border-[1px]">
+        <div className="flex flex-col justify-start items-center lg:w-[450px] md:w-[450px] sm:w-full h-full rounded-lg border-gray-300 border-[1px]">
           <h3 className="text-2xl font-bold mt-7 mb-1">Perfil de Usuario</h3>
           <div className="w-full flex flex-row justify-center items-center">
             <Image

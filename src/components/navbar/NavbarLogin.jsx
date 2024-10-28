@@ -1,14 +1,17 @@
 "use client";
 import { Tooltip } from "@chakra-ui/react";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { BsPersonCircle } from "react-icons/bs";
 import { LuLogOut } from "react-icons/lu";
 
 const NavbarLogin = ({ menuResponsive }) => {
   const { data: session, status } = useSession();
   const [User, setUser] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const cargarUsuario = async () => {
@@ -37,7 +40,6 @@ const NavbarLogin = ({ menuResponsive }) => {
 
   const Usuario = User.find((user) => user.email === session?.user?.email);
 
-
   return (
     <>
       {status === "loading" ? (
@@ -54,13 +56,20 @@ const NavbarLogin = ({ menuResponsive }) => {
             <span className={`${menuResponsive ? "hidden" : "flex"}`}>
               {session?.user?.email && (
                 <Link href={`/perfil/${Usuario?._id}`}>
-                  <Image
-                    src={session?.user?.image}
-                    alt={session?.user?.name}
-                    height={50}
-                    width={50}
-                    className="mx-2 w-8 h-8 cursor-pointer rounded-full"
-                  />
+                  {session?.user?.image === "" ? (
+                    <BsPersonCircle className="text-white text-2xl" />
+                  ) : (
+                    <Image
+                      src={
+                        session?.user?.image ||
+                        "https://i.postimg.cc/QNq4MwGh/imagen-perfil.png"
+                      }
+                      alt={session?.user?.name || "Imagen de perfil"}
+                      height={50}
+                      width={50}
+                      className="mx-2 w-8 h-8 cursor-pointer rounded-full"
+                    />
+                  )}
                 </Link>
               )}
             </span>
@@ -99,9 +108,7 @@ const NavbarLogin = ({ menuResponsive }) => {
             <div className="flex flex-row justify-center items-center">
               <button
                 className="bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded mx-2 lg:text-base md:text-sm sm:text-xs"
-                onClick={() => {
-                  signIn("google");
-                }}
+                onClick={() => router.push("/login")}
               >
                 Iniciar Sesión
               </button>
@@ -109,7 +116,7 @@ const NavbarLogin = ({ menuResponsive }) => {
                 className={`bg-white hover:bg-white/90 text-black font-bold py-2 px-4 rounded mx-2 lg:text-base md:text-sm sm:text-xs lg:flex md:flex ${
                   menuResponsive ? "sm:flex my-5" : "sm:hidden"
                 }`}
-                onClick={() => signIn("google")}
+                onClick={() => router.push("/register")}
               >
                 Registrarse
               </button>

@@ -14,7 +14,8 @@ export async function POST(request) {
     email,
     password,
     image,
-    lista
+    lista,
+    bloqueado
   } = await request.json();
   await connectMongoDB();
   await User.create({
@@ -22,7 +23,8 @@ export async function POST(request) {
     email,
     password,
     image,
-    lista
+    lista,
+    bloqueado
   });
   return NextResponse.json({ message: "Usuario creado" }, { status: 201 });
 }
