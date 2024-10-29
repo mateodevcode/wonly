@@ -125,7 +125,7 @@ const Login = () => {
 
   return (
     <div className="w-full h-screen place-content-center grid">
-      <div className="absolute lg:top-10 md:top-10 sm:top-0 lg:left-10 md:left-10 sm:left-5">
+      <div className="absolute lg:top-10 md:top-10 sm:top-2 lg:left-10 md:left-10 sm:left-5">
         <button
           className="bg-black hover:bg-black/80 text-white py-2 px-4 rounded-lg"
           onClick={() => router.push("/")}

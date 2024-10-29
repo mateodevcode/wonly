@@ -13,8 +13,8 @@ const Pelicula = ({ index, imagen_perfil, titulo, id, year, _id }) => {
     useContext(MoviesContext);
 
   useEffect(() => {
-    const Listas = miLista.map((pelicula) => pelicula.id);
-    if (Listas.includes(_id)) {
+    const Listas = miLista?.map((pelicula) => pelicula);
+    if (Listas?.includes(_id)) {
       setIsAdded(true);
     } else {
       setIsAdded(false);
@@ -44,7 +44,10 @@ const Pelicula = ({ index, imagen_perfil, titulo, id, year, _id }) => {
                 className="text-white hover:text-gray-300 lg:text-xs md:text-xs sm:text-[10px] flex flex-row justify-between items-center"
               >
                 Ya esta agregada{" "}
-                <IoIosCheckmarkCircle id={_id} className="lg:text-base md:text-base sm:text-sm ml-2" />
+                <IoIosCheckmarkCircle
+                  id={_id}
+                  className="lg:text-base md:text-base sm:text-sm ml-2"
+                />
               </p>
             </button>
           </>
@@ -60,7 +63,10 @@ const Pelicula = ({ index, imagen_perfil, titulo, id, year, _id }) => {
                 className="text-white hover:text-gray-300 lg:text-xs md:text-xs sm:text-[10px] flex flex-row justify-between items-center"
               >
                 Agregar a mi lista{" "}
-                <PiListPlus id={_id} className="lg:text-base md:text-base sm:text-sm ml-2" />
+                <PiListPlus
+                  id={_id}
+                  className="lg:text-base md:text-base sm:text-sm ml-2"
+                />
               </p>
             </button>
           </>

@@ -24,6 +24,11 @@ export const authOptions = {
           //   return null;
           // }
 
+          if (!user.bloqueado) {
+            alert("Usuario bloqueado"); 
+            return null;
+          }
+
           const verificarPassword = await password === user.password;
           if (!verificarPassword) {
             return null;

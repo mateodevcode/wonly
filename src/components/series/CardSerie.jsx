@@ -13,13 +13,13 @@ const CardSerie = ({ index, imagen_perfil, titulo, id, _id }) => {
     useContext(MoviesContext);
 
   useEffect(() => {
-    const Listas = miLista.map((serie) => serie.id);
-    if (Listas.includes(_id)) {
+    const Listas = miLista?.map((serie) => serie);
+    if (Listas?.includes(_id)) {
       setIsAdded(true);
     } else {
       setIsAdded(false);
     }
-  }, [miLista, id]);
+  }, [miLista, _id]);
 
   return (
     <div

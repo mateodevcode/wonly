@@ -18,12 +18,10 @@ const userSchema = new Schema(
       type: String,
       default: "",
     },
-    lista: [
-      {
-        type: Array,
-        default: [],
-      },
-    ],
+    lista: {
+      type: Array,
+      required: false,
+    },
     bloqueado: {
       type: Boolean,
       default: false,

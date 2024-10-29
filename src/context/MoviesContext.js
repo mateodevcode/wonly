@@ -9,20 +9,21 @@ export const MoviesContext = createContext();
 export const MoviesProvider = ({ children }) => {
   const [miLista, setMiLista] = useState([]);
   const toast = useToast();
-  const router = useRouter();
   const [isAdded, setIsAdded] = useState(false);
   const { data: session, status } = useSession();
+  const [listUser, setListUser] = useState([]);
+  const [idUsuario, setIdUsuario] = useState("");
 
   const cargarLista = async (_id) => {
     try {
-      const res = await fetch(`/api/milista`, {
+      const res = await fetch(`/api/user`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
       });
       const data = await res.json();
-      setMiLista(data);
+      setListUser(data);
     } catch (error) {
       toast({
         title: "Error",
@@ -34,6 +35,19 @@ export const MoviesProvider = ({ children }) => {
       });
     }
   };
+
+  useEffect(() => {
+    const cargarLista = async () => {
+      const listaUsuario = await listUser.find(
+        (lista) => lista.email === session?.user?.email
+      );
+      const lista = await listaUsuario?.lista;
+      const IdUsuario = await listaUsuario?._id;
+      setIdUsuario(IdUsuario);
+      setMiLista(lista);
+    };
+    cargarLista();
+  }, [session, listUser]);
 
   useEffect(() => {
     cargarLista();
@@ -56,18 +70,19 @@ export const MoviesProvider = ({ children }) => {
     }
 
     try {
-      const res = await fetch("/api/milista/", {
-        method: "POST",
+      const res = await fetch(`/api/user/${idUsuario}`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id: e.target.id }),
+        body: JSON.stringify({ lista: [...miLista, e.target.id] }),
       });
       cargarLista();
       if (res.ok) {
         const peliculaAgregada = await res.json();
         setMiLista([...miLista, peliculaAgregada]);
       }
+      setIsAdded(true);
       if (res.ok) {
         toast({
           title: "Se ha agregado a tu lista",
@@ -77,7 +92,6 @@ export const MoviesProvider = ({ children }) => {
           position: "top",
         });
       }
-      setIsAdded(true);
     } catch (error) {
       toast({
         title: "Error",
@@ -92,14 +106,17 @@ export const MoviesProvider = ({ children }) => {
 
   const handleDeletePelicula = async (e) => {
     e.stopPropagation();
-    const res = await fetch(`/api/milista/${e.target.id}`, {
-      method: "DELETE",
+    const res = await fetch(`/api/user/${idUsuario}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        lista: miLista.filter((item) => item !== e.target.id),
+      }),
     });
-    setIsAdded(false);
     cargarLista();
+    setIsAdded(false);
     if (res.ok) {
       toast({
         title: "Item eliminado",
@@ -109,8 +126,6 @@ export const MoviesProvider = ({ children }) => {
         position: "top",
       });
     }
-
-    router.refresh();
   };
 
   return (
