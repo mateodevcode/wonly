@@ -4,6 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import User from "@/models/user";
 import { connectMongoDB } from "@/libs/mongoDB";
+import { NextResponse } from "next/server";
 
 export const authOptions = {
   providers: [
@@ -23,9 +24,7 @@ export const authOptions = {
           // if (!passwordsMatch) {
           //   return null;
           // }
-
-          if (!user.bloqueado) {
-            alert("Usuario bloqueado"); 
+          if (user.bloqueado) {
             return null;
           }
 

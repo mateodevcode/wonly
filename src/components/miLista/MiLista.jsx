@@ -9,12 +9,17 @@ import { GoTasklist } from "react-icons/go";
 import Link from "next/link";
 import { MoviesContext } from "@/context/MoviesContext";
 import { RiDeleteBin5Line } from "react-icons/ri";
+import { signIn, useSession } from "next-auth/react";
+import { FcGoogle } from "react-icons/fc";
+import { useRouter } from "next/navigation";
 
 const MiLista = ({ menuResponsive }) => {
   const [peliculas, setPeliculas] = useState([]);
   const [series, setSeries] = useState([]);
   const toast = useToast();
   const { miLista, handleDeletePelicula } = useContext(MoviesContext);
+  const { status } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
     const cargarPeliculas = async () => {
@@ -80,7 +85,7 @@ const MiLista = ({ menuResponsive }) => {
 
   return (
     <Menu>
-      <MenuButton className="hover:bg-white/10 rounded-md">
+      <MenuButton className="bg-white/10 hover:bg-white/20 rounded-md">
         <div
           className={`hover:bg-white/20 text-white font-semibold px-4 py-2 rounded-md flex flex-row justify-center items-center lg:text-base md:text-base sm:text-sm mx-1 lg:flex md:flex cursor-pointer select-none ${
             menuResponsive ? "sm:flex" : "sm:hidden"
@@ -91,13 +96,39 @@ const MiLista = ({ menuResponsive }) => {
         </div>
       </MenuButton>
       <MenuList style={generos.estilosLista}>
-        <ul className="flex flex-col justify-start items-center mx-2 w-96 ste z-40">
+        <ul className="flex flex-col justify-start items-center mx-2 w-80 ste z-40">
           {peliculasFiltradas.length <= 0 ? (
-            <li className="w-80 px-2 py-1 select-none text-center flex flex-col justify-center items-center h-full">
-              <p className="">Upps!!! Lista vacia. </p>
-              <GoTasklist className="text-7xl my-5" />
-              <p className="">Agrega una Pelicula o Serie</p>
-            </li>
+            <>
+              {status === "unauthenticated" ? (
+                <div className="w-full h-full grid place-content-center">
+                  <div className="w-full flex flex-col justify-end items-center px-6 pb-5">
+          <button className="bg-white hover:bg-white/80 text-black py-3 px-4 rounded-md w-full my-1"
+            onClick={() => router.push("/login")}
+          >
+            Iniciar Sesión
+          </button>
+          <button
+            className="text-white border-gray-300 hover:bg-white/10 border-[1px] py-2 px-4 rounded-md w-full my-1 flex fle-row justify-center items-center text-sm font-semibold"
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              signIn("google", {
+                callbackUrl: "/",
+              });
+            }}
+          >
+            <FcGoogle className="mr-4" /> <span>Continuar con Google</span>
+          </button>
+        </div>
+                </div>
+              ) : (
+                <li className="w-80 px-2 py-1 select-none text-center flex flex-col justify-center items-center h-full">
+                  <p className="">Upps!!! Lista vacia. </p>
+                  <GoTasklist className="text-7xl my-5" />
+                  <p className="">Agrega una Pelicula o Serie</p>
+                </li>
+              )}
+            </>
           ) : (
             <>
               {peliculasFiltradas.map((pelicula, index) => (
@@ -131,10 +162,10 @@ const MiLista = ({ menuResponsive }) => {
                         className="mt-40 z-20"
                       >
                         <ul className="flex flex-col justify-center items-center mx-2">
-                          <li className="w-full px-2 py-1 select-none cursor-pointer flex flex-row justify-between items-center text-white hover:text-gray-400 hover:scale-[103%]">
+                          <li className="w-full px-2 py-1 select-none cursor-pointer flex flex-row justify-between items-center">
                             <button className="p-2 flex flex-row justify-between items-center w-full">
                               <p
-                                className="text-sm"
+                                className="text-sm text-white hover:text-gray-400"
                                 id={pelicula._id}
                                 onClick={handleDeletePelicula}
                               >

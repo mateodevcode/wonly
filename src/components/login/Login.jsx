@@ -41,6 +41,30 @@ const Login = () => {
     });
   };
 
+  useEffect(() => {
+
+    if (intentosContrasena >= 3) {
+      const res = fetch(`/api/user/${user._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ bloqueado: true }),
+      });
+      if (res.error) {
+        toast({
+          title: "Error",
+          description: "Usuario bloqueado",
+          status: "error",
+          duration: 2000,
+          isClosable: true,
+          position: "top",
+        });
+      }
+    }
+
+  }, [intentosContrasena]);
+  
   const signImEmail = async (e) => {
     e.preventDefault();
 
@@ -68,6 +92,17 @@ const Login = () => {
       return;
     }
 
+    if (user?.bloqueado) {
+      toast({
+        title: "Usuario bloqueado",
+        description: "Por favor, contacta con el administrador",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+        position: "top",
+      });
+      return;
+    }
     if (!password) {
       if (intentosContrasena < 3) {
         toast({
@@ -80,9 +115,10 @@ const Login = () => {
         });
         setIntentosContrasena(intentosContrasena + 1);
         return;
-      } else {
+      }
+      if (intentosContrasena >= 3) {
         toast({
-          title: "Error",
+          title: "Usuario bloqueado",
           description: "Intentos de contraseña excedidos",
           status: "error",
           duration: 2000,
@@ -92,6 +128,7 @@ const Login = () => {
         return;
       }
     }
+
     try {
       const res = await signIn("credentials", {
         email: formData.email,
@@ -125,7 +162,7 @@ const Login = () => {
 
   return (
     <div className="w-full h-screen place-content-center grid">
-      <div className="absolute lg:top-10 md:top-10 sm:top-2 lg:left-10 md:left-10 sm:left-5">
+      <div className="absolute lg:top-10 md:top-10 sm:top-2 lg:left-10 md:left-10 sm:left-5 select-none">
         <button
           className="bg-black hover:bg-black/80 text-white py-2 px-4 rounded-lg"
           onClick={() => router.push("/")}
