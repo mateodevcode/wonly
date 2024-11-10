@@ -12,6 +12,8 @@ const CardEpisodio = ({
   urlTemporada,
   edad,
   Id,
+  temporada,
+  episodio
 }) => {
   const [ListaEpisodios, setListaEpisodios] = useState([]);
   const [UrlSeleccionada, setUrlSeleccionada] = useState(url[0]);
@@ -30,6 +32,9 @@ const CardEpisodio = ({
     cargarEpisodios();
   }, []);
 
+  console.log(temporadaActual);
+  
+
   return (
     <div className="flex flex-col justify-center items-center">
       <ReproductorVideo
@@ -41,6 +46,8 @@ const CardEpisodio = ({
         setUrlSeleccionada={setUrlSeleccionada}
         UrlSeleccionada={UrlSeleccionada}
         temporadaActual={temporadaActual}
+        temporada={temporada}
+        episodio={episodio}
       />
       <div className="sm:w-full xl:w-[1440px] lg:w-[950px] md:w-[750px]">
         {temporadaActual.map((epi, index) => (

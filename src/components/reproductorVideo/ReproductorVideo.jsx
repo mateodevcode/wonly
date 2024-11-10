@@ -5,7 +5,7 @@ import CardDescripcion from "../peliculas/pelicula/CardDescripcion";
 import BotonPantallaCompleta from "../peliculas/pelicula/BotonPantallaCompleta";
 import BotonesNextBack from "../series/temporadas/episodios/BotonesNextBack";
 
-const ReproductorVideo = ({tipoMovie, titulo, descripcion, duracion, url, setUrlSeleccionada, UrlSeleccionada, temporadaActual}) => {
+const ReproductorVideo = ({tipoMovie, titulo, descripcion, duracion, url, setUrlSeleccionada, UrlSeleccionada, temporadaActual, temporada, episodio}) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="flex flex-col justify-center items-center mt-16 sm:w-full xl:w-[1440px] lg:w-[950px] md:w-[750px]">
@@ -21,6 +21,8 @@ const ReproductorVideo = ({tipoMovie, titulo, descripcion, duracion, url, setUrl
         titulo={titulo}
         descripcion={descripcion}
         duracion={duracion}
+        temporada={temporada}
+        episodio={episodio}
       />
     </div>
   );
