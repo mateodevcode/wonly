@@ -2,6 +2,7 @@ import AgregarPeliculas from "@/components/agregarPeliculas/AgregarPeliculas";
 import "./globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { MoviesProvider } from "@/context/MoviesContext";
 import { AuthProvider } from "./Providers";
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
           <ChakraProvider>
             {children}
             <Analytics />
+            <SpeedInsights />
           </ChakraProvider>
         </MoviesProvider>
         </AuthProvider>
