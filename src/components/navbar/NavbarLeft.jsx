@@ -1,3 +1,4 @@
+"use client";
 import Logo from "./Logo";
 import Enlace from "./Enlace";
 import Generos from "./Generos";
@@ -16,6 +17,12 @@ const NavbarLeft = () => {
           <Enlace key={index} nombre={enlace.nombre} Url={enlace.Url} />
         ))}
         <Generos />
+        <Link
+          href="/peticiones"
+          className="mx-0.5 p-2 hover:bg-black/20  dark:text-white dark:hover:bg-green-500/50 select-none cursor-pointer"
+        >
+          Peticiones
+        </Link>
         <Tooltip
           label="API Peliculas y Series"
           fontSize="md"
