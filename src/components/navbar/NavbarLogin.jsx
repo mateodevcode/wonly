@@ -79,7 +79,7 @@ const NavbarLogin = ({ menuResponsive }) => {
               <div className={`${menuResponsive ? "hidden" : "flex"}`}>
                 <Tooltip label="Cerrar Sesión" fontSize="md" bg="green.600">
                   <div
-                    className="hover:bg-white/10 text-white font-bold py-2 px-2 rounded lg:mx-2 md:mx-2 sm:mx-1 flex flex-row justify-center items-center"
+                    className="bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-2 rounded mx-0 flex flex-row justify-center items-center"
                     onClick={() => signOut()}
                   >
                     <LuLogOut className="text-xl" />
