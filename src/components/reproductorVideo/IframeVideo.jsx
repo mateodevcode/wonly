@@ -8,6 +8,7 @@ const IframeVideo = ({ UrlSeleccionada }) => {
       allow="autoplay"
       frameBorder="0"
       id="videoplayer"
+      allowFullScreen
     />
   );
 };
