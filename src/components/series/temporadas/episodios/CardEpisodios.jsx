@@ -1,3 +1,4 @@
+import { convertirMinutos } from "@/config/convertirMinutos";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -41,7 +42,7 @@ const CardEpisodios = ({
             </h1>
             <div className="flex flex-row justify-center items-center">
               <p className="lg:mx-2 md:mx-2 sm:mx-0 font-bold lg:my-2 md:my-1 sm:my-0 py-1 md:text-base sm:text-[8px]">
-                {duracion} min
+                {convertirMinutos(duracion)} min
               </p>
               <p className="mx-2 font-bold bg-red-600 lg:px-2 md:px-2 sm:px-1 rounded-md lg:my-2 md:my-1 sm:my-0 py-0.5 md:text-base sm:text-[7px]">
                 {edad}
