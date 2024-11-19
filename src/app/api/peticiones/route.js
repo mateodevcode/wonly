@@ -9,8 +9,8 @@ export async function GET() {
 }
 
 export async function POST(request) {
-  const { nombre, email } = await request.json();
+  const { nombre, email, tipo } = await request.json();
   await connectMongoDB();
-  await Peticiones.create({ nombre, email });
+  await Peticiones.create({ nombre, email, tipo });
   return NextResponse.json({ message: "Petición creada" }, { status: 201 });
 }

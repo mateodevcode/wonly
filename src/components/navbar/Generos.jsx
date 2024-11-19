@@ -12,7 +12,7 @@ const Generos = () => {
   return (
     <Menu>
       <MenuButton
-        className={`mx-0.5 p-2 hover:bg-black/20 dark:text-white dark:hover:bg-green-500/50 select-none cursor-pointer`}
+        className={`font-semibold text-sm mx-0.5 p-2 px-3 hover:bg-black/20 hover:text-black hover:bg-white rounded-md select-none cursor-pointer text-white`}
         onClick={() => setActivo(!activo)}
       >
         <div className="flex flex-row justify-center items-center">

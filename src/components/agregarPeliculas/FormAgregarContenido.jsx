@@ -3,10 +3,10 @@ import { Input, InputGroup } from "@chakra-ui/react";
 import { IoIosSend } from "react-icons/io";
 import { TbDeviceTv, TbMovie } from "react-icons/tb";
 
-const Formulario = ({ setNombre, setEmail, setTipo, onClose, handlePeticiones, tipo }) => {
+const FormAgregarContenido = ({ setNombre, setEmail, setTipo, onClose, handlePeticiones, tipo }) => {
 
   return (
-    <div className="w-[500px] bg-zinc-700 h-min lg:mt-24 md:mt-24 sm:mt-20 rounded-lg border-[1px] border-gray-600">
+    <div className="w-[500px] bg-zinc-700 h-min rounded-lg border-[1px] border-gray-600">
       <div className="flex flex-col justify-start items-start px-5 pt-5">
         <p className="text-2xl font-semibold text-white">
           ¿Te gustaría agregar nuevo contenido?
@@ -38,7 +38,7 @@ const Formulario = ({ setNombre, setEmail, setTipo, onClose, handlePeticiones, t
         <InputGroup className="flex flex-row justify-center items-center">
           <Input
             type="text"
-            placeholder="Nombre de la película"
+            placeholder={`Nombre de la ${tipo}`}
             onChange={(e) => setNombre(e.target.value)}
             className="w-full bg-zinc-600 px-4 py-2 rounded-md text-white text-sm border-[1px] border-gray-500"
           />
@@ -77,4 +77,4 @@ const Formulario = ({ setNombre, setEmail, setTipo, onClose, handlePeticiones, t
   );
 };
 
-export default Formulario;
+export default FormAgregarContenido;

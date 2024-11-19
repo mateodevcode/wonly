@@ -19,7 +19,7 @@ const NavbarLeft = () => {
         <Generos />
         <Link
           href="/peticiones"
-          className="mx-0.5 p-2 hover:bg-black/20  dark:text-white dark:hover:bg-green-500/50 select-none cursor-pointer"
+          className=" font-semibold mx-0.5 p-2 px-3 hover:bg-black/20 hover:text-black hover:bg-white rounded-md select-none cursor-pointer text-white text-sm"
         >
           Peticiones
         </Link>
@@ -32,7 +32,7 @@ const NavbarLeft = () => {
         >
           <Link
             href="/api"
-            className="flex flex-row justify-center items-center text-white font-mono dark:hover:bg-green-500/50 px-2"
+            className="mx-0.5 p-2 px-3 hover:bg-black/20 hover:text-black hover:bg-white rounded-md select-none cursor-pointer text-white text-sm font-semibold"
           >
             REST API
           </Link>

@@ -16,11 +16,11 @@ const Pagination = ({
   return (
     <div className="w-full flex flex-row justify-center items-center font-mono">
       <div className="w-[600px]">
-        <nav className="flex flex-row justify-center items-center text-sky-500">
-          <ul className=" flex flex-row justify-center items-center lg:text-base md:text-base sm:text-[10px] border-[1px] border-white rounded-md select-none font-semibol cursor-pointer">
+        <nav className="flex flex-row justify-center items-center text-white">
+          <ul className=" flex flex-row justify-center items-center lg:text-base md:text-base sm:text-[10px] border-[1px] border-gray-400 rounded-md select-none font-semibol cursor-pointer">
             <li
-              className={`p-2 hover:bg-white/10 rounded-l-md ${
-                inicio === 0 ? "text-gray-500" : ""
+              className={`p-2 hover:bg-white hover:text-black rounded-l-md ${
+                inicio === 0 ? "text-gray-500 cursor-not-allowed" : ""
               }`}
               onClick={() => {
                 if (inicio === 0) return;
@@ -32,7 +32,7 @@ const Pagination = ({
               Anterior
             </li>
             <li
-              className={`py-2 px-4 border-l-[1px] border-white hover:bg-white/10 ${
+              className={`py-2 px-4 border-l-[1px] border-gray-400 hover:bg-white hover:text-black ${
                 inicio === 0 ? "hidden" : ""
               }`}
               onClick={() => {
@@ -43,11 +43,11 @@ const Pagination = ({
             >
               {inicio / numPelPorPagina}
             </li>
-            <li className="py-2 px-4 border-l-[1px] border-r-[1px] border-white hover:bg-white/10 bg-sky-500/40">
+            <li className="py-2 px-4 border-l-[1px] border-r-[1px] border-gray-400 bg-white text-black">
               {Math.round(inicio / numPelPorPagina + 1)}
             </li>
             <li
-              className={`py-2 px-4 border-white hover:bg-white/10 ${
+              className={`py-2 px-4 border-gray-400 hover:bg-white hover:text-black ${
                 peliculasCargadas.length < numeroPeliculas ||
                 filtrarPeliculas.length <= numeroPeliculas
                   ? "hidden"
@@ -72,9 +72,9 @@ const Pagination = ({
               className={`${
                 peliculasCargadas.length < numeroPeliculas ||
                 filtrarPeliculas.length <= numeroPeliculas
-                  ? "text-gray-500 "
+                  ? "text-gray-500 cursor-not-allowed"
                   : "border-l-[1px]"
-              } p-2 hover:bg-white/10`}
+              } p-2 hover:bg-white hover:text-black hover:rounded-r-md`}
             >
               Siguiente
             </li>

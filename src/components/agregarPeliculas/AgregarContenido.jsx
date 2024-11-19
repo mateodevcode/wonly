@@ -13,6 +13,7 @@ import { useState } from "react";
 import { RiAddCircleLine } from "react-icons/ri";
 import Formulario from "./Formulario";
 import { IoIosAdd } from "react-icons/io";
+import FormAgregarContenido from "./FormAgregarContenido";
 
 const OverlayOne = () => (
   <ModalOverlay
@@ -21,7 +22,7 @@ const OverlayOne = () => (
   />
 );
 
-const AgregarPeliculas = () => {
+const AgregarContenido = () => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [overlay, setOverlay] = useState(<OverlayOne />);
@@ -93,33 +94,28 @@ const AgregarPeliculas = () => {
 
   return (
     <>
-      <Tooltip
-        label="Agregar pelicula"
-        fontSize="medium"
-        color={"white"}
-        bg={"rebeccapurple"}
-        px={10}
-        py={5}
+      <button
+        className="font-semibold px-4 py-2 rounded-md flex flex-row justify-center items-center select-none cursor-pointer lg:text-base md:text-base sm:text-sm bg-green-600 hover:bg-green-600/80 text-white"
+        onClick={() => onOpen()}
       >
-        <div
-          onClick={() => {
-            onOpen();
-          }}
-          className="fixed z-50 bg-green-600 p-2 lg:right-5 md:right-5 sm:right-0 top-64 rounded-lg shadow-sm shadow-white cursor-pointer hover:scale-[105%] active:scale-95 transition-all duration-200"
-        >
-          <IoIosAdd className="text-white text-2xl" />
-        </div>
-      </Tooltip>
+        <IoIosAdd className="mr-2 text-2xl" /> Nueva Peticion
+      </button>
+
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         {overlay}
         <ModalContent>
-          <ModalBody className="grid place-content-center">
-            <Formulario setNombre={setNombre} setEmail={setEmail} onClose={onClose} handlePeticiones={handlePeticiones} setTipo={setTipo} tipo={tipo} />
-          </ModalBody>
+            <FormAgregarContenido
+              setNombre={setNombre}
+              setEmail={setEmail}
+              onClose={onClose}
+              handlePeticiones={handlePeticiones}
+                tipo={tipo}
+                setTipo={setTipo}
+            />
         </ModalContent>
       </Modal>
     </>
   );
 };
 
-export default AgregarPeliculas;
+export default AgregarContenido;

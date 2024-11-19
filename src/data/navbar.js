@@ -7,10 +7,10 @@ export const enlaces = [
     nombre: "Peliculas",
     Url: "/peliculas",
   },
-  {
-    nombre: "Blog",
-    Url: "/blog",
-  },
+  // {
+  //   nombre: "Blog",
+  //   Url: "/blog",
+  // },
 ];
 
 const enlacesGenero = [

@@ -10,6 +10,10 @@ const peticionesSchema = new Schema(
       type: String,
       required: true,
     },
+    tipo: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

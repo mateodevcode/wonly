@@ -40,7 +40,7 @@ const Series = () => {
   const SeriesCargadas = filtrarSeries.slice(inicio, fin);
 
   return (
-    <div className="flex flex-col justify-center items-center pt-20 w-full bg-black text-white pb-20">
+    <div className="flex flex-col justify-center items-center pt-16 w-full bg-black text-white pb-20">
       {/* Barra de busqueda y filtros */}
       <TopSearch
         path={path}
