@@ -30,8 +30,8 @@ const Temporadas = () => {
   
   return (
     <>
-      <div className="w-full flex flex-col justify-center items-center bg-black lg:pt-40 sm:pt-20 lg:pb-40 sm:pb-20">
-        <h2 className="uppercase text-center font-bold lg:text-5xl sm:text-3xl dark:text-white mb-10">
+      <div className="w-full flex flex-col justify-center items-center bg-black lg:pt-24 md:pt-24 sm:pt-20 lg:pb-40 sm:pb-20">
+        <h2 className="uppercase font-bold lg:text-3xl sm:text-3xl dark:text-white mb-5 text-left lg:w-10/12 md:w-10/12 sm:w-11/12 underline">
           {datosSeries.titulo}
         </h2>
         <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center">

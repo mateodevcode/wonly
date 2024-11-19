@@ -1,46 +1,34 @@
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FaPlay } from "react-icons/fa";
 
-const CardTemporadas = ({
-  index,
-  temporada,
-  url,
-  titulo,
-  linkTo,
-  serie,
-  episodios,
-}) => {
+const CardTemporadas = ({ index, temporada, url, linkTo, serie }) => {
   const router = useRouter();
 
   return (
     <div
-      className="w-60 h-72 font-mono flex flex-col justify-between items-center"
       key={index}
-      style={{
-        backgroundImage: `url(${url})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+      className="flex flex-col justify-start items-center lg:my-5 md:my-5 sm:my-2 lg:mx-4 md:mx-4 sm:mx-2 cursor-pointer active:scale-95 transition-all duration-300 bg-zinc-900 pb-2 rounded-md"
+      id={linkTo}
+      onClick={async (e) => {
+        e.preventDefault();
+        router.push(`/series/${serie}/${e.target.id}`);
       }}
     >
-      <p className="text-white text-2xl my-2 bg-black/80 w-full text-center">
+      <div className="lg:text-sm md:text-sm sm:text-[10px] mt-2 text-gray-400 flex flex-row justify-center items-center my-2 font-semibold">
         {temporada}
-      </p>
-      <div className="w-full flex flex-col">
-        <p className="text-white text-lg my-2 bg-black/80 text-center">
-          {titulo} - <span className="bg-red-900 p-1">{episodios.length}</span> Episodios
-        </p>
-        <div
-          className="bg-blue-600 dark:bg-green-800/80 text-white dark:text-white font-semibold cursor-pointer hover:bg-blue-600/50 dark:hover:bg-green-700/80 select-none text-center py-2 flex flex-row justify-center items-center"
-          id={linkTo}
-          onClick={async (e) => {
-            e.preventDefault();
-            router.push(`/series/${serie}/${e.target.id}`);
-          }}
-        >
-          <FaPlay className="mx-2" />
-          Reproducir
-          
-        </div>
+      </div>
+      <Image
+        src={url}
+        width={500}
+        height={500}
+        alt={"temporada"}
+        id={linkTo}
+        className="lg:w-72 md:w-72 sm:w-40 lg:h-72 md:h-72 sm:h-40 hover:opacity-50"
+      />
+      <div className="lg:text-sm md:text-sm sm:text-[10px] mt-2 text-gray-400 flex flex-row justify-center items-center select-none">
+        <FaPlay className="mx-2" />
+        Reproducir
       </div>
     </div>
   );

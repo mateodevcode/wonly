@@ -30,14 +30,14 @@ const Generos = () => {
             <Link
               href={`${enlace.Url}`}
               key={index}
-              className="w-full px-2 py-1 hover:bg-green-700 select-none cursor-pointer"
+              className="w-full px-3 py-1 hover:bg-white hover:text-black select-none cursor-pointer"
             >
               {enlace.nombre}
             </Link>
           ))}
           <Link
             href="/generos"
-            className="w-full px-2 py-1 hover:bg-green-700 select-none cursor-pointer"
+            className="w-full px-2 py-1 hover:bg-white hover:text-black select-none cursor-pointer"
           >
             Ver Todos
           </Link>

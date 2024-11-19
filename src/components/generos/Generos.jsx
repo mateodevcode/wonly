@@ -2,34 +2,75 @@
 import { enlacesOrdenados } from "@/data/navbar";
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { BsArrowLeft, BsSearch } from "react-icons/bs";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { useRouter } from "next/navigation";
+import { useContext, useEffect, useState } from "react";
+import { BsSearch } from "react-icons/bs";
+import { MoviesContext } from "@/context/MoviesContext";
+import AgregarLista from "../AgregarLista/AgregarLista";
 
 const Generos = () => {
-  const [Data, setData] = useState([]);
   const [buscar, setBuscar] = useState("");
   const [genero, setGenero] = useState("Acción");
-  const [pelisOseries, setPelisOseries] = useState("peliculas");
-  const [mostrarGeneros, setMostrarGeneros] = useState(false);
+  const router = useRouter();
+  const { miLista, handleAgregarMiLista, handleDeletePelicula } =
+    useContext(MoviesContext);
+  const [peliculas, setPeliculas] = useState([]);
+  const [series, setSeries] = useState([]);
 
   useEffect(() => {
-    const cargarTemporada = async () => {
-      const res = await fetch(`/api/${pelisOseries}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
-      setData(data);
+    const cargarPeliculas = async () => {
+      try {
+        const res = await fetch(`/api/peliculas`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await res.json();
+        setPeliculas(data);
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Error al cargar las peliculas",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+      }
     };
-    cargarTemporada();
-  }, [pelisOseries]);
+    cargarPeliculas();
+  }, []);
+
+  useEffect(() => {
+    const CargarSeries = async () => {
+      try {
+        const res = await fetch(`/api/series`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await res.json();
+        setSeries(data);
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Error al cargar las series",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+      }
+    };
+    CargarSeries();
+  }, []);
+
+  let seriesYpeliculas = [...peliculas, ...series];
 
   // Filtrar peliculas por genero
-  const peliculasFiltradasGeneros = Data.filter((pelicula) =>
+  const peliculasFiltradasGeneros = seriesYpeliculas.filter((pelicula) =>
     pelicula.generos.includes(genero)
   );
 
@@ -41,13 +82,18 @@ const Generos = () => {
 
   return (
     <div className="w-full bg-black flex flex-row justify-center items-start pt-24 pb-40">
-      <div className="lg:w-2/12 sm:w-5/12 bg-black" id="aside-generos">
-        <h1 className="text-white lg:text-4xl sm:text-2xl px-2 font-bold flex flex-row justify-start items-end select-none">Generos</h1>
-        <ul className="text-white mt-5">
+      <div
+        className="lg:w-2/12 sm:w-5/12 bg-zinc-900 rounded-md border-[1px] border-gray-700"
+        id="aside-generos"
+      >
+        <h1 className="text-white lg:text-3xl sm:text-2xl font-bold flex flex-row justify-start items-end select-none pt-4 px-4">
+          Generos
+        </h1>
+        <ul className="text-white mt-5 pb-4">
           {enlacesOrdenados.map((genero, index) => (
             <li
               key={index}
-              className="py-2 px-4 hover:bg-green-600 cursor-pointer select-none"
+              className="py-2 px-4 hover:bg-white hover:text-black cursor-pointer select-none mx-1 rounded-md"
               id={genero.nombre}
               onClick={(e) => {
                 e.preventDefault();
@@ -59,32 +105,28 @@ const Generos = () => {
           ))}
         </ul>
       </div>
-      <div className="bg-black flex flex-col justify-center items-center lg:w-10/12 sm:w-7/12">
-        <div className="flex flex-row justify-between items-center lg:text-base md:text-base sm:text-sm bg-gray-950 w-full h-10 text-white lg:mb-0 sm:mb-5">
-          <div>
-            <div
-              className="font-semibold py-2 px-3 cursor-pointer select-none"
-              // onClick={() => {
-              // if (pelisOseries === "peliculas") {
-              //   setPelisOseries("series");
-              // }
-              // if (pelisOseries === "series") {
-              //   setPelisOseries("peliculas");
-              // }
-              // }}
-            >
-              {pelisOseries === "peliculas" ? "Peliculas" : "Series"}
-            </div>
-          </div>
+      <div className="flex flex-col justify-center items-center lg:w-10/12 sm:w-7/12 bg-zinc-800 mx-2 rounded-md border-[1px] border-gray-700">
+        <div className="flex flex-row justify-between items-center lg:text-base md:text-base sm:text-sm w-full h-10 text-white lg:mb-0 sm:mb-5 px-3 mt-3">
+          <div></div>
           <div className="flex flex-row justify-center items-center mx-5">
-            <InputGroup size="sm" border={"none"}>
+            <InputGroup
+              className="bg-zinc-900 rounded-md text-sm text-gray-400 flex flex-row justify-center items-center"
+              size={{
+                base: "xs",
+                sm: "md",
+                md: "md",
+                lg: "md",
+              }}
+            >
               <InputLeftElement pointerEvents="none">
-                <BsSearch color="gray.300" />
+                <BsSearch className="lg:text-base md:text-base sm:text-xs" />
               </InputLeftElement>
               <Input
+                className="placeholder-gray-400 text-white"
                 type="text"
                 placeholder="Buscar"
                 fontFamily={"monospace"}
+                border={"none"}
                 onChange={(e) => {
                   e.preventDefault();
                   setBuscar(e.target.value);
@@ -100,23 +142,39 @@ const Generos = () => {
             </h1>
           </div>
         )}
-        <div className="w-full grid lg:grid-cols-5 sm:grid-cols-1 lg:gap-4 sm:gap-8 h-full lg:p-3 sm:p-2 text-white">
+        <div className="w-full grid lg:grid-cols-4 sm:grid-cols-1 lg:gap-2 sm:gap-8 h-full lg:p-3 sm:p-2 text-white">
           {filtrarPeliculas.map((pelicula, index) => (
-            <Link
-              href={`/peliculas/${pelicula.id}`}
+            <div
               key={index}
-              className="lg:w-60 sm:w-44 lg:h-60 sm:h-44 flex flex-col justify-center items-center cursor-pointer"
+              className="flex flex-col justify-start items-center lg:my-5 md:my-5 sm:my-2 lg:mx-4 md:mx-4 sm:mx-2 cursor-pointer active:scale-95 transition-all duration-300 bg-zinc-900 pb-2 rounded-md"
+              onClick={(e) => {
+                e.preventDefault();
+                router.push(`/peliculas/${pelicula.id}`);
+              }}
             >
+              <AgregarLista
+                _id={pelicula._id}
+                handleAgregarMiLista={handleAgregarMiLista}
+                handleDeletePelicula={handleDeletePelicula}
+                miLista={miLista}
+              />
+              <div className="w-full">
+                <p className="absolute bg-black/50 lg:px-3 md:px-1.5 sm:px-1.5 lg:py-1 md:py-1 sm:py-0.5 lg:rounded-md md:rounded-md sm:rounded-sm lg:text-sm md:text-sm sm:text-[10px] lg:m-2 md:m-2 sm:m-1 font-mono lg:mx-2 md:mx-3 sm:mx-1 font-bold">
+                  {pelicula.year}
+                </p>
+              </div>
               <Image
                 src={pelicula.imagen_perfil}
+                width={500}
+                height={500}
                 alt={pelicula.titulo}
-                width={200}
-                height={200}
+                id={pelicula.id}
+                className="lg:w-72 md:w-72 sm:w-40 lg:h-72 md:h-72 sm:h-40 hover:opacity-50"
               />
-              <span className="lg:text-sm sm:text-xs cursor-pointer pt-1 h-10">
+              <p className="lg:text-sm md:text-sm sm:text-[10px] mt-2 text-gray-400">
                 {pelicula.titulo}
-              </span>
-            </Link>
+              </p>
+            </div>
           ))}
         </div>
       </div>

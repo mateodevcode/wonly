@@ -41,6 +41,9 @@ const PeliculaActual = () => {
     pelicula.generos.includes(genero)
   );
 
+  console.log(filtrarPeliculas);
+  
+
   return (
     <div className="w-full bg-black h-full flex flex-col justify-center items-center">
       <div className="lg:w-10/12 md:w-8/12 sm:w-full flex flex-row justify-center items-center">
@@ -75,6 +78,7 @@ const PeliculaActual = () => {
               imagen_perfil={pelicula.imagen_perfil}
               titulo={pelicula.titulo}
               id={pelicula.id}
+              year={pelicula.year}
             />
           ))}
         </div>

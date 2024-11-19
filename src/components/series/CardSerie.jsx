@@ -1,26 +1,14 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useContext, useEffect, useState } from "react";
-import { IoIosCheckmarkCircle } from "react-icons/io";
-import { PiListPlus } from "react-icons/pi";
+import { useContext } from "react";
 import { MoviesContext } from "@/context/MoviesContext";
 import AgregarLista from "../AgregarLista/AgregarLista";
 
 const CardSerie = ({ index, imagen_perfil, titulo, id, _id }) => {
   const router = useRouter();
-  const [isAdded, setIsAdded] = useState(false);
   const { miLista, handleAgregarMiLista, handleDeletePelicula } =
     useContext(MoviesContext);
-
-  useEffect(() => {
-    const Listas = miLista?.map((serie) => serie);
-    if (Listas?.includes(_id)) {
-      setIsAdded(true);
-    } else {
-      setIsAdded(false);
-    }
-  }, [miLista, _id]);
 
   return (
     <div
@@ -32,7 +20,12 @@ const CardSerie = ({ index, imagen_perfil, titulo, id, _id }) => {
         router.push(`/series/${idUrl}`);
       }}
     >
-      <AgregarLista isAdded={isAdded} _id={_id} handleAgregarMiLista={handleAgregarMiLista} handleDeletePelicula={handleDeletePelicula} />
+      <AgregarLista
+        _id={_id}
+        handleAgregarMiLista={handleAgregarMiLista}
+        handleDeletePelicula={handleDeletePelicula}
+        miLista={miLista}
+      />
       <Image
         src={imagen_perfil}
         width={500}
@@ -41,7 +34,9 @@ const CardSerie = ({ index, imagen_perfil, titulo, id, _id }) => {
         id={id}
         className="lg:w-72 md:w-72 sm:w-40 lg:h-72 md:h-72 sm:h-40 hover:opacity-50"
       />
-      <p className="lg:text-sm md:text-sm sm:text-[10px] mt-2 text-gray-400">{titulo}</p>
+      <p className="lg:text-sm md:text-sm sm:text-[10px] mt-2 text-gray-400">
+        {titulo}
+      </p>
     </div>
   );
 };

@@ -14,7 +14,6 @@ const TopSearch = ({
 }) => {
   return (
     <div className="flex flex-col items-start justify-center lg:w-10/12 md:w-10/12 sm:w-11/12">
-      {/* <TituloTop path={path} /> */}
       <div
         className="flex flex-row justify-between items-center lg:mt-10 md:mt-10 sm:mt-5 lg:text-base md:text-base sm:text-[10px]  w-full lg:h-10 md:h-10 sm:h-6"
         id="page"

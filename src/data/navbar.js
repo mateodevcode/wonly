@@ -1,3 +1,5 @@
+import { background } from "@chakra-ui/react";
+
 export const enlaces = [
   {
     nombre: "Series",
@@ -84,9 +86,10 @@ export const enlacesOrdenados = enlacesGenero.sort(function (a, b) {
 export const generos = {
   nombre: "Géneros",
   estilosLista: {
-    backgroundColor: "rgba(0, 0, 0, 0.9)",
+    // backgroundColor: "rgba(0, 0, 0, 0.9)",
+    backgroundColor: "#18181B",
     color: "white",
-    marginTop: "0.5rem",
+    marginTop: "1rem",
   },
 };
 

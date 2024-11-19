@@ -1,14 +1,31 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { PiListPlus } from "react-icons/pi";
 
-const AgregarLista = ({isAdded, _id, handleAgregarMiLista, handleDeletePelicula}) => {
+const AgregarLista = ({
+  _id,
+  handleAgregarMiLista,
+  handleDeletePelicula,
+  miLista,
+}) => {
+  const [isAdded, setIsAdded] = useState(false);
+
+  useEffect(() => {
+    const Listas = miLista?.map((pelicula) => pelicula);
+    if (Listas?.includes(_id)) {
+      setIsAdded(true);
+    } else {
+      setIsAdded(false);
+    }
+  }, [miLista, _id]);
+
   return (
-    <div className="w-full flex flex-row justify-center items-center">
+    <div className="w-full flex flex-row justify-center items-center" id={_id}>
       {isAdded ? (
         <>
           <button
-            className="bg-zinc-900 hover:bg-zinc-800 p-2 rounded-t-md w-full py-3"
+            className="bg-zinc-900 hover:bg-zinc-700 p-2 rounded-t-md w-full py-3"
             id={_id}
             onClick={handleDeletePelicula}
           >
