@@ -7,11 +7,11 @@ const Footer = () => {
   return (
     <div className="w-full bg-zinc-900 lg:pt-10 md:pt-10 sm:pt-5">
       <div className="w-full flex flex-col justify-between items-center">
-        <div className="w-full flex lg:flex-row sm:flex-col justify-between items-start lg:px-10 sm:px-2 text-white font-mono text-center">
+        <div className="w-full flex lg:flex-row sm:flex-col justify-between items-start  text-white font-mono text-center">
           <Tops />
           <Link
             href={"/"}
-            className="flex flex-col justify-center items-center lg:h-52 md:h-40 sm:h-16 lg:w-4/12 sm:w-full "
+            className="flex flex-col justify-center items-center lg:h-52 md:h-40 sm:h-16 lg:w-4/12 sm:w-full"
           >
             <Image
               src={logo.src}
