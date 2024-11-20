@@ -95,10 +95,10 @@ const AgregarContenido = () => {
   return (
     <>
       <button
-        className="font-semibold px-4 py-2 rounded-md flex flex-row justify-center items-center select-none cursor-pointer lg:text-base md:text-base sm:text-sm bg-green-600 hover:bg-green-600/80 text-white"
+        className="font-semibold lg:px-4 md:px-4 sm:px-2 lg:py-2 md:py-2 sm:py-1 rounded-md flex flex-row justify-center items-center select-none cursor-pointer lg:text-base md:text-base sm:text-sm bg-green-600 hover:bg-green-600/80 text-white"
         onClick={() => onOpen()}
       >
-        <IoIosAdd className="mr-2 text-2xl" /> Nueva Peticion
+        <IoIosAdd className="lg:mr-2 md:mr-5 sm:mr-1 lg:text-2xl md:text-2xl sm:text-sm" /> <span className="lg:text-base md:text-base sm:text-[8px]">Nueva Peticion</span>
       </button>
 
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
