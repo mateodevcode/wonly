@@ -34,7 +34,7 @@ const CardSerie = ({ index, imagen_perfil, titulo, id, _id }) => {
         id={id}
         className="lg:w-72 md:w-72 sm:w-40 lg:h-72 md:h-72 sm:h-40 hover:opacity-50"
       />
-      <p className="lg:text-sm md:text-sm sm:text-[10px] mt-2 text-gray-400">
+      <p className="lg:text-sm md:text-sm sm:text-[10px] lg:mt-2 md:mt-2 sm:mt-1 text-gray-400">
         {titulo}
       </p>
     </div>

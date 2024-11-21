@@ -1,5 +1,3 @@
-import React from "react";
-import TituloTop from "./TituloTop";
 import Link from "next/link";
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { BsSearch } from "react-icons/bs";
@@ -18,7 +16,7 @@ const TopSearch = ({
         className="flex flex-row justify-between items-center lg:mt-10 md:mt-10 sm:mt-5 lg:text-base md:text-base sm:text-[10px]  w-full lg:h-10 md:h-10 sm:h-6"
         id="page"
       >
-        <div className="bg-zinc-900 rounded-md text-sm text-gray-400 flex flex-row justify-center items-center p-1">
+        <div className="bg-zinc-900 rounded-md lg:text-sm md:text-sm sm:text-[8px] text-gray-400 flex flex-row justify-center items-center p-1">
           <Link
             href={`${path === "series" ? "/peliculas" : "/series"}`}
             className="font-semibold hover:bg-white lg:py-2 md:py-2 sm:py-1.5 px-3 cursor-pointer hover:text-black rounded-sm"
@@ -46,7 +44,7 @@ const TopSearch = ({
             }}
           >
             <InputLeftElement pointerEvents="none">
-              <BsSearch className="lg:text-base md:text-base sm:text-xs" />
+              <BsSearch className="lg:text-base md:text-base sm:text-[10px]" />
             </InputLeftElement>
             <Input
               className="placeholder-gray-400 text-white"

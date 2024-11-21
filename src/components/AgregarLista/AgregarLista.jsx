@@ -25,15 +25,15 @@ const AgregarLista = ({
       {isAdded ? (
         <>
           <button
-            className="bg-zinc-900 hover:bg-zinc-700 p-2 rounded-t-md w-full py-3"
+            className="bg-zinc-900 hover:bg-zinc-700 p-2 rounded-t-md w-full lg:py-3 md:py-3 sm:py-1.5"
             id={_id}
             onClick={handleDeletePelicula}
           >
             <p
               id={_id}
-              className="text-white text-xs flex flex-row justify-start items-center select-none"
+              className="text-white lg:text-xs md:text-xs sm:text-[10px] flex flex-row justify-start items-center select-none"
             >
-              <IoIosCheckmarkCircle id={_id} className="text-base mr-2" /> Ya
+              <IoIosCheckmarkCircle id={_id} className="lg:text-base md:text-base sm:text-xs mr-2" /> Ya
               esta agregada
             </p>
           </button>
@@ -41,15 +41,15 @@ const AgregarLista = ({
       ) : (
         <>
           <button
-            className="bg-gray-900 hover:bg-blue-700/20 p-2 rounded-t-md w-full py-3"
+            className="bg-gray-900 hover:bg-blue-700/20 p-2 rounded-t-md w-full lg:py-3 md:py-3 sm:py-1.5"
             id={_id}
             onClick={handleAgregarMiLista}
           >
             <p
               id={_id}
-              className="text-white text-xs flex flex-row justify-start items-center select-none"
+              className="text-white lg:text-xs md:text-xs sm:text-[10px] flex flex-row justify-start items-center select-none"
             >
-              <PiListPlus id={_id} className="text-base mr-2" /> Añadir a mi
+              <PiListPlus id={_id} className="lg:text-base md:text-base sm:text-xs mr-2" /> Añadir a mi
               lista
             </p>
           </button>

@@ -63,7 +63,7 @@ const Peticiones = () => {
 
   return (
     <div className="pt-20 pb-10 bg-black flex flex-col justify-start items-center w-full">
-      <div className="lg:w-7/12 md:w-7/12 sm:w-11/12 bg-zinc-900 rounded-md border-gray-700 border-[1px] lg:p-5 md:p-5 sm:p-3">
+      <div className="lg:w-7/12 md:w-10/12 sm:w-11/12 bg-zinc-900 rounded-md border-gray-700 border-[1px] lg:p-5 md:p-5 sm:p-3">
         <div className="w-full flex flex-row justify-between items-center">
           <div>
             <h1 className="text-white lg:text-2xl md:text-2xl sm:text-base font-semibold">
@@ -104,7 +104,7 @@ const Peticiones = () => {
                       </div>
 
                       <div className="flex flex-row justify-center items-center my-2">
-                        <div className="flex flex-row justify-center items-center lg:text-sm md:text-lg sm:text-[7px] text-gray-400 font-semibold">
+                        <div className="flex flex-row justify-center items-center lg:text-sm md:text-sm sm:text-[7px] text-gray-400 font-semibold">
                           <CiCalendar className="mr-1 lg:text-xl md:text-xl sm:text-xs" />
                           {convertirFecha(peticion.createdAt)}
                         </div>
@@ -123,13 +123,13 @@ const Peticiones = () => {
                             router.push(`/peticiones/${peticion._id}`);
                           }}
                         >
-                          <IoIosAdd className="lg:mr-2 md:mr-2 sm:mr-1 lg:text-2xl md:text-2xl sm:text-sm" /> Agregar
+                          <IoIosAdd className="lg:mr-2 md:mr-2 sm:mr-1 lg:text-2xl md:text-2xl sm:text-sm" /> <span className="lg:text-base md:text-sm sm:text-[7px]">Agregar</span>
                         </button>
                         <button
                           className="font-semibold lg:px-4 md:px-4 sm:px-2 lg:py-2 md:py-2 sm:py-1 rounded-md flex flex-row justify-center items-center select-none cursor-pointer lg:mx-1 md:mx-1 sm:mx-0 lg:text-sm md:text-[7px] sm:text-xs bg-red-500 hover:bg-red-600/80"
                           onClick={() => eliminarPeticion(peticion._id)}
                         >
-                         <RiDeleteBinLine className="lg:mr-2 md:mr-2 sm:mr-1 lg:text-xl md:text-xl sm:text-[10px]" />  <span className="lg:text-base md:text-base sm:text-[7px]">Eliminar</span>
+                         <RiDeleteBinLine className="lg:mr-2 md:mr-2 sm:mr-1 lg:text-xl md:text-xl sm:text-[10px]" />  <span className="lg:text-base md:text-sm sm:text-[7px]">Eliminar</span>
                         </button>
                       </div>
                     ) : null}
