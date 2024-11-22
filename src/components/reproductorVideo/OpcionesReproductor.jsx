@@ -6,7 +6,7 @@ const OpcionesReproductor = ({ url, setUrlSeleccionada }) => {
   const [options, setOptions] = useState(0);
 
   return (
-    <div className="text-sm flex w-full justify-start items-center gap-2 lg:px-0 md:px-5">
+    <div className="text-sm flex w-full justify-start items-center gap-2 lg:px-0 md:px-5 sm:px-2">
       {url.map((url, index) => (
         <div
           key={index}

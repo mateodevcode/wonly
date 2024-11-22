@@ -58,7 +58,7 @@ const BotonesNextBack = ({temporadaActual}) => {
           }
         }}
       >
-        <TbPlayerTrackNextFilled className="lg:text-3xl md:text-3xl sm:text-base mr-2 rotate-180" />{" "}
+        <TbPlayerTrackNextFilled className="lg:text-xl md:text-xl sm:text-base mr-2 rotate-180" />{" "}
         Episodio Anterior
       </div>
       <div
@@ -67,7 +67,7 @@ const BotonesNextBack = ({temporadaActual}) => {
             router.push(`/series/${params.serie}/${params.temporada}`);
         }}
       >
-        <CiViewList className="lg:text-3xl md:text-4xl sm:text-base mr-2" />
+        <CiViewList className="lg:text-2xl md:text-2xl sm:text-base mr-2" />
         Lista de Episodios
       </div>
       <div
@@ -86,7 +86,7 @@ const BotonesNextBack = ({temporadaActual}) => {
         }}
       >
         Episodio Siguiente
-        <TbPlayerTrackNextFilled className="lg:text-3xl md:text-4xl sm:text-base ml-2" />
+        <TbPlayerTrackNextFilled className="lg:text-xl md:text-xl sm:text-base ml-2" />
       </div>
     </div>
   );
