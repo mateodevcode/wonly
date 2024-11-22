@@ -10,8 +10,8 @@ const NavbarRight = () => {
 
   return (
     <div className="flex flex-row justify-center items-center lg:mx-10 md:mx-10 sm:mx-2">
-      <BloquearAnuncios />
-      {status === "authenticated" && <MiLista />}
+      {/* <BloquearAnuncios /> */}
+      {/* {status === "authenticated" && <MiLista />} */}
       <NavbarLogin menuResponsive={false} />
       <MenuHamburguer menuResponsive={false} />
     </div>

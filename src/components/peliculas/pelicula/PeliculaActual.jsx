@@ -62,8 +62,8 @@ const PeliculaActual = () => {
       </div>
       <div className="flex flex-col justify-center items-center w-full bg-black text-white">
         <div className="flex flex-col items-start justify-center lg:w-10/12 md:w-10/12 sm:w-11/12">
-          <div className="flex flex-row justify-start items-center lg:text-base md:text-base sm:text-sm bg-gray-900 w-full h-10">
-            <p className="font-semibold hover:bg-green-600/50 py-2 px-3 select-none">
+          <div className="flex flex-row justify-start items-center lg:text-base md:text-base sm:text-sm bg-white text-black rounded-md">
+            <p className="font-semibold py-2 px-3 select-none">
               {path === "peliculas"
                 ? "Peliculas Similares"
                 : "Series Similares"}

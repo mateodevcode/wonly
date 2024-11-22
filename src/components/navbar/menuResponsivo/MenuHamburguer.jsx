@@ -7,7 +7,6 @@ import {
   Drawer,
   DrawerCloseButton,
   DrawerContent,
-  DrawerFooter,
   DrawerOverlay,
   Tooltip,
   useDisclosure,
@@ -20,7 +19,7 @@ function MenuHamburguer() {
 
   return (
     <>
-      <Tooltip label="Menú" fontSize="md" bg="green.600">
+      <Tooltip label="Menú" fontSize="md" bg="white" color={"black"}>
         <span>
         <RxHamburgerMenu
         className="mx-2 text-2xl dark:text-white dark:hover:text-gray-300 cursor-pointer lg:hidden md:flex sm:flex"
@@ -37,11 +36,10 @@ function MenuHamburguer() {
               <div className="my-10 lg:w-40 md:w-40 sm:w-32">
                 <Logo />
               </div>
-              <MiLista menuResponsive={true} />
               <div className="flex flex-row justify-center items-center w-full">
                 <Link
                   href={"/"}
-                  className="hover:bg-green-600 w-full p-2 text-center"
+                  className="hover:bg-white hover:text-black w-24 p-2 text-center rounded-md font-semibold"
                   onClick={onClose}
                 >
                   Inicio
@@ -54,20 +52,21 @@ function MenuHamburguer() {
                 >
                   <Link
                     href={enlace.Url}
-                    className="hover:bg-green-600 w-full p-2 text-center"
+                    className="hover:bg-white hover:text-black w-24 p-2 text-center rounded-md font-semibold"
                   >
                     {enlace.nombre}
                   </Link>
                 </div>
               ))}
-              <div className="flex flex-row justify-center items-center w-full">
+                            <MiLista menuResponsive={true} />
+              {/* <div className="flex flex-row justify-center items-center w-full">
                 <Link
                   href="/api"
                   className="hover:bg-green-600 w-full p-2 text-center"
                 >
                   REST API
                 </Link>
-              </div>
+              </div> */}
             </div>
             <div>
               <NavbarLogin menuResponsive={true} />

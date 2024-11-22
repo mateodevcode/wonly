@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaRegListAlt } from "react-icons/fa";
+import { TbPlayerTrackNextFilled } from "react-icons/tb";
+import { CiViewList } from "react-icons/ci";
 
 const BotonesNextBack = ({temporadaActual}) => {
   const [temporada, setTemporada] = useState([]);
@@ -40,9 +42,9 @@ const BotonesNextBack = ({temporadaActual}) => {
 
 
   return (
-    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full xl:w-[1440px] lg:w-[950px] md:w-[750px]">
+    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full xl:w-[1440px] lg:w-[950px] md:w-[750px] px-2">
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base ${numeroEpisodio === 1 ? "hidden" : ""}`}
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-xs ${numeroEpisodio === 1 ? "hidden" : ""}`}
         onClick={() => {
           if (numeroEpisodio === 1) {
             router.push(`/series/${params.serie}/${params.temporada}`);
@@ -56,20 +58,20 @@ const BotonesNextBack = ({temporadaActual}) => {
           }
         }}
       >
-        <TiArrowBack className="lg:text-3xl md:text-3xl sm:text-base mr-2" />{" "}
+        <TbPlayerTrackNextFilled className="lg:text-3xl md:text-3xl sm:text-base mr-2 rotate-180" />{" "}
         Episodio Anterior
       </div>
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base ${temporadaActual?.length === numeroEpisodio || numeroEpisodio === 1 ? "" : "hidden"}`}
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-xs ${temporadaActual?.length === numeroEpisodio || numeroEpisodio === 1 ? "" : "hidden"}`}
         onClick={() => {
             router.push(`/series/${params.serie}/${params.temporada}`);
         }}
       >
-        <FaRegListAlt className="lg:text-3xl md:text-4xl sm:text-base mr-2" />
+        <CiViewList className="lg:text-3xl md:text-4xl sm:text-base mr-2" />
         Lista de Episodios
       </div>
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-base ${temporadaActual?.length === numeroEpisodio ? "hidden" : ""}`}
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-xs ${temporadaActual?.length === numeroEpisodio ? "hidden" : ""}`}
         onClick={() => {
           if (numeroEpisodio === numeroEpisodios) {
             router.push(`/series/${params.serie}/${params.temporada}`);
@@ -84,7 +86,7 @@ const BotonesNextBack = ({temporadaActual}) => {
         }}
       >
         Episodio Siguiente
-        <TiArrowForward className="lg:text-3xl md:text-4xl sm:text-base ml-2" />
+        <TbPlayerTrackNextFilled className="lg:text-3xl md:text-4xl sm:text-base ml-2" />
       </div>
     </div>
   );

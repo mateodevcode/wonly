@@ -18,7 +18,7 @@ const Footer = () => {
               width={800}
               height={800}
               alt={logo.alt}
-              className="lg:w-72 md:w-72 sm:w-40 lg:h-20 md:h-20 sm:h-12"
+              className="lg:w-68 md:w-72 sm:w-40 lg:h-20 md:h-20 sm:h-12"
             />
           </Link>
         </div>

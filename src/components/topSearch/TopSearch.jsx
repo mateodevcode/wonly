@@ -33,7 +33,7 @@ const TopSearch = ({
             </Link>
           ))}
         </div>
-        <div className="flex flex-row justify-center items-center">
+        <div className="flex flex-row justify-center items-center ml-8">
           <InputGroup
           className="bg-zinc-900 rounded-md text-sm text-gray-400 flex flex-row justify-center items-center"
             size={{
@@ -51,6 +51,12 @@ const TopSearch = ({
               type="text"
               placeholder="Buscar"
               fontFamily={"monospace"}
+              fontSize={{
+                base: "10",
+                sm: "md",
+                md: "md",
+                lg: "md",
+              }}
               border={"none"}
               onChange={(e) => {
                 setInicio(0);

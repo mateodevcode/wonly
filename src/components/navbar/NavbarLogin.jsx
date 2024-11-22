@@ -51,7 +51,8 @@ const NavbarLogin = ({ menuResponsive }) => {
               status === "authenticated" ? session?.user?.name : "Perfil"
             }`}
             fontSize="md"
-            bg="green.600"
+            bg="white"
+            color={"black"}
           >
             <span className={`${menuResponsive ? "hidden" : "flex"}`}>
               {session?.user?.email && (
@@ -77,14 +78,14 @@ const NavbarLogin = ({ menuResponsive }) => {
           {status === "authenticated" ? (
             <div>
               <div className={`${menuResponsive ? "hidden" : "flex"}`}>
-                <Tooltip label="Cerrar Sesión" fontSize="md" bg="green.600">
+                {/* <Tooltip label="Cerrar Sesión" fontSize="md" bg="green.600">
                   <div
                     className="bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-2 rounded mx-0 flex flex-row justify-center items-center"
                     onClick={() => signOut()}
                   >
                     <LuLogOut className="text-xl" />
                   </div>
-                </Tooltip>
+                </Tooltip> */}
               </div>
               <div
                 className={`${
@@ -96,7 +97,7 @@ const NavbarLogin = ({ menuResponsive }) => {
                 <p className="text-white text-sm">{session?.user?.name}</p>
                 <button
                   className={`bg-white hover:bg-white/90 text-black font-bold py-2 px-4 rounded mx-2 lg:text-base md:text-sm sm:text-xs lg:flex md:flex ${
-                    menuResponsive ? "sm:flex my-5" : "sm:hidden"
+                    menuResponsive ? "sm:flex mb-5 mt-2" : "sm:hidden"
                   }`}
                   onClick={() => signOut()}
                 >
@@ -107,13 +108,15 @@ const NavbarLogin = ({ menuResponsive }) => {
           ) : (
             <div className="flex flex-row justify-center items-center">
               <button
-                className="bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded mx-2 lg:text-base md:text-sm sm:text-xs"
+                className={`bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded mx-2 lg:text-sm md:text-sm sm:text-xs lg:flex md:flex ${
+                  menuResponsive ? "sm:flex my-5" : "sm:hidden"
+                }`}
                 onClick={() => router.push("/login")}
               >
                 Iniciar Sesión
               </button>
               <button
-                className={`bg-white hover:bg-white/90 text-black font-bold py-2 px-4 rounded mx-2 lg:text-base md:text-sm sm:text-xs lg:flex md:flex ${
+                className={`bg-white hover:bg-white/90 text-black font-bold py-2 px-4 rounded mx-2 lg:text-sm md:text-sm sm:text-xs lg:flex md:flex ${
                   menuResponsive ? "sm:flex my-5" : "sm:hidden"
                 }`}
                 onClick={() => router.push("/register")}

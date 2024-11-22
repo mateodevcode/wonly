@@ -37,7 +37,7 @@ const Pelicula = ({ index, imagen_perfil, titulo, id, year, _id }) => {
         height={500}
         alt={titulo}
         id={id}
-        className="lg:w-72 md:w-72 sm:w-40 lg:h-72 md:h-72 sm:h-40 hover:opacity-50"
+        className="lg:w-72 md:w-60 sm:w-40 lg:h-72 md:h-60 sm:h-40 hover:opacity-50"
       />
       <p className="lg:text-sm md:text-sm sm:text-[10px] lg:mt-2 md:mt-2 sm:mt-2 text-gray-400">
         {titulo}

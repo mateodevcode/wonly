@@ -9,7 +9,7 @@ const Logo = () => {
         src={logo.src}
         width={150}
         height={150}
-        className="select-none lg:w-40 md:w-40 sm:w-40 lg:h-12 md:h-12 sm:h-10 cursor-pointer"
+        className="select-none lg:w-40 md:w-40 sm:w-36 lg:h-12 md:h-12 sm:h-9 cursor-pointer"
         alt={logo.alt}
         title={logo.alt}
       />

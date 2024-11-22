@@ -11,11 +11,11 @@ export default function NotFound() {
             <Link href={"/"} className='my-5'>
                 <Image src={logo.src} alt={logo.src} width={400} height={400} className='w-80 h-24' />
             </Link>
-            <div className='my-5 font-mono'>
+            <div className='my-5'>
                 <h1 className='text-5xl font-bold text-white'>404 - Página no encontrada</h1>
             </div>
             <h2 className='my-5'>
-                <Link href='/' className='bg-blue-700/50 text-white px-3 py-2 rounded-lg'>
+                <Link href='/' className='bg-white text-black px-4 py-2 rounded-md font-semibold hover:bg-white/90'>
                     Volver al inicio
                 </Link>
             </h2>

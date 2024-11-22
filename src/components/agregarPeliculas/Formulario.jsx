@@ -6,7 +6,7 @@ import { TbDeviceTv, TbMovie } from "react-icons/tb";
 const Formulario = ({ setNombre, setEmail, setTipo, onClose, handlePeticiones, tipo }) => {
 
   return (
-    <div className="w-[500px] bg-zinc-700 h-min lg:mt-24 md:mt-24 sm:mt-20 rounded-lg border-[1px] border-gray-600">
+    <div className="lg:w-[500px] md:w-[500px] sm:w-full bg-zinc-700 h-min lg:mt-24 md:mt-24 sm:mt-20 rounded-lg border-[1px] border-gray-600">
       <div className="flex flex-col justify-start items-start px-5 pt-5">
         <p className="text-2xl font-semibold text-white">
           ¿Te gustaría agregar nuevo contenido?

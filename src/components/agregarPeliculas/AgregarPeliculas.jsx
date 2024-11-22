@@ -94,12 +94,10 @@ const AgregarPeliculas = () => {
   return (
     <>
       <Tooltip
-        label="Agregar pelicula"
-        fontSize="medium"
-        color={"white"}
-        bg={"rebeccapurple"}
-        px={10}
-        py={5}
+        label="Añadir contenido"
+        fontSize="md"
+        bg="white"
+        color={"black"}
       >
         <div
           onClick={() => {

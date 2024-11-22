@@ -15,7 +15,7 @@ const ReproductorVideo = ({tipoMovie, titulo, descripcion, duracion, url, setUrl
         />
         <IframeVideo UrlSeleccionada={UrlSeleccionada} />
       </div>
-      <BotonPantallaCompleta />
+      {/* <BotonPantallaCompleta /> */}
       {tipoMovie === "serie" ? <BotonesNextBack temporadaActual={temporadaActual} /> : null}
       <CardDescripcion
         titulo={titulo}
