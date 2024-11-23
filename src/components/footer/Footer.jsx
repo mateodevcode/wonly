@@ -5,7 +5,7 @@ import { logo } from "@/data/navbar";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-zinc-900 lg:pt-10 md:pt-10 sm:pt-5">
+    <div className="w-full bg-zinc-900 lg:pt-10 md:pt-10 sm:pt-0">
       <div className="w-full flex flex-col justify-between items-center">
         <div className="w-full flex lg:flex-row md:flex-row sm:flex-col justify-between items-start  text-white font-mono text-center">
           <Tops />

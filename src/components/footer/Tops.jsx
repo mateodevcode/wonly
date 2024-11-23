@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Tops = () => {
   return (
-    <div className="lg:w-8/12 md:w-8/12 sm:w-full grid grid-cols-3 gap-0">
+    <div className="lg:w-8/12 md:w-8/12 sm:w-full grid grid-cols-3 gap-0 sm:hidden">
       {tops.map((top, i) => (
         <div
           key={i}
