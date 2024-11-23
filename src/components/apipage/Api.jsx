@@ -7,8 +7,6 @@ import Link from "next/link";
 const Api = () => {
   const [lenguaje, setLenguaje] = useState("nodejs");
 
-  console.log(lenguaje);
-
   return (
     <div className="lg:w-8/12 md:w-8/12 sm:w-full flex flex-col justify-start items-center">
       <div className="w-full flex flex-row items-center justify-center">

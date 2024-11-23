@@ -40,8 +40,6 @@ const PeliculaActual = () => {
   const filtrarPeliculas = Data.filter((pelicula) =>
     pelicula.generos.includes(genero)
   );
-
-  console.log(filtrarPeliculas);
   
 
   return (
