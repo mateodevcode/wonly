@@ -16,14 +16,14 @@ const ReproductorVideo = ({tipoMovie, titulo, descripcion, duracion, url, setUrl
         <IframeVideo UrlSeleccionada={UrlSeleccionada} />
       </div>
       {/* <BotonPantallaCompleta /> */}
-      {/* {tipoMovie === "serie" ? <BotonesNextBack temporadaActual={temporadaActual} /> : null} */}
-      <CardDescripcion
+      {tipoMovie === "serie" ? <BotonesNextBack temporadaActual={temporadaActual} /> : null}
+      {/* <CardDescripcion
         titulo={titulo}
         descripcion={descripcion}
         duracion={duracion}
         temporada={temporada}
         episodio={episodio}
-      />
+      /> */}
     </div>
   );
 };
