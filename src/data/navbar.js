@@ -8,10 +8,6 @@ export const enlaces = [
   {
     nombre: "Peliculas",
     Url: "/peliculas",
-  },
-  {
-    nombre: "Peticiones",
-    Url: "/peticiones",
   }
   // {
   //   nombre: "Blog",

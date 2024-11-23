@@ -58,6 +58,13 @@ function MenuHamburguer() {
                   </Link>
                 </div>
               ))}
+              <Link
+                  href={"/peticiones"}
+                  className="hover:bg-white hover:text-black w-24 p-2 text-center rounded-md font-semibold"
+                  onClick={onClose}
+                >
+                  Peticiones
+                </Link>
                             <MiLista menuResponsive={true} />
               {/* <div className="flex flex-row justify-center items-center w-full">
                 <Link
