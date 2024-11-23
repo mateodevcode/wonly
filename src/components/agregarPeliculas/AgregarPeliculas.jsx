@@ -62,7 +62,7 @@ const AgregarPeliculas = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ nombre, email }),
+        body: JSON.stringify({ nombre, email, tipo }),
       });
 
       if (res.ok) {
