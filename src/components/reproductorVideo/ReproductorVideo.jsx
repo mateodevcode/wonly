@@ -17,13 +17,13 @@ const ReproductorVideo = ({tipoMovie, titulo, descripcion, duracion, url, setUrl
       </div>
       {/* <BotonPantallaCompleta /> */}
       {tipoMovie === "serie" ? <BotonesNextBack temporadaActual={temporadaActual} /> : null}
-      {/* <CardDescripcion
+      <CardDescripcion
         titulo={titulo}
         descripcion={descripcion}
         duracion={duracion}
         temporada={temporada}
         episodio={episodio}
-      /> */}
+      />
     </div>
   );
 };
