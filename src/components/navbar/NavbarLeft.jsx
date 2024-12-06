@@ -23,7 +23,13 @@ const NavbarLeft = () => {
         >
           Peticiones
         </Link>
-        <Tooltip
+        <Link
+          href="/maraton"
+          className=" font-semibold mx-0.5 p-2 px-3 hover:bg-black/20 hover:text-black hover:bg-white rounded-md select-none cursor-pointer text-white text-sm"
+        >
+          Maratones
+        </Link>
+        {/* <Tooltip
           label="API Peliculas y Series"
           fontSize="md"
           color={"white"}
@@ -36,7 +42,7 @@ const NavbarLeft = () => {
           >
             REST API
           </Link>
-        </Tooltip>
+        </Tooltip> */}
       </div>
     </div>
   );

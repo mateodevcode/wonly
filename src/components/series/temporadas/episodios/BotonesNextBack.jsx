@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { FaRegListAlt } from "react-icons/fa";
 import { TbPlayerTrackNextFilled } from "react-icons/tb";
 import { CiViewList } from "react-icons/ci";
+import { IoIosArrowBack } from "react-icons/io";
+import { GoListUnordered } from "react-icons/go";
 
 const BotonesNextBack = ({temporadaActual}) => {
   const [temporada, setTemporada] = useState([]);
@@ -42,9 +44,9 @@ const BotonesNextBack = ({temporadaActual}) => {
 
 
   return (
-    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full xl:w-[1440px] lg:w-[950px] md:w-[750px] px-2">
+    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full xl:w-[1440px] lg:w-[950px] md:w-[750px]">
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-xs ${numeroEpisodio === 1 ? "hidden" : ""}`}
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-black hover:bg-white lg:text-sm md:text-sm sm:text-xs ${numeroEpisodio === 1 ? "hidden" : ""} py-2 px-3 rounded-md`}
         onClick={() => {
           if (numeroEpisodio === 1) {
             router.push(`/series/${params.serie}/${params.temporada}`);
@@ -58,20 +60,19 @@ const BotonesNextBack = ({temporadaActual}) => {
           }
         }}
       >
-        <TbPlayerTrackNextFilled className="lg:text-xl md:text-xl sm:text-base mr-2 rotate-180" />{" "}
-        Episodio Anterior
+        <IoIosArrowBack className="lg:text-base md:text-base sm:text-base mr-2" />{" "}
+        <p className="">Episodio Anterior</p>
       </div>
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-xs ${temporadaActual?.length === numeroEpisodio || numeroEpisodio === 1 ? "" : "hidden"}`}
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:bg-white hover:text-black lg:text-lg md:text-lg sm:text-xs ${temporadaActual?.length === numeroEpisodio || numeroEpisodio === 1 ? "" : "hidden"} p-2 rounded-md`}
         onClick={() => {
             router.push(`/series/${params.serie}/${params.temporada}`);
         }}
       >
-        <CiViewList className="lg:text-2xl md:text-2xl sm:text-base mr-2" />
-        Lista de Episodios
+        <GoListUnordered className="lg:text-lg md:text-lg sm:text-base" />
       </div>
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-white/50 lg:text-lg md:text-lg sm:text-xs ${temporadaActual?.length === numeroEpisodio ? "hidden" : ""}`}
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-black hover:bg-white lg:text-sm md:text-sm sm:text-xs ${temporadaActual?.length === numeroEpisodio ? "hidden" : ""} py-2 px-3 rounded-md`}
         onClick={() => {
           if (numeroEpisodio === numeroEpisodios) {
             router.push(`/series/${params.serie}/${params.temporada}`);
@@ -86,7 +87,7 @@ const BotonesNextBack = ({temporadaActual}) => {
         }}
       >
         Episodio Siguiente
-        <TbPlayerTrackNextFilled className="lg:text-xl md:text-xl sm:text-base ml-2" />
+        <IoIosArrowBack className="lg:text-base md:text-base sm:text-base ml-2 rotate-180" />
       </div>
     </div>
   );

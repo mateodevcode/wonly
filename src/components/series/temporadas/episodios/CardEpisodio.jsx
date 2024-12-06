@@ -31,8 +31,6 @@ const CardEpisodio = ({
     };
     cargarEpisodios();
   }, []);
-
-  console.log(temporadaActual);
   
 
   return (
