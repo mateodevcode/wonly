@@ -25,9 +25,9 @@ function MarathonCard({ name, link, description }) {
 export default function MovieMarathonList() {
   return (
     <div className="mx-auto py-10 px-4 lg:w-11/12 md:w-11/12 sm:w-[98%]">
-      <h1 className="lg:text-4xl md:text-3xl sm:text-2xl font-bold mb-6 text-center">
+      {/* <h1 className="lg:text-4xl md:text-3xl sm:text-2xl font-bold mb-6 text-center">
         Maratones de Películas y Series
-      </h1>
+      </h1> */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 border-[1px] border-gray-300 p-4 rounded-md">
         {maraton.map((item, index) => (
           <MarathonCard key={index} {...item} />

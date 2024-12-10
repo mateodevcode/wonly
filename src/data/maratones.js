@@ -922,6 +922,7 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "izquierda",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/harry-potter-y-la-piedra-filosofal"
       },
       {
         nombre: "Harry Potter y la cámara secreta",
@@ -929,6 +930,7 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "derecha",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/harry-potter-y-la-camara-secreta"
       },
       {
         nombre: "Harry Potter y el prisionero de Azkaban",
@@ -936,6 +938,7 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "izquierda",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/harry-potter-y-el-prisionero-de-azkaban"
       },
       {
         nombre: "Harry Potter y el cáliz de fuego",
@@ -943,6 +946,7 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "derecha",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/harry-potter-y-el-caliz-de-fuego"
       },
       {
         nombre: "Harry Potter y la Orden del Fénix",
@@ -950,6 +954,7 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "izquierda",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/harry-potter-y-la-orden-del-fenix"
       },
       {
         nombre: "Harry Potter y el misterio del príncipe",
@@ -957,6 +962,7 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "derecha",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/harry-potter-y-el-misterio-del-principe"
       },
       {
         nombre: "Harry Potter y las reliquias de la muerte - Parte 1",
@@ -964,6 +970,7 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "izquierda",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/harry-potter-y-las-reliquias-de-la-muerte-parte-1"
       },
       {
         nombre: "Harry Potter y las reliquias de la muerte - Parte 2",
@@ -971,7 +978,32 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "derecha",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/harry-potter-y-las-reliquias-de-la-muerte-parte-2"
       },
+      {
+        nombre: "Animales fantásticos y dónde encontrarlos",
+        fecha: "1926",
+        TipoMovie: "pelicula",
+        TipoLado: "izquierda",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/animales-fantasticos-y-donde-encontrarlos"
+      },
+      {
+        nombre: "Animales fantásticos: Los crímenes de Grindelwald",
+        fecha: "1927",
+        TipoMovie: "pelicula",
+        TipoLado: "derecha",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/animales-fantasticos-los-crimenes-de-grindelwald"
+      },
+      {
+        nombre: "Animales fantásticos: Los secretos de Dumbledore",
+        fecha: "1928",
+        TipoMovie: "pelicula",
+        TipoLado: "izquierda",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/animales-fantasticos-los-secretos-de-dumbledore"
+      }
     ],
   },
   rapidos_y_furiosos: {
@@ -1049,4 +1081,57 @@ export const maratones = {
       },
     ],
   },
+  john_wick: {
+    titulo: "Maratón de John Wick",
+    contenido: [
+      {
+        nombre: "The Continental",
+        fecha: "2023",
+        TipoMovie: "serie",
+        TipoLado: "izquierda",
+        temporada: "T1",
+        enlace: "https://wonly.vercel.app/series/el-continental-del-universo-de-john-wick/temporada-1"
+      },
+      {
+        nombre: "John Wick",
+        fecha: "2014",
+        TipoMovie: "pelicula",
+        TipoLado: "derecha",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/john-wick-1"
+      },
+      {
+        nombre: "John Wick: Pacto de sangre",
+        fecha: "2017",
+        TipoMovie: "pelicula",
+        TipoLado: "izquierda",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/john-wick-2"
+      },
+      {
+        nombre: "John Wick 3: Parabellum",
+        fecha: "2019",
+        TipoMovie: "pelicula",
+        TipoLado: "derecha",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/john-wick-3"
+      },
+      {
+        nombre: "Ballerina",  
+        fecha: "Proximamente",
+        TipoMovie: "pelicula",
+        TipoLado: "izquierda",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/not-found"
+      },
+      {
+        nombre: "John Wick 4",
+        fecha: "2022",
+        TipoMovie: "pelicula",
+        TipoLado: "derecha",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/john-wick-4"
+      },
+    ],
+  }
 };

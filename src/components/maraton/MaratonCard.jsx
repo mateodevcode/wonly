@@ -37,6 +37,7 @@ const MaratonCard = ({titulo, height, contenido}) => {
               <TipoMovie
                 tipoDeMovie={movie.TipoMovie}
                 tipoDeLado={movie.TipoLado}
+                enlace={movie.enlace}
               />
             </div>
           ))}
@@ -57,6 +58,7 @@ const MaratonCard = ({titulo, height, contenido}) => {
               <TipoMovie
                 tipoDeMovie={movie.TipoMovie}
                 tipoDeLado={movie.TipoLado}
+                enlace={movie.enlace}
               />
               <div className="bg-white w-96 p-5 rounded-md">
                 <p className="text-lg font-bold">{movie.nombre}</p>

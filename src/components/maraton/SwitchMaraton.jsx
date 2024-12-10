@@ -12,11 +12,15 @@ const SwitchMaraton = () => {
       )
     case 'harry-potter':
       return (
-        <MaratonCard titulo={maratones.harry_potter.titulo} height={"h-[1100px]"} contenido={maratones.harry_potter.contenido} />
+        <MaratonCard titulo={maratones.harry_potter.titulo} height={"h-[1500px]"} contenido={maratones.harry_potter.contenido} />
         )
     case 'rapidos-y-furiosos':
       return (
         <MaratonCard titulo={maratones.rapidos_y_furiosos.titulo} height={"h-[1300px]"} contenido={maratones.rapidos_y_furiosos.contenido} />
+      )
+    case 'john-wick':
+      return (
+        <MaratonCard titulo={maratones.john_wick.titulo} height={"h-[900px]"} contenido={maratones.john_wick.contenido} />
       )
   }
 }
