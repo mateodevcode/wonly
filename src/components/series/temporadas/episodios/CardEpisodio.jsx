@@ -47,7 +47,7 @@ const CardEpisodio = ({
         temporada={temporada}
         episodio={episodio}
       />
-      <div className="sm:w-full xl:w-[1440px] lg:w-[950px] md:w-[750px] px-2">
+      <div className="w-full px-2">
         {temporadaActual.map((epi, index) => (
           <CardEpisodios
             key={index}

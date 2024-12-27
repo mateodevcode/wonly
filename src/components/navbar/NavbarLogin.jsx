@@ -1,11 +1,10 @@
 "use client";
-import { Tooltip } from "@chakra-ui/react";
+import { Spinner, Tooltip } from "@chakra-ui/react";
 import { useSession, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { BsPersonCircle } from "react-icons/bs";
 import { LuLogOut } from "react-icons/lu";
 
 const NavbarLogin = ({ menuResponsive }) => {
@@ -43,34 +42,39 @@ const NavbarLogin = ({ menuResponsive }) => {
   return (
     <>
       {status === "loading" ? (
-        <p className="text-white mx-1">Cargando...</p>
+        <div className="xl:mx-5 lg:mx-5 md:mx-2 sm:mx-2">
+          <Spinner
+            speed="0.5s"
+            emptyColor="gray.100"
+            color="blue.900"
+            size="md"
+          />
+        </div>
       ) : (
         <div className="flex flex-row justify-center items-center">
           <Tooltip
             label={`${
               status === "authenticated" ? session?.user?.name : "Perfil"
             }`}
-            fontSize="md"
-            bg="white"
-            color={"black"}
+            fontSize="small"
+            bg="black"
+            color="white"
+            rounded={5}
+            paddingBottom={1}
           >
             <span className={`${menuResponsive ? "hidden" : "flex"}`}>
               {session?.user?.email && (
                 <Link href={`/perfil/${Usuario?._id}`}>
-                  {session?.user?.image === "" ? (
-                    <BsPersonCircle className="text-white text-2xl" />
-                  ) : (
-                    <Image
-                      src={
-                        session?.user?.image ||
-                        "https://i.postimg.cc/QNq4MwGh/imagen-perfil.png"
-                      }
-                      alt={session?.user?.name || "Imagen de perfil"}
-                      height={50}
-                      width={50}
-                      className="mx-2 w-8 h-8 cursor-pointer rounded-full"
-                    />
-                  )}
+                  <Image
+                    src={
+                      session?.user?.image ||
+                      "https://i.postimg.cc/QNq4MwGh/imagen-perfil.png"
+                    }
+                    alt={session?.user?.name || "Imagen de perfil"}
+                    height={50}
+                    width={50}
+                    className="mx-2 w-8 h-8 cursor-pointer rounded-full"
+                  />
                 </Link>
               )}
             </span>
@@ -78,37 +82,53 @@ const NavbarLogin = ({ menuResponsive }) => {
           {status === "authenticated" ? (
             <div>
               <div className={`${menuResponsive ? "hidden" : "flex"}`}>
-                {/* <Tooltip label="Cerrar Sesión" fontSize="md" bg="green.600">
+                <Tooltip
+                  label="Cerrar Sesión"
+                  fontSize="small"
+                  bg="black"
+                  color="white"
+                  rounded={5}
+                  paddingBottom={1}
+                >
                   <div
                     className="bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-2 rounded mx-0 flex flex-row justify-center items-center"
                     onClick={() => signOut()}
                   >
-                    <LuLogOut className="text-xl" />
+                    <LuLogOut className="text-base" />
                   </div>
-                </Tooltip> */}
+                </Tooltip>
               </div>
               <div
-                className={`${
+                className={`w-full  ${
                   menuResponsive
                     ? "flex flex-col justify-center items-center"
                     : "hidden"
                 }`}
               >
-                <p className="text-white text-sm">{session?.user?.name}</p>
-                <button
-                  className={`bg-white hover:bg-white/90 text-black font-bold py-2 px-4 rounded mx-2 lg:text-base md:text-sm sm:text-xs lg:flex md:flex ${
-                    menuResponsive ? "sm:flex mb-5 mt-2" : "sm:hidden"
-                  }`}
-                  onClick={() => signOut()}
-                >
-                  Cerrar Sesión
-                </button>
+                <p className="text-white text-xs">{session?.user?.name}</p>
+                <div className="w-full flex flex-row justify-between items-center my-2">
+                  <Image
+                    src={session?.user?.image}
+                    alt="Imagen de perfil"
+                    height={50}
+                    width={50}
+                    className="mx-2 w-8 h-8 cursor-pointer rounded-full"
+                  />
+                  <button
+                    className={`bg-white hover:bg-white/90 text-black font-bold py-2 px-4 rounded mx-2 lg:text-base md:text-sm sm:text-xs lg:flex md:flex ${
+                      menuResponsive ? "sm:flex" : "sm:hidden"
+                    }`}
+                    onClick={() => signOut()}
+                  >
+                    Cerrar Sesión
+                  </button>
+                </div>
               </div>
             </div>
           ) : (
             <div className="flex flex-row justify-center items-center">
               <button
-                className={`bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded mx-2 lg:text-sm md:text-sm sm:text-xs lg:flex md:flex ${
+                className={`bg-white/10 hover:bg-white/20 text-white font-semibold py-2 px-4 rounded mx-1 lg:text-xs md:text-xs sm:text-xs lg:flex md:flex ${
                   menuResponsive ? "sm:flex my-5" : "sm:hidden"
                 }`}
                 onClick={() => router.push("/login")}
@@ -116,7 +136,7 @@ const NavbarLogin = ({ menuResponsive }) => {
                 Iniciar Sesión
               </button>
               <button
-                className={`bg-white hover:bg-white/90 text-black font-bold py-2 px-4 rounded mx-2 lg:text-sm md:text-sm sm:text-xs lg:flex md:flex ${
+                className={`bg-white hover:bg-white/90 text-black font-semibold py-2 px-4 rounded mx-1 lg:text-xs md:text-xs sm:text-xs xl:flex lg:hidden md:flex smd:hidden ${
                   menuResponsive ? "sm:flex my-5" : "sm:hidden"
                 }`}
                 onClick={() => router.push("/register")}

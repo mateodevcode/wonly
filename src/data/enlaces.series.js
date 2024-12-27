@@ -4,7 +4,7 @@ export const enlacesSeries = [
     Url: "/novedades",
   },
   {
-    nombre: "Proximanente",
-    Url: "/proximanente",
+    nombre: "Mi lista",
+    Url: "#",
   },
 ];

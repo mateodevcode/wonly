@@ -24,7 +24,7 @@ const CardTemporadas = ({ index, temporada, url, linkTo, serie }) => {
         height={500}
         alt={"temporada"}
         id={linkTo}
-        className="lg:w-72 md:w-72 sm:w-40 lg:h-72 md:h-72 sm:h-40 hover:opacity-50"
+        className="w-full h-full object-cover hover:opacity-50"
       />
       <div className="lg:text-sm md:text-sm sm:text-[10px] mt-2 text-gray-400 flex flex-row justify-center items-center select-none">
         <FaPlay className="mx-2" />

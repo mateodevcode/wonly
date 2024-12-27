@@ -1,5 +1,3 @@
-import { background } from "@chakra-ui/react";
-
 export const enlaces = [
   {
     nombre: "Series",

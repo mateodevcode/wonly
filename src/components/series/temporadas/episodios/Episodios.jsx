@@ -76,7 +76,7 @@ const Episodios = () => {
         </div>
       )}
       <div
-        className="w-full h-svh"
+        className="w-full h-[500px]"
         style={{
           backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)),url('${imagenFondo.imagen_fondo}')`,
           backgroundSize: "cover",
@@ -84,19 +84,19 @@ const Episodios = () => {
         }}
       >
         {tempActual && (
-          <div className="flex flex-col justify-center items-center h-screen">
-            <h2 className="lg:text-7xl md:text-7xl sm:text-4xl text-white font-semibold">{tempActual}</h2>
+          <div className="flex flex-col justify-center items-center h-[500px]">
+            <h2 className="lg:text-7xl md:text-7xl smd:text-5xl sm:text-4xl text-white font-semibold">{tempActual}</h2>
             <div className="text-white text-6xl flex flex-row justify-center items-center mt-5">
-              <span className="bg-blue-600 lg:px-4 md:px-4 sm:px-2 lg:py-2 md:py-2 sm:py-1 rounded-xl font-semibold lg:text-5xl md:text-4xl sm:text-base font-mono">
+              <span className="bg-blue-600 lg:px-4 md:px-4 sm:px-2 lg:py-2 md:py-2 sm:py-1 rounded-xl font-semibold lg:text-5xl md:text-4xl smd:text-3xl sm:text-base font-mono">
                 {numeroEpisodios}
               </span>{" "}
-              <p className="mx-4 lg:text-5xl md:text-5xl sm:text-2xl font-semibold">Episodios</p>{" "}
-              <PiCardsFill className="lg:text-8xl md:text-8xl sm:text-4xl text-yellow-400" />
+              <p className="mx-4 lg:text-5xl md:text-5xl smd:text-3xl sm:text-2xl font-semibold">Episodios</p>{" "}
+              <PiCardsFill className="lg:text-8xl md:text-8xl smd:text-5xl sm:text-4xl text-yellow-400" />
             </div>
           </div>
         )}
       </div>
-      <div className="w-full flex flex-col justify-center items-center lg:px-40 md:px-10 sm:px-2">
+      <div className="w-full flex flex-col justify-center items-center xl:px-40 lg:px-5 md:px-10 sm:px-2">
         {temporadaActual.map((epi, index) => (
           <CardEpisodios
             key={index}

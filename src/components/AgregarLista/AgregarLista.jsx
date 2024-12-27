@@ -25,7 +25,7 @@ const AgregarLista = ({
       {isAdded ? (
         <>
           <button
-            className="bg-zinc-900 hover:bg-zinc-700 p-2 rounded-t-md w-full lg:py-3 md:py-3 sm:py-1.5"
+            className="bg-zinc-900 hover:bg-zinc-700 p-2 rounded-t-md w-full lg:py-2 md:py-2 sm:py-1.5"
             id={_id}
             onClick={handleDeletePelicula}
           >
@@ -41,7 +41,7 @@ const AgregarLista = ({
       ) : (
         <>
           <button
-            className="bg-gray-900 hover:bg-blue-700/20 p-2 rounded-t-md w-full lg:py-3 md:py-3 sm:py-1.5"
+            className="bg-gray-900 hover:bg-blue-700/20 p-2 rounded-t-md w-full lg:py-2 md:py-2 sm:py-1.5"
             id={_id}
             onClick={handleAgregarMiLista}
           >

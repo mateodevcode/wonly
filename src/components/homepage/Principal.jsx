@@ -1,67 +1,57 @@
 "use client";
-import { useEffect, useState } from "react";
-import { Spinner } from "@chakra-ui/react";
+// components/ImageSlider.js
+import { useState, useEffect } from "react";
 import Botones from "./Botones";
-import CardInformativo from "./CardInformativo";
+import { slides } from "@/data/slide.principal";
+import CardInfo from "./CardInformativo";
 
 const Principal = () => {
-  const [Data, setData] = useState([]);
-  const seleccionPelicula = "las-aventuras-de-arsene-lupin-iii";
-  const [numeroTemporadas, setNumeroTemporadas] = useState("");
-  const [generos, setGeneros] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  slides.map((slide) => {
+    return slide.generos.sort();
+  });
 
   useEffect(() => {
-    const cargarTemporada = async () => {
-      const res = await fetch(`/api/series/`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
-      const key = "id";
-      const value = seleccionPelicula;
-      const resultado = data.find((objeto) => objeto[key] === value);
-      setData(resultado);
-      setNumeroTemporadas(resultado.temporadas.length);
-      setGeneros(resultado.generos);
-    };
-    cargarTemporada();
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 7000); // Cambia la imagen cada 3 segundos
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div>
+    <div className="slider">
       <div
-        className="w-full h-svh"
+        className="slider-image"
         style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)),url('${Data.imagen_fondo}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)),url(${slides[currentIndex].image})`,
         }}
-      ></div>
-      <div className="absolute top-[300px] lg:w-[800px] md:w-[800px] sm:w-[380px] lg:mx-10 md:mx-10 sm:mx-0">
-        {Data.length !== 0 ? (
-          <>
-            <CardInformativo
-              titulo={Data.titulo}
-              descripcion={Data.descripcion}
-              generos={generos}
-              numeroTemp={numeroTemporadas}
-              year={Data.year}
-            />
-            <Botones Url={Data.id} />
-          </>
-        ) : (
-          <Spinner
-            thickness="4px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="red.500"
-            size="xl"
-            className="mt-32 ml-40 mr-40"
+      >
+        <div className="absolute top-[350px] lg:w-[800px] md:w-[800px] sm:w-[380px] lg:mx-10 md:mx-10 sm:mx-0">
+          <CardInfo
+            titulo={slides[currentIndex].titulo}
+            descripcion={slides[currentIndex].descripcion}
+            generos={slides[currentIndex].generos}
           />
-        )}
+          <Botones
+            Url={slides[currentIndex].Url}
+            musica={slides[currentIndex].musica}
+          />
+        </div>
       </div>
+      {/* Botones de navegación */}
+      {/* <div className="slider-controls">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            className={`dot ${currentIndex === index ? "active" : ""}`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div> */}
     </div>
   );
 };

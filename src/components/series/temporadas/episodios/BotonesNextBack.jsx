@@ -1,22 +1,18 @@
 "use client";
-import { TiArrowBack, TiArrowForward } from "react-icons/ti";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FaRegListAlt } from "react-icons/fa";
-import { TbPlayerTrackNextFilled } from "react-icons/tb";
-import { CiViewList } from "react-icons/ci";
 import { IoIosArrowBack } from "react-icons/io";
 import { GoListUnordered } from "react-icons/go";
+import { Tooltip } from "@chakra-ui/react";
 
-const BotonesNextBack = ({temporadaActual}) => {
+const BotonesNextBack = ({ temporadaActual }) => {
   const [temporada, setTemporada] = useState([]);
   const [numeroEpisodios, setNumeroEspisodios] = useState([]);
   const router = useRouter();
   const params = useParams();
   const nombreEpisodio = parseInt(params.episodio.replace("E", ""));
   const numeroEpisodio = Number(nombreEpisodio);
-
 
   useEffect(() => {
     const cargarTemporada = async () => {
@@ -42,11 +38,12 @@ const BotonesNextBack = ({temporadaActual}) => {
     cargarTemporada();
   }, []);
 
-
   return (
-    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white sm:w-full xl:w-[1440px] lg:w-[950px] md:w-[750px]">
+    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white w-full">
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-black hover:bg-white lg:text-sm md:text-sm sm:text-xs ${numeroEpisodio === 1 ? "hidden" : ""} py-2 px-3 rounded-md`}
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-black hover:bg-white lg:text-sm md:text-sm sm:text-xs ${
+          numeroEpisodio === 1 ? "hidden" : ""
+        } py-2 px-3 rounded-md`}
         onClick={() => {
           if (numeroEpisodio === 1) {
             router.push(`/series/${params.serie}/${params.temporada}`);
@@ -64,15 +61,32 @@ const BotonesNextBack = ({temporadaActual}) => {
         <p className="">Episodio Anterior</p>
       </div>
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:bg-white hover:text-black lg:text-lg md:text-lg sm:text-xs ${temporadaActual?.length === numeroEpisodio || numeroEpisodio === 1 ? "" : "hidden"} p-2 rounded-md`}
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:bg-white hover:text-black lg:text-lg md:text-lg sm:text-xs ${
+          temporadaActual?.length === numeroEpisodio || numeroEpisodio === 1
+            ? ""
+            : "hidden"
+        } p-2 rounded-md`}
         onClick={() => {
-            router.push(`/series/${params.serie}/${params.temporada}`);
+          router.push(`/series/${params.serie}/${params.temporada}`);
         }}
       >
-        <GoListUnordered className="lg:text-lg md:text-lg sm:text-base" />
+        <Tooltip
+          label="Lista de Episodios"
+          fontSize="small"
+          bg="black"
+          color="white"
+          rounded={5}
+          paddingBottom={1}
+        >
+          <span>
+            <GoListUnordered className="lg:text-lg md:text-lg sm:text-base" />
+          </span>
+        </Tooltip>
       </div>
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-black hover:bg-white lg:text-sm md:text-sm sm:text-xs ${temporadaActual?.length === numeroEpisodio ? "hidden" : ""} py-2 px-3 rounded-md`}
+        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-black hover:bg-white lg:text-sm md:text-sm sm:text-xs ${
+          temporadaActual?.length === numeroEpisodio ? "hidden" : ""
+        } py-2 px-3 rounded-md`}
         onClick={() => {
           if (numeroEpisodio === numeroEpisodios) {
             router.push(`/series/${params.serie}/${params.temporada}`);

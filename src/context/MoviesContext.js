@@ -128,6 +128,7 @@ export const MoviesProvider = ({ children }) => {
     }
   };
 
+
   return (
     <MoviesContext.Provider
       value={{
@@ -135,7 +136,7 @@ export const MoviesProvider = ({ children }) => {
         handleAgregarMiLista,
         handleDeletePelicula,
         isAdded,
-        setIsAdded,
+        setIsAdded
       }}
     >
       {children}

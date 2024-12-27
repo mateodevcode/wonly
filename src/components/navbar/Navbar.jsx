@@ -1,9 +1,33 @@
+"use client";
 import NavbarRight from "./NavbarRight";
 import NavbarLeft from "./NavbarLeft";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const estilosBase =
+    "flex flex-row justify-between items-center w-full fixed z-40 lg:h-16 sm:h-12";
+  const estilos = isScrolled ? "bg-zinc-900/30 backdrop-blur-sm" : "bg-black";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="flex flex-row justify-between items-center w-full fixed bg-zinc-900 z-40 h-16">
+    <div
+      className={`${estilosBase} ${estilos} transition-all duration-200 ease-in-out`}
+    >
       <NavbarLeft />
       <NavbarRight />
     </div>

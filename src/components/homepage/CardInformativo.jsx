@@ -1,12 +1,6 @@
-const CardInformativo = ({
-  titulo,
-  descripcion,
-  generos,
-  numeroTemp,
-  year,
-}) => {
+const CardInfo = ({ titulo, descripcion, generos }) => {
   return (
-    <div className="lg:w-[700px] sm:w-full lg:h-[220px] md:h-[220px] sm:h-[170px]">
+    <div className="lg:w-[700px] sm:w-full lg:h-[190px] md:h-[190px] sm:h-[135px]">
       <h1 className="lg:text-6xl md:text-6xl sm:text-4xl text-white font-bold font-serif text-left px-4">
         {titulo}
       </h1>
@@ -17,20 +11,14 @@ const CardInformativo = ({
         {generos.map((genero, index) => (
           <p
             key={index}
-            className="text-white px-2 py-1 mt-2 bg-green-600 w-max inline-block lg:mx-1 md:mx-1 sm:mx-0.5 rounded-md text-sm"
+            className="text-white px-2 lg:py-1 md:py-1 sm:py-0.7 mt-2 bg-blue-950/80 w-max inline-block lg:mx-1 md:mx-1 sm:mx-0.5 rounded-full lg:text-[10px] md:text-[10px] sm:text-[10px] font-semibold"
           >
             {genero}
           </p>
         ))}
       </div>
-      <div className="flex px-4 font-bold font-mono mt-2 lg:text-base md:text-base sm:text-sm">
-        <p className="text-white mx-2">
-          {numeroTemp} {numeroTemp ? "Temporadas" : ""}
-        </p>
-        <p className="text-white mx-2">{year}</p>
-      </div>
     </div>
   );
 };
 
-export default CardInformativo;
+export default CardInfo;

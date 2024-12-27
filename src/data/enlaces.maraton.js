@@ -1,7 +1,7 @@
 export const maraton = [
   {
     name: "Marvel Cinematic Universe",
-    link: "/maraton/marvel",
+    link: "/maratones/marvel",
     description: "Todos los films y series del MCU en orden cronológico",
   },
   // {
@@ -11,12 +11,12 @@ export const maraton = [
   // },
   {
     name: "Harry Potter",
-    link: "/maraton/harry-potter",
+    link: "/maratones/harry-potter",
     description: "Las 8 películas mágicas de Harry Potter",
   },
   {
     name: "John Wick",
-    link: "/maraton/john-wick",
+    link: "/maratones/john-wick",
     description: "La acción imparable de John Wick en todas sus películas",
   },
   // {
@@ -36,7 +36,7 @@ export const maraton = [
   // },
   {
     name: "Fast & Furious",
-    link: "/maraton/rapidos-y-furiosos",
+    link: "/maratones/rapidos-y-furiosos",
     description: "La saga completa de Rápidos y Furiosos",
   },
 ];

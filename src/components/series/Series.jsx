@@ -1,14 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
-import CardSerie from "./CardSerie";
 import { enlacesSeries } from "@/data/enlaces.series";
 import { usePathname } from "next/navigation";
 import SpinnerGlobal from "../spinner/SpinnerGlobal";
 import Pagination from "../pagination/Pagination";
 import TopSearch from "../topSearch/TopSearch";
+import CardMovie from "../CardMovies/CardMovie";
 
 const Series = () => {
-  const numeroSeries = 16;
+  const numeroSeries = 20;
   const [datosSeries, setDatosSeries] = useState([]);
   const [buscar, setBuscar] = useState("");
   let path = usePathname();
@@ -40,7 +40,7 @@ const Series = () => {
   const SeriesCargadas = filtrarSeries.slice(inicio, fin);
 
   return (
-    <div className="flex flex-col justify-center items-center pt-16 w-full bg-black text-white pb-20">
+    <div className="flex flex-col justify-center items-center w-full text-white bg-black">
       {/* Barra de busqueda y filtros */}
       <TopSearch
         path={path}
@@ -51,14 +51,14 @@ const Series = () => {
         numeroPeliculas={numeroSeries}
       />
       {/* Contenedor de series */}
-      <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 lg:gap-2 md:gap-2 sm:gap-2 mt-5 mb-10">
+      <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-3 smd:grid-cols-3 sm:grid-cols-2 lg:gap-2 md:gap-2 sm:gap-1 mt-5 mb-10">
         {SeriesCargadas.map((serie, index) => (
-          <CardSerie
+          <CardMovie 
             key={index}
-            idUrl={serie.id}
             imagen_perfil={serie.imagen_perfil}
             titulo={serie.titulo}
             id={serie.id}
+            year={serie.year}
             _id={serie._id}
           />
         ))}

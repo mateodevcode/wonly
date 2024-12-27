@@ -4,10 +4,11 @@ import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
+import { Icono } from "@/data/logo";
 
 const SlideCard = ({ cards, size }) => {
   var settings = {
-    dots: true,
+    // dots: true,
     infinite: true,
     speed: 600,
     slidesToShow: size,
@@ -20,7 +21,7 @@ const SlideCard = ({ cards, size }) => {
         {cards.map((card, index) => (
           <Link href={card.Url} key={index} className="cursor-pointer">
             <div
-              className="lg:w-52 md:w-52 sm:w-28 lg:h-52 md:h-52 sm:h-28 rounded-lg"
+              className="xl:w-60 lg:w-48 md:w-72 sm:w-32 xl:h-60 lg:h-48 md:h-52 sm:h-32 rounded-lg"
               style={{
                 backgroundImage: `url(${card.imagen_perfil})`,
                 backgroundSize: "cover",
@@ -28,20 +29,17 @@ const SlideCard = ({ cards, size }) => {
               }}
             >
               <div className="w-52 h-52">
-                <div className="w-full flex flex-row justify-between items-center">
+                <div className="w-10 h-10 p-1">
                   <Image
-                    src="https://i.postimg.cc/JzKQwjc7/logo-wonly-4.png"
-                    alt="Inicial De Wonly"
-                    width={400}
-                    height={400}
-                    className="lg:w-12 md:w-12 sm:w-8  lg:h-12 md:h-12 sm:h-8 mx-2"
+                    src={Icono.src}
+                    alt={Icono.alt}
+                    width={100}
+                    height={100}
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                {/* <div className="text-center font-semibold font-mono lg:text-8xl md:text-8xl sm:text-5xl lg:py-14 md:py-14 sm:py-0.1 text-border text-black">
-                  {index + 1}
-                </div> */}
-                <div className="w-full lg:h-40 md:h-40 sm:h-20 flex flex-col items-start justify-end">
-                  <h1 className="text-center font-semibold font-mono lg:text-8xl md:text-8xl sm:text-7xl text-border text-black lg:-ml-6 md:-ml-6 sm:-ml-5">
+                <div className="w-full xl:h-56 lg:h-44 md:h-40 sm:h-24 flex flex-col items-start justify-end">
+                  <h1 className="text-center font-semibold font-mono xl:text-9xl lg:text-8xl md:text-8xl sm:text-7xl text-border text-black xl:-ml-10 lg:-ml-6 md:-ml-6 sm:-ml-5">
                     {index + 1}
                   </h1>
                 </div>

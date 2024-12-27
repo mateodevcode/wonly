@@ -1,14 +1,19 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useContext } from "react";
 import { MoviesContext } from "@/context/MoviesContext";
 import AgregarLista from "../AgregarLista/AgregarLista";
+import { acortarNombre } from "@/config/acortarNombre";
 
-const Pelicula = ({ index, imagen_perfil, titulo, id, year, _id }) => {
+const CardMovie = ({ index, imagen_perfil, titulo, id, year, _id }) => {
   const router = useRouter();
   const { miLista, handleAgregarMiLista, handleDeletePelicula } =
     useContext(MoviesContext);
+
+    const path = usePathname();
+    const ruta = path.replace("/", "");
+
 
   return (
     <div
@@ -17,7 +22,7 @@ const Pelicula = ({ index, imagen_perfil, titulo, id, year, _id }) => {
       onClick={(e) => {
         e.preventDefault();
         const idUrl = e.target.id;
-        router.push(`/peliculas/${idUrl}`);
+        router.push(`/${ruta}/${idUrl}`);
       }}
     >
       <AgregarLista
@@ -37,13 +42,13 @@ const Pelicula = ({ index, imagen_perfil, titulo, id, year, _id }) => {
         height={500}
         alt={titulo}
         id={id}
-        className="lg:w-72 md:w-60 sm:w-40 lg:h-72 md:h-60 sm:h-40 hover:opacity-50"
+        className="w-full h-full object-cover hover:opacity-50"
       />
-      <p className="lg:text-sm md:text-sm sm:text-[10px] lg:mt-2 md:mt-2 sm:mt-2 text-gray-400">
-        {titulo}
+      <p className="lg:text-xs md:text-xs sm:text-[10px] lg:mt-2 md:mt-2 sm:mt-2 text-gray-400">
+        {acortarNombre(titulo)}
       </p>
     </div>
   );
 };
 
-export default Pelicula;
+export default CardMovie;

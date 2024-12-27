@@ -34,7 +34,7 @@ const Temporadas = () => {
         <h2 className="uppercase font-bold lg:text-3xl sm:text-3xl dark:text-white mb-5 text-left lg:w-10/12 md:w-10/12 sm:w-11/12 underline">
           {datosSeries.titulo}
         </h2>
-        <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center">
+        <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 smd:grid-cols-3 sm:grid-cols-2 gap-2 place-items-center">
           {temporada.map((temp, index) => (
             <CardTemporadas
               key={index}

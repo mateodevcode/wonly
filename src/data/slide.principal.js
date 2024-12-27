@@ -23,7 +23,7 @@ export const slides = [
     musica: false,
   },
   {
-    image: "https://i.postimg.cc/W1G4dwYd/T2.jpg",
+    image: "https://i.postimg.cc/SxjHHkzw/lupin-iii-fondo.jpg",
     titulo: "Arsene Lupin III",
     descripcion:
       "Es el ladrón más buscado del mundo y habitualmente en sus aventuras él y sus compañeros frustran a otros criminales o ayudan a terceras personas.",

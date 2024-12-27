@@ -87,7 +87,7 @@ const MiLista = ({ menuResponsive }) => {
     <Menu>
       <MenuButton className="bg-white/10 hover:bg-white/20 rounded-md">
         <div
-          className={`hover:bg-white/20 text-white font-semibold px-4 py-2 rounded-md flex flex-row justify-center items-center lg:text-base md:text-base sm:text-sm mx-1 lg:flex md:flex cursor-pointer select-none ${
+          className={`hover:bg-white/20 text-white font-semibold px-4 py-2 rounded-md flex flex-row justify-center items-center lg:text-sm md:text-sm sm:text-sm mx-1 lg:flex md:flex cursor-pointer select-none ${
             menuResponsive ? "sm:flex" : "sm:hidden"
           }`}
         >

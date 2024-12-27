@@ -1,19 +1,18 @@
 import { Spinner } from "@chakra-ui/react";
-import Logo from "../navbar/Logo";
+import Logo from "../navbar/logo/Logo";
 
 const SpinnerGlobal = () => {
   return (
     <div className="my-40 flex flex-col justify-center items-center">
       <Spinner
-        thickness="4px"
-        speed="1.65s"
+        thickness="2px"
+        speed="0.5s"
         emptyColor="gray.100"
-        color="green.500"
-        size="xl"
-        className=""
+        color="blue.900"
+        size="lg"
       />
       <div>
-        <h3 className="text-center text-white font-mono text-xl my-5">
+        <h3 className="text-center text-white font-mono text-base my-3">
           Cargando...
         </h3>
         <Logo />
