@@ -7,7 +7,7 @@ const Maraton = ({ titulo, height, contenido }) => {
 
   return (
     <div className="w-full bg-[#F3F4F6] flex flex-col justify-center items-center">
-      <h2 className="text-3xl font-bold text-center pt-32 p-10 text-black">
+      <h2 className="xl:text-3xl lg:text-2xl md:text-2xl smd:text-xl sm:text-xl font-bold text-center pt-32 p-10 text-black">
         {titulo}
       </h2>
       <div className="w-full flex flex-row justify-center items-center mt-10">

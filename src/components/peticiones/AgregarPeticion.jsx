@@ -258,7 +258,7 @@ const AgregarPeticion = () => {
 
   return (
     <div className="pt-20 w-full bg-black h-full flex flex-col justify-start items-center">
-      <div className="w-10/12 text-white font-mono mb-5">
+      <div className="w-10/12 text-white font-mono mb-5 border-b-2 border-gray-700 pb-5">
         <h3 className="text-white text-3xl mb-5 font-extrabold">
           Datos de petición
         </h3>
@@ -371,12 +371,7 @@ const AgregarPeticion = () => {
               value={formData.url}
               name="url"
             />
-            <button
-              className="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg my-2"
-              type="submit"
-            >
-              Crear
-            </button>
+            <Boton type="submit">Crear</Boton>
           </form>
         ) : (
           <form
@@ -578,16 +573,19 @@ const AgregarPeticion = () => {
                 ))}
               </div>
             ))}
-            <button
-              className="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg my-2 select-none"
-              type="submit"
-            >
-              Crear
-            </button>
+            <Boton type="submit">Crear</Boton>
           </form>
         )}
       </div>
     </div>
+  );
+};
+
+const Boton = ({ children }) => {
+  return (
+    <button className="bg-blue-600 text-white font-semibold py-1.5 px-3 rounded-lg my-2 text-sm hover:bg-blue-500">
+      {children}
+    </button>
   );
 };
 

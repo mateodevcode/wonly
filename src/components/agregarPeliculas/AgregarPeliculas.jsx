@@ -10,9 +10,8 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { RiAddCircleLine } from "react-icons/ri";
 import Formulario from "./Formulario";
-import { IoIosAdd } from "react-icons/io";
+import { RiVideoAddLine } from "react-icons/ri";
 
 const OverlayOne = () => (
   <ModalOverlay
@@ -94,25 +93,35 @@ const AgregarPeliculas = () => {
   return (
     <>
       <Tooltip
-        label="Añadir contenido"
-        fontSize="md"
-        bg="white"
-        color={"black"}
+        label="Agregar Película"
+        fontSize="small"
+        bg="black"
+        color="white"
+        rounded={5}
+        paddingBottom={1}
+        px={5}
       >
-        <div
+        <span
           onClick={() => {
             onOpen();
           }}
-          className="fixed z-50 bg-green-600 p-2 lg:right-5 md:right-5 sm:right-0 top-64 rounded-lg shadow-sm shadow-white cursor-pointer hover:scale-[105%] active:scale-95 transition-all duration-200"
+          className="fixed z-50 bg-blue-600 hover:bg-blue-500 p-2 lg:right-5 md:right-5 sm:right-0 top-64 rounded-full cursor-pointer"
         >
-          <IoIosAdd className="text-white text-2xl" />
-        </div>
+          <RiVideoAddLine className="text-base text-white hover:text-xl transition-all ease-out duration-150" />
+        </span>
       </Tooltip>
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         {overlay}
         <ModalContent>
-          <ModalBody className="grid place-content-center">
-            <Formulario setNombre={setNombre} setEmail={setEmail} onClose={onClose} handlePeticiones={handlePeticiones} setTipo={setTipo} tipo={tipo} />
+          <ModalBody className="flex flex-row justify-center items-center">
+            <Formulario
+              setNombre={setNombre}
+              setEmail={setEmail}
+              onClose={onClose}
+              handlePeticiones={handlePeticiones}
+              setTipo={setTipo}
+              tipo={tipo}
+            />
           </ModalBody>
         </ModalContent>
       </Modal>

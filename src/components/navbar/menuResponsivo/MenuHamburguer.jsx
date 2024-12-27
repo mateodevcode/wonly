@@ -12,6 +12,7 @@ import {
 import Logo from "@/components/navbar/logo/Logo";
 import Enlace from "../Enlace";
 import NavbarLogin from "../NavbarLogin";
+import { IoCloseOutline } from "react-icons/io5";
 
 function MenuHamburguer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,10 +37,10 @@ function MenuHamburguer() {
       <Drawer isOpen={isOpen} placement="bottom" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent className="dark:bg-black/80 text-white">
-          <DrawerCloseButton color="white" className="h-screen select-none" />
           <div className="flex flex-col items-center justify-between h-screen w-full">
-              <div className="w-full flex justify-start items-center py-2 px-5">
+              <div className="w-full flex justify-between items-center py-2 px-5 pt-16">
               <Logo />
+              <IoCloseOutline onClick={() => onClose()} className="text-white text-2xl" />
               </div>
               <div className="flex flex-col items-center">
               {enlaces.map((enlace, index) => (

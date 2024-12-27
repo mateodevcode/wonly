@@ -8,7 +8,7 @@ function MarathonCard({ name, link, description }) {
       <div>
         <div className="flex flex-row justify-start items-center">
           <FaFilm className="text-4xl text-black mr-4" />
-          <h2 className="text-xl font-bold mb-2">{name}</h2>
+          <h2 className="xl:text-xl lg:text-xl md:text-xl smd:text-base sm:text-base font-bold mb-2">{name}</h2>
         </div>
         <p className="text-gray-600 mb-4">{description}</p>
       </div>
@@ -25,7 +25,7 @@ function MarathonCard({ name, link, description }) {
 export default function MovieMarathonList() {
   return (
     <div className="mx-auto py-10 px-4 lg:w-11/12 md:w-11/12 sm:w-[98%] pt-28">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 border-[1px] border-gray-300 p-4 rounded-md">
+      <div className="grid xl:grid-cols-3 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-1 smd:grid-cols-1 gap-4 border-[1px] border-gray-300 p-4 rounded-md">
         {maraton.map((item, index) => (
           <MarathonCard key={index} {...item} />
         ))}

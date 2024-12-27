@@ -1,16 +1,18 @@
 "use client";
 import { validateEmail } from "@/config/validateEmail";
 import { validatePassword } from "@/config/validatePassword";
+import { logo } from "@/data/logo";
 import { Input, useToast } from "@chakra-ui/react";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const router = useRouter();
+  const url = usePathname();
   const toast = useToast();
   const [confirmarPassword, setConfirmarPassword] = useState("");
   const [formData, setFormData] = useState({
@@ -128,8 +130,8 @@ const Login = () => {
   return (
     <div className="w-full h-screen place-content-center grid">
       <div className="absolute lg:top-10 md:top-10 sm:top-2 lg:left-10 md:left-10 sm:left-5 select-none">
-        <button
-          className="bg-black hover:bg-black/80 text-white py-2 px-4 rounded-lg"
+      <button
+          className="bg-black hover:bg-black/80 text-white py-1.5 px-3 rounded-lg text-sm"
           onClick={() => router.push("/")}
         >
           Volver
@@ -140,48 +142,51 @@ const Login = () => {
         id={formData._id}
         action={`/api/user/`}
         method="POST"
-        className="flex flex-col justify-start items-center w-[280px] h-full rounded-lg border-gray-300 border-[1px]"
+        className="flex flex-col justify-start items-center w-[320px] h-full rounded-lg border-gray-300 border-[1px] text-black"
       >
-        <Link
-          href="/"
-        className="w-full flex flex-row justify-center items-center">
+          <Link href="/" className="w-40 my-5">
           <Image
-            src={"https://i.postimg.cc/JzKQwjc7/logo-wonly-4.png"}
-            alt={formData.name || "Avatar perfil"}
+            src={logo.src}
+            alt={logo.alt}
             width={150}
             height={150}
-            className="w-24 h-24 rounded-full mt-2"
+            className="w-full h-full object-cover"
           />
         </Link>
-        <h3 className="text-2xl font-bold">Bienvenido</h3>
-        <p className="text-gray-500 text-sm mt-2 mb-4">
+        <p className="text-gray-500 text-sm mb-4">
           Inicia sesión o crea una cuenta
         </p>
-        <div className="flex flex-row justify-center items-center bg-zinc-100 p-1 rounded-md text-sm font-semibold mt-2 mb-5">
+        <div className="flex flex-row justify-center items-center bg-zinc-100 p-1 rounded-md font-semibold text-xs mt-2 mb-5">
           <p
             onClick={() => router.push("/login")}
-            className={`text-gray-500 py-1.5 px-3  mr-1 rounded-sm select-none`}
+            className={`py-1.5 px-3 rounded-sm select-none cursor-pointer ${
+              url === "/login"
+                ? "bg-white text-zinc-800"
+                : "bg-zinc-100 text-zinc-800"
+            }`}
           >
             Iniciar Sesión
           </p>
           <p
             onClick={() => router.push("/register")}
-            className={`bg-white text-black py-1.5 px-3  ml-1 rounded-sm select-none`}
+            className={`py-1.5 px-3 rounded-sm select-none cursor-pointer ${
+              url === "/register"
+                ? "bg-white text-zinc-800"
+                : "bg-zinc-100 text-zinc-800"
+            }`}
           >
             Registrarse
           </p>
         </div>
         <div className="px-6 w-full text-sm">
-          <label className="font-semibold">Nombre completo</label>
           <Input
             placeholder="Tu nombre"
             name="name"
             defaultValue={formData.email}
             fontSize={14}
             onChange={manejarCambio}
-            className="mt-2 mb-3 text-gray-500"
+            className="my-2 text-base"
           />
-          <label className="font-semibold">Correo electrónico</label>
           <Input
             placeholder="wonly@gmail.com"
             name="email"
@@ -190,7 +195,6 @@ const Login = () => {
             onChange={manejarCambio}
             className="mt-2 mb-3 text-gray-500"
           />
-          <label className="font-semibold">Contraseña</label>
           <Input
             placeholder="Contraseña"
             name="password"
@@ -199,7 +203,6 @@ const Login = () => {
             fontSize={14}
             className="mt-2 mb-3"
           />
-          <label className="font-semibold">Confirmar contraseña</label>
           <Input
             placeholder="Repite tu contraseña"
             name="confirmarPassword"
@@ -211,7 +214,7 @@ const Login = () => {
         </div>
 
         <div className="w-full flex flex-col justify-end items-center px-6 pb-5">
-          <button className="bg-black hover:bg-black/80 text-white py-2 px-4 rounded-md w-full my-1">
+          <button className="bg-black hover:bg-black/80 text-white py-2 px-4 rounded-md w-full my-1 text-sm">
             Registrarse
           </button>
           <button className="text-black border-gray-300 hover:bg-gray-200 border-[1px] py-2 px-4 rounded-md w-full my-1 flex fle-row justify-center items-center text-sm font-semibold"
