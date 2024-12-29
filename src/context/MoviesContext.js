@@ -124,6 +124,7 @@ export const MoviesProvider = ({ children }) => {
         duration: 2000,
         isClosable: true,
         position: "top",
+        size: "md",
       });
     }
   };

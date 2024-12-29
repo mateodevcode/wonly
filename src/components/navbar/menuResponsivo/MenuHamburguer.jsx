@@ -13,6 +13,7 @@ import Logo from "@/components/navbar/logo/Logo";
 import Enlace from "../Enlace";
 import NavbarLogin from "../NavbarLogin";
 import { IoCloseOutline } from "react-icons/io5";
+import MiLista from "@/components/miLista/MiLista";
 
 function MenuHamburguer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -38,15 +39,25 @@ function MenuHamburguer() {
         <DrawerOverlay />
         <DrawerContent className="dark:bg-black/80 text-white">
           <div className="flex flex-col items-center justify-between h-screen w-full">
-              <div className="w-full flex justify-between items-center py-2 px-5 pt-16">
+            <div className="w-full flex justify-between items-center py-2 px-5 pt-16 select-none">
               <Logo />
-              <IoCloseOutline onClick={() => onClose()} className="text-white text-2xl" />
-              </div>
-              <div className="flex flex-col items-center">
+              <IoCloseOutline
+                onClick={() => onClose()}
+                className="text-white text-2xl select-none"
+              />
+            </div>
+            <div className="flex flex-col items-center">
               {enlaces.map((enlace, index) => (
-                <Enlace key={index} nombre={enlace.nombre} Url={enlace.Url} onClose={onClose} />
+                <Enlace
+                  key={index}
+                  nombre={enlace.nombre}
+                  Url={enlace.Url}
+                  onClose={onClose}
+                />
               ))}
-              </div>
+              <MiLista menuResponsive={true} isButton={false} />
+            </div>
+
             <div className="w-full">
               <NavbarLogin menuResponsive={true} />
             </div>

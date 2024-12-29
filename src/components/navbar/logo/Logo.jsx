@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <Link
       href={`${logo.href}`}
-      className="flex items-center justify-center lg:w-28 lg:h-12 sm:w-20 sm:h-10"
+      className="flex items-center justify-center lg:w-28 lg:h-12 sm:w-20 sm:h-10 select-none"
     >
       <Image
         src={logo.src}
@@ -14,7 +14,7 @@ const Logo = () => {
         height={150}
         alt={logo.alt}
         title={logo.alt}
-        className="object-cover w-full h-full"
+        className="object-cover w-full h-full select-none"
       />
     </Link>
   );

@@ -1,5 +1,5 @@
 "use client";
-import { useToast } from "@chakra-ui/react";
+import { Tooltip, useToast } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import SpinnerGlobal from "../spinner/SpinnerGlobal";
@@ -117,20 +117,38 @@ const Peticiones = () => {
 
                     {session && session.user.email === adminEmail ? (
                       <div className="grid grid-cols-2 lg:gap-2 md:gap-2 sm:gap-1">
-                        <button
-                          className="border-[1px] border-blue-600 hover:bg-blue-600 rounded-lg p-1"
-                          onClick={() => {
-                            router.push(`/peticiones/${peticion._id}`);
-                          }}
+                        <Tooltip
+                          label={"Subir contenido"}
+                          fontSize="small"
+                          bg="black"
+                          color="white"
+                          rounded={5}
+                          paddingBottom={1}
                         >
-                          <IoIosAdd className="text-base" />
-                        </button>
-                        <button
-                          className="border-[1px] border-red-600 hover:bg-red-600 rounded-lg p-1"
-                          onClick={() => eliminarPeticion(peticion._id)}
+                          <button
+                            className="border-[1px] border-blue-600 hover:bg-blue-600 rounded-lg p-1"
+                            onClick={() => {
+                              router.push(`/peticiones/${peticion._id}`);
+                            }}
+                          >
+                            <IoIosAdd className="text-base" />
+                          </button>
+                        </Tooltip>
+                        <Tooltip
+                          label={"Eliminar peticion"}
+                          fontSize="small"
+                          bg="black"
+                          color="white"
+                          rounded={5}
+                          paddingBottom={1}
                         >
-                          <RiDeleteBin6Line className="text-base" />
-                        </button>
+                          <button
+                            className="border-[1px] border-red-600 hover:bg-red-600 rounded-lg p-1"
+                            onClick={() => eliminarPeticion(peticion._id)}
+                          >
+                            <RiDeleteBin6Line className="text-base" />
+                          </button>
+                        </Tooltip>
                       </div>
                     ) : null}
                   </div>

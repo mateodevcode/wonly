@@ -45,7 +45,7 @@ const CardMovie = ({ index, imagen_perfil, titulo, id, year, _id }) => {
         className="w-full h-full object-cover hover:opacity-50"
       />
       <p className="lg:text-xs md:text-xs sm:text-[10px] lg:mt-2 md:mt-2 sm:mt-2 text-gray-400">
-        {acortarNombre(titulo)}
+        {acortarNombre(titulo, 30)}
       </p>
     </div>
   );
