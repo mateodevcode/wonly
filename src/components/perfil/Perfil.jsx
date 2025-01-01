@@ -1,22 +1,23 @@
-"use client";
-import React from "react";
-import { MoviesContext } from "@/context/MoviesContext";
-import { useContext } from "react";
+// "use client";
+// import React from "react";
+// import { MoviesContext } from "@/context/MoviesContext";
+// import { useContext } from "react";
 
-const Perfil = () => {
-  const { users } = useContext(MoviesContext);
+// const Perfil = () => {
+//   const { users } = useContext(MoviesContext);
+//   console.log(users);
   
-  return (
-    <div>
-      {users.map((user) => (
-        <div key={user._id}>
-          <p>{user.name}</p>
-          <p>{user.email}</p>
-          <p>{user.image}</p>
-        </div>
-      ))}
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       {users.map((user) => (
+//         <div key={user._id}>
+//           <p>{user.name}</p>
+//           <p>{user.email}</p>
+//           <p>{user.image}</p>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
 
-export default Perfil;
+// export default Perfil;

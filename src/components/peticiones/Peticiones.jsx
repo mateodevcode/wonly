@@ -1,64 +1,23 @@
 "use client";
-import { Tooltip, useToast } from "@chakra-ui/react";
+import { Tooltip } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SpinnerGlobal from "../spinner/SpinnerGlobal";
 import { useSession } from "next-auth/react";
 import { IoIosAdd } from "react-icons/io";
 import { convertirFecha } from "@/config/convertirFecha";
 import { CiCalendar } from "react-icons/ci";
 import { TbClockHour4 } from "react-icons/tb";
-import { RiDeleteBin6Line, RiDeleteBinLine } from "react-icons/ri";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import AgregarContenido from "../agregarPeliculas/AgregarContenido";
+import { MoviesContext } from "@/context/MoviesContext";
+import { useContext } from "react";
 
 const Peticiones = () => {
-  const [peticiones, setPeticiones] = useState([]);
-  const toast = useToast();
   const router = useRouter();
   const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
-  const cargarPeticiones = async () => {
-    const res = await fetch("/api/peticiones");
-    const data = await res.json();
-    setPeticiones(data);
-  };
-  const { data: session, status } = useSession();
-
-  useEffect(() => {
-    cargarPeticiones();
-  }, []);
-
-  const eliminarPeticion = async (id) => {
-    const confirmar = confirm("¿Estás seguro de eliminar esta peticion?");
-    if (!confirmar) return;
-    try {
-      const res = await fetch(`/api/peticiones/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (res.ok) {
-        toast({
-          title: "Peticion eliminada.",
-          description: "La peticion se ha eliminado correctamente.",
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-          position: "top",
-        });
-      }
-      cargarPeticiones();
-    } catch (error) {
-      toast({
-        title: "Error.",
-        description: "Ocurrió un error al eliminar el usuario.",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-        position: "top",
-      });
-    }
-  };
+  const { eliminarPeticion, peticiones } = useContext(MoviesContext);
+  const { data: session } = useSession();
 
   return (
     <div className="pt-20 pb-10 bg-black flex flex-col justify-start items-center w-full">
@@ -78,8 +37,7 @@ const Peticiones = () => {
         <div className="w-full flex flex-row justify-center items-start">
           <div className="w-full flex flex-col justify-center items-center">
             {peticiones.length <= 0 ? (
-              <div>
-                {" "}
+              <div className="my-40">
                 <SpinnerGlobal />
               </div>
             ) : (

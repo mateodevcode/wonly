@@ -1,6 +1,5 @@
 "use client";
 import { useToast } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
 import React, { createContext, useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 
@@ -14,6 +13,8 @@ export const MoviesProvider = ({ children }) => {
   const [listUser, setListUser] = useState([]);
   const [idUsuario, setIdUsuario] = useState("");
   const [User, setUser] = useState([]);
+
+  const [peticiones, setPeticiones] = useState([]);
 
   const cargarLista = async (_id) => {
     try {
@@ -130,33 +131,79 @@ export const MoviesProvider = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    const cargarUsuario = async () => {
+      try {
+        const res = await fetch(`/api/user/`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await res.json();
+        setUser(data);
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Error al cargar el usuario",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+      }
+    };
+    cargarUsuario();
+  }, []);
+
+  const Usuario = User.find((user) => user.email === session?.user?.email);
+
+  // Manejar peticiones
+
+  const eliminarPeticion = async (id) => {
+    const confirmar = confirm("¿Estás seguro de eliminar esta peticion?");
+    if (!confirmar) return;
+    try {
+      const res = await fetch(`/api/peticiones/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (res.ok) {
+        toast({
+          title: "Peticion eliminada.",
+          description: "La peticion se ha eliminado correctamente.",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+      }
+      cargarPeticiones();
+    } catch (error) {
+      toast({
+        title: "Error.",
+        description: "Ocurrió un error al eliminar el usuario.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+    }
+  };
+
+  const cargarPeticiones = async () => {
+    const res = await fetch("/api/peticiones");
+    const data = await res.json();
+    setPeticiones(data);
+  };
 
   useEffect(() => {
-      const cargarUsuario = async () => {
-        try {
-          const res = await fetch(`/api/user/`, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-          const data = await res.json();
-          setUser(data);
-        } catch (error) {
-          toast({
-            title: "Error",
-            description: "Error al cargar el usuario",
-            status: "error",
-            duration: 5000,
-            isClosable: true,
-            position: "top",
-          });
-        }
-      };
-      cargarUsuario();
-    }, []);
-  
-    const Usuario = User.find((user) => user.email === session?.user?.email);
+    cargarPeticiones();
+  }, []);
+
+  // Manejar peticiones end
 
   return (
     <MoviesContext.Provider
@@ -168,6 +215,8 @@ export const MoviesProvider = ({ children }) => {
         setIsAdded,
         Usuario,
         User,
+        eliminarPeticion,
+        peticiones,
       }}
     >
       {children}
