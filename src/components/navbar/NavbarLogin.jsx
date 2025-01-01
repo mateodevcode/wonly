@@ -4,40 +4,15 @@ import { useSession, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { LuLogOut } from "react-icons/lu";
+import { useContext } from "react";
+import { MoviesContext } from "@/context/MoviesContext";
 
 const NavbarLogin = ({ menuResponsive }) => {
   const { data: session, status } = useSession();
-  const [User, setUser] = useState([]);
   const router = useRouter();
-
-  useEffect(() => {
-    const cargarUsuario = async () => {
-      try {
-        const res = await fetch(`/api/user/`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await res.json();
-        setUser(data);
-      } catch (error) {
-        toast({
-          title: "Error",
-          description: "Error al cargar el usuario",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-          position: "top",
-        });
-      }
-    };
-    cargarUsuario();
-  }, []);
-
-  const Usuario = User.find((user) => user.email === session?.user?.email);
+  const { Usuario } = useContext(MoviesContext);
 
   return (
     <>

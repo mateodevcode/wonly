@@ -3,7 +3,7 @@ import Logo from "../navbar/logo/Logo";
 
 const SpinnerGlobal = () => {
   return (
-    <div className="my-40 flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center">
       <Spinner
         thickness="2px"
         speed="0.5s"

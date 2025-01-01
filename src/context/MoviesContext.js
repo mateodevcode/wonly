@@ -13,6 +13,7 @@ export const MoviesProvider = ({ children }) => {
   const { data: session, status } = useSession();
   const [listUser, setListUser] = useState([]);
   const [idUsuario, setIdUsuario] = useState("");
+  const [User, setUser] = useState([]);
 
   const cargarLista = async (_id) => {
     try {
@@ -130,6 +131,33 @@ export const MoviesProvider = ({ children }) => {
   };
 
 
+  useEffect(() => {
+      const cargarUsuario = async () => {
+        try {
+          const res = await fetch(`/api/user/`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          const data = await res.json();
+          setUser(data);
+        } catch (error) {
+          toast({
+            title: "Error",
+            description: "Error al cargar el usuario",
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+            position: "top",
+          });
+        }
+      };
+      cargarUsuario();
+    }, []);
+  
+    const Usuario = User.find((user) => user.email === session?.user?.email);
+
   return (
     <MoviesContext.Provider
       value={{
@@ -137,7 +165,9 @@ export const MoviesProvider = ({ children }) => {
         handleAgregarMiLista,
         handleDeletePelicula,
         isAdded,
-        setIsAdded
+        setIsAdded,
+        Usuario,
+        User,
       }}
     >
       {children}

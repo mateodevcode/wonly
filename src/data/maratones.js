@@ -1015,6 +1015,7 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "izquierda",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/rapido-y-furioso"
       },
       {
         nombre: "Rápido y Furioso 2",
@@ -1022,6 +1023,7 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "derecha",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/rapido-y-furioso-2"
       },
       {
         nombre: "Rápido y Furioso: Reto Tokio",
@@ -1029,41 +1031,63 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "izquierda",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/rapido-y-furioso-reto-tokio"
+      },
+      {
+        nombre: "Rapidos y furiosos: Los Bandoleros",
+        fecha: "2009",
+        TipoMovie: "pelicula",
+        TipoLado: "derecha",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/rapidos-y-furiosos-los-bandoleros"
       },
       {
         nombre: "Rápido y Furioso 4",
         fecha: "2009",
         TipoMovie: "pelicula",
-        TipoLado: "derecha",
+        TipoLado: "izquierda",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/rapidos-y-furiosos-4"
       },
       {
         nombre: "Rápido y Furioso 5in Control",
         fecha: "2011",
         TipoMovie: "pelicula",
-        TipoLado: "izquierda",
+        TipoLado: "derecha",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/rapidos-y-furiosos-5"
       },
       {
         nombre: "Rápido y Furioso 6",
         fecha: "2013",
         TipoMovie: "pelicula",
-        TipoLado: "derecha",
+        TipoLado: "izquierda",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/rapidos-y-furiosos-6"
       },
       {
         nombre: "Rápido y Furioso 7",
         fecha: "2015",
         TipoMovie: "pelicula",
-        TipoLado: "izquierda",
+        TipoLado: "derecha",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/rapidos-y-furiosos-7"
       },
       {
         nombre: "Rápido y Furioso 8",
         fecha: "2017",
         TipoMovie: "pelicula",
+        TipoLado: "izquierda",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/rapidos-y-furiosos-8"
+      },
+      {
+        nombre: "Rapidos y furiosos: Hobbs y Shaw",
+        fecha: "2019",
+        TipoMovie: "pelicula",
         TipoLado: "derecha",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/rapidos-y-furiosos-hobbs-y-shaw"
       },
       {
         nombre: "Rápidos y Furiosos 9",
@@ -1071,6 +1095,7 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "izquierda",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/rapidos-y-furiosos-9"
       },
       {
         nombre: "Rápidos y Furiosos 10",
@@ -1078,6 +1103,7 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "derecha",
         temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/rapidos-y-furiosos-10"
       },
     ],
   },

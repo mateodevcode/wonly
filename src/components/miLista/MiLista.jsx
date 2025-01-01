@@ -13,7 +13,7 @@ import { acortarNombre } from "@/config/acortarNombre";
 import { MdDeleteForever } from "react-icons/md";
 import { LuListPlus, LuPlus } from "react-icons/lu";
 
-const MiLista = ({ menuResponsive, isButton }) => {
+const MiLista = ({ menuResponsive, onClose }) => {
   const [peliculas, setPeliculas] = useState([]);
   const [series, setSeries] = useState([]);
   const toast = useToast();
@@ -181,6 +181,7 @@ const MiLista = ({ menuResponsive, isButton }) => {
                       href={`/${pelicula.temporadas ? "series" : "peliculas"}/${
                         pelicula.id
                       }`}
+                      onClick={() => onClose}
                       className="flex flex-row justify-start items-center w-full"
                     >
                       <Image

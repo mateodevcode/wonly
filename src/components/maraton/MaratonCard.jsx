@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import TipoMovie from "./TipoMovie";
 
 const Maraton = ({ titulo, height, contenido }) => {
@@ -7,10 +8,10 @@ const Maraton = ({ titulo, height, contenido }) => {
 
   return (
     <div className="w-full bg-[#F3F4F6] flex flex-col justify-center items-center">
-      <h2 className="xl:text-3xl lg:text-2xl md:text-2xl smd:text-xl sm:text-xl font-bold text-center pt-32 p-10 text-black">
+      <h2 className="xl:text-3xl lg:text-2xl md:text-2xl smd:text-xl sm:text-xl font-bold text-center pt-20 p-5 text-black">
         {titulo}
       </h2>
-      <div className="w-full flex flex-row justify-center items-center mt-10">
+      <div className="w-full xl:flex flex-row justify-center items-center mt-10 lg:flex md:flex sm:hidden smd:hidden">
         {/* Lado izquierdo */}
         <div
           className={`w-96 flex flex-col justify-start items-center ${height}`}
@@ -69,6 +70,25 @@ const Maraton = ({ titulo, height, contenido }) => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="w-full xl:hidden flex-col justify-center items-center lg:hidden md:hidden sm:flex smd:flex">
+        {contenido.map((movie, index) => (
+          <Link
+            href={`${movie.enlace}`}
+            className={`flex flex-row justify-center items-center my-1`}
+            key={index}
+          >
+            <div className="bg-white w-96 p-2 rounded-md shadow-sm shadow-gray-500">
+              <p className="text-sm font-bold text-black">{movie.nombre}</p>
+              <div className="flex flex-row justify-start items-center">
+                <p className="text-gray-400 text-xs">{movie.fecha}</p>
+                {movie.TipoMovie === "serie" && (
+                  <p className="ml-2 font-bold text-sm">{movie.temporada}</p>
+                )}
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );

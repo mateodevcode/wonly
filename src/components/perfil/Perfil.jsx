@@ -1,34 +1,11 @@
-"use client"
-import React, { useEffect, useState } from "react";
+"use client";
+import React from "react";
+import { MoviesContext } from "@/context/MoviesContext";
+import { useContext } from "react";
 
 const Perfil = () => {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const cargarUsuarios = async () => {
-      try {
-        const res = await fetch(`/api/user`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await res.json();
-        setUsers(data);
-      } catch (error) {
-        toast({
-          title: "Error",
-          description: "Error al cargar los usuarios",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-          position: "top",
-        });
-      }
-    };
-    cargarUsuarios();
-  }, []);
-
+  const { users } = useContext(MoviesContext);
+  
   return (
     <div>
       {users.map((user) => (

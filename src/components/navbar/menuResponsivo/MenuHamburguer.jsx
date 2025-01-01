@@ -55,7 +55,7 @@ function MenuHamburguer() {
                   onClose={onClose}
                 />
               ))}
-              <MiLista menuResponsive={true} isButton={false} />
+              <MiLista menuResponsive={true} onClose={onClose} />
             </div>
 
             <div className="w-full">

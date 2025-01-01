@@ -2,7 +2,7 @@ import GenerosId from "@/components/generos/GenerosId";
 
 const page = () => {
   return (
-    <div>
+    <div className="bg-black">
       <GenerosId />
     </div>
   );

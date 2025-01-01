@@ -153,8 +153,8 @@ const MiPerfil = () => {
     <div className="w-full h-screen place-content-center grid">
       <div className="absolute lg:top-10 md:top-10 sm:top-2 lg:left-10 md:left-10 sm:left-5">
         <button
-          className="bg-black hover:bg-black/80 text-white py-2 px-4 rounded-lg"
-          onClick={() => router.push("/")}
+          className="bg-black hover:bg-black/80 text-white py-1.5 px-3 rounded-lg text-sm"
+          onClick={() => router.back()}
         >
           Volver
         </button>
@@ -266,15 +266,15 @@ const MiPerfil = () => {
                 : formData.password}
             </p>
           </div>
-          <div className="w-full flex flex-row justify-end items-center px-6">
+          <div className="w-full flex flex-row justify-end items-center px-6 my-5">
             <button
-              className="bg-red-600 hover:bg-red-500 text-white py-2 px-4 rounded-lg my-5 mr-1"
+              className="bg-red-600 hover:bg-red-500 text-white py-1.5 px-3 rounded-lg text-sm mr-1"
               onClick={eliminarUsuario}
             >
               Eliminar
             </button>
             <button
-              className="bg-black hover:bg-black/80 text-white py-2 px-4 rounded-lg my-5 ml-1"
+              className="bg-black hover:bg-black/80 text-white py-1.5 px-3 rounded-lg text-sm ml-1"
               onClick={() => setIsEditing(!isEditing)}
             >
               Editar
