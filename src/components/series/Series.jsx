@@ -53,7 +53,7 @@ const Series = () => {
       {/* Contenedor de series */}
       <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-3 smd:grid-cols-3 sm:grid-cols-2 lg:gap-2 md:gap-2 sm:gap-1 mt-5 mb-10">
         {SeriesCargadas.map((serie, index) => (
-          <CardMovie 
+          <CardMovie
             key={index}
             imagen_perfil={serie.imagen_perfil}
             titulo={serie.titulo}
@@ -76,7 +76,11 @@ const Series = () => {
         />
       )}
       {/* Spinner */}
-      {datosSeries && datosSeries.length === 0 && <SpinnerGlobal />}
+      {datosSeries && datosSeries.length === 0 && (
+        <div className="flex justify-center items-center w-full my-40">
+          <SpinnerGlobal />
+        </div>
+      )}
     </div>
   );
 };
