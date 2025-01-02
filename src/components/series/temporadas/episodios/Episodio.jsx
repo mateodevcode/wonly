@@ -78,9 +78,9 @@ const Episodio = () => {
             Id={Id}
           />
         ) : (
-          <div className="my-40">
-            <SpinnerGlobal />
-          </div>
+          <div className="flex justify-center items-center w-full my-40">
+          <SpinnerGlobal />
+        </div>
         )}
       </div>
     </div>

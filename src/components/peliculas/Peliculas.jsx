@@ -37,7 +37,7 @@ const Peliculas = () => {
   const peliculasCargadas = filtrarPeliculas.slice(inicio, fin);
 
   return (
-    <div className="flex flex-col justify-center items-center w-full text-white bg-black">
+    <div className="flex flex-col justify-center items-center w-full bg-white dark:bg-black">
       <TopSearch
         path={path}
         enlacesSeries={enlacesSeries}

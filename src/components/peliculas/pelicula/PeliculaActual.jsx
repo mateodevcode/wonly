@@ -41,7 +41,7 @@ const PeliculaActual = () => {
   
 
   return (
-    <div className="w-full bg-black h-full flex flex-col justify-center items-center">
+    <div className="w-full dark:bg-black h-full flex flex-col justify-center items-center">
       <div className="flex flex-row justify-center items-center w-full">
         {datosPeliculas.titulo ? (
           <CardPelicula
@@ -51,12 +51,12 @@ const PeliculaActual = () => {
             duracion={datosPeliculas.duracion}
           />
         ) : (
-          <div className="my-40">
-            <SpinnerGlobal />
-          </div>
+          <div className="flex justify-center items-center w-full my-40">
+          <SpinnerGlobal />
+        </div>
         )}
       </div>
-      <div className="flex flex-col justify-center items-center w-full bg-black text-white">
+      <div className="flex flex-col justify-center items-center w-full dark:bg-black dark:text-white">
         <div className="flex flex-col items-start justify-center lg:w-10/12 md:w-10/12 sm:w-11/12">
           <div className="flex flex-row justify-start items-center lg:text-base md:text-base sm:text-sm  rounded-md border-[1px] border-gray-500">
             <p className="font-semibold py-2 px-3 select-none">
@@ -77,7 +77,9 @@ const PeliculaActual = () => {
             />
           ))}
         </div>
-        {datosPeliculas && datosPeliculas.length === 0 && <SpinnerGlobal />}
+        {datosPeliculas && datosPeliculas.length === 0 && <div className="flex justify-center items-center w-full my-40">
+          <SpinnerGlobal />
+        </div>}
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ const CarruselCards = () => {
           ))}
         </div>
       ) : (
-        <div className="flex flex-row justify-center items-center">
+        <div className="flex justify-center items-center w-full my-40">
           <SpinnerGlobal />
         </div>
       )}

@@ -2,7 +2,7 @@ import Generos from "@/components/generos/Generos";
 
 const page = () => {
   return (
-    <div className="bg-black">
+    <div className="dark:bg-black">
       <Generos />
     </div>
   );

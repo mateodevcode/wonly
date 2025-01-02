@@ -1,5 +1,6 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { MdKeyboardArrowLeft } from "react-icons/md";
 
 const Pagination = ({
   filtrarPeliculas,
@@ -15,12 +16,12 @@ const Pagination = ({
 
   return (
     <div className="w-full flex flex-row justify-center items-center font-mono">
-      <div className="w-[600px]">
-        <nav className="flex flex-row justify-center items-center text-white">
-          <ul className=" flex flex-row justify-center items-center lg:text-base md:text-base sm:text-[10px] border-[1px] border-gray-400 rounded-md select-none font-semibol cursor-pointer">
+      <div className="w-[600px] my-5">
+        <nav className="flex flex-row justify-center items-center dark:text-white">
+          <ul className=" flex flex-row justify-center items-center lg:text-base md:text-base sm:text-[10px] rounded-md select-none font-semibol cursor-pointer">
             <li
-              className={`p-2 hover:bg-white hover:text-black rounded-l-md ${
-                inicio === 0 ? "text-gray-500 cursor-not-allowed" : ""
+              className={`p-2 dark:hover:bg-white/10 hover:bg-black/10 rounded-md flex flex-row justify-center items-center text-sm pr-3 pl-1.5 py-2.5 ${
+                inicio === 0 ? "dark:text-gray-500 cursor-not-allowed" : ""
               }`}
               onClick={() => {
                 if (inicio === 0) return;
@@ -29,10 +30,10 @@ const Pagination = ({
                 router.push(inicio == 0 ? "#" : "#page");
               }}
             >
-              Anterior
+              <MdKeyboardArrowLeft className="text-xl mr-1" /> Anterior
             </li>
             <li
-              className={`py-2 px-4 border-l-[1px] border-gray-400 hover:bg-white hover:text-black ${
+              className={`py-2 px-4 dark:hover:bg-white/10 rounded-md ${
                 inicio === 0 ? "hidden" : ""
               }`}
               onClick={() => {
@@ -43,11 +44,11 @@ const Pagination = ({
             >
               {inicio / numPelPorPagina}
             </li>
-            <li className="py-2 px-4 border-l-[1px] border-r-[1px] border-gray-400 bg-white text-black">
+            <li className="py-2 px-4 border-[1px] dark:border-white/20 rounded-md mx-1 hover:bg-black/10 dark:hover:bg-white/10">
               {Math.round(inicio / numPelPorPagina + 1)}
             </li>
             <li
-              className={`py-2 px-4 border-gray-400 hover:bg-white hover:text-black ${
+              className={`py-2 px-4 dark:hover:bg-white/10 hover:bg-black/10 rounded-md ${
                 peliculasCargadas.length < numeroPeliculas ||
                 filtrarPeliculas.length <= numeroPeliculas
                   ? "hidden"
@@ -72,11 +73,12 @@ const Pagination = ({
               className={`${
                 peliculasCargadas.length < numeroPeliculas ||
                 filtrarPeliculas.length <= numeroPeliculas
-                  ? "text-gray-500 cursor-not-allowed"
-                  : "border-l-[1px]"
-              } p-2 hover:bg-white hover:text-black hover:rounded-r-md`}
+                  ? "dark:text-gray-500 cursor-not-allowed"
+                  : ""
+              } pl-3 pr-1.5 py-2.5 dark:hover:bg-white/10 hover:bg-black/10 hover:rounded-md flex flex-row justify-center items-center text-sm`}
             >
               Siguiente
+              <MdKeyboardArrowLeft className="rotate-180 text-xl ml-1" />
             </li>
           </ul>
         </nav>

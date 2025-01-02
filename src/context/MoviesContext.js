@@ -15,6 +15,26 @@ export const MoviesProvider = ({ children }) => {
   const [User, setUser] = useState([]);
 
   const [peticiones, setPeticiones] = useState([]);
+  const [darkMode, setDarkMode] = useState(document.body.classList.contains("light"));
+
+  useEffect(() => {
+    if (document.body.classList.contains("dark")) {
+      setDarkMode(false);
+    } else {
+      setDarkMode(true);
+    }
+  }, []);
+
+  const handleDarkMode = () => {
+    setDarkMode(!darkMode);
+    if (!darkMode) {
+      document.body.classList.remove("dark");
+      document.body.classList.add("light");
+    } else {
+      document.body.classList.add("dark");
+      document.body.classList.remove("light");
+    }
+  };
 
   const cargarLista = async (_id) => {
     try {
@@ -217,6 +237,8 @@ export const MoviesProvider = ({ children }) => {
         User,
         eliminarPeticion,
         peticiones,
+        darkMode,
+        handleDarkMode,
       }}
     >
       {children}

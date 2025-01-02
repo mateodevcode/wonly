@@ -30,7 +30,7 @@ const Temporadas = () => {
   
   return (
     <>
-      <div className="w-full flex flex-col justify-center items-center bg-black lg:pt-24 md:pt-24 sm:pt-20 lg:pb-40 sm:pb-20">
+      <div className="w-full flex flex-col justify-center items-center dark:bg-black lg:pt-24 md:pt-24 sm:pt-20 lg:pb-40 sm:pb-20">
         <h2 className="uppercase font-bold lg:text-3xl sm:text-3xl dark:text-white mb-5 text-left lg:w-10/12 md:w-10/12 sm:w-11/12 underline">
           {datosSeries.titulo}
         </h2>
@@ -49,7 +49,9 @@ const Temporadas = () => {
           ))}
         </div>
         {temporada && temporada.length === 0 && (
+          <div className="flex justify-center items-center w-full my-40">
           <SpinnerGlobal />
+        </div>
         )}
       </div>
     </>

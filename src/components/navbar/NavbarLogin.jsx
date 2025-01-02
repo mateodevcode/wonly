@@ -8,11 +8,13 @@ import React from "react";
 import { LuLogOut } from "react-icons/lu";
 import { useContext } from "react";
 import { MoviesContext } from "@/context/MoviesContext";
+import SwitchMode from "@/components/navbar/switch/Switch";
 
 const NavbarLogin = ({ menuResponsive }) => {
   const { data: session, status } = useSession();
   const router = useRouter();
   const { Usuario } = useContext(MoviesContext);
+  
 
   return (
     <>
@@ -27,6 +29,7 @@ const NavbarLogin = ({ menuResponsive }) => {
         </div>
       ) : (
         <div className="flex flex-row justify-center items-center">
+          <SwitchMode />
           <Tooltip
             label={`${
               status === "authenticated" ? session?.user?.name : "Perfil"
@@ -66,7 +69,7 @@ const NavbarLogin = ({ menuResponsive }) => {
                   paddingBottom={1}
                 >
                   <div
-                    className="bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-2 rounded mx-0 flex flex-row justify-center items-center"
+                    className="dark:bg-white/10 dark:hover:bg-white/20 bg-black/10 hover:bg-black/20 dark:text-white font-bold py-2 px-2 rounded mx-0 flex flex-row justify-center items-center"
                     onClick={() => signOut()}
                   >
                     <LuLogOut className="text-base" />

@@ -8,8 +8,8 @@ const Enlace = ({ nombre, Url }) => {
   const baseClasses =
     "mx-0.5 p-2 px-3 rounded-md select-none cursor-pointer text-sm font-semibold my-0.5";
   const activeClasses = isActive
-    ? "bg-white text-black"
-    : "text-white hover:bg-black/20 hover:text-black hover:bg-white";
+    ? "dark:bg-white dark:text-black bg-black/10 text-black"
+    : "dark:text-white dark:hover:text-black dark:hover:bg-white hover:bg-black/10 hover:text-black";
 
   return (
     <Link href={`${Url}`} className={`${baseClasses} ${activeClasses}`}>

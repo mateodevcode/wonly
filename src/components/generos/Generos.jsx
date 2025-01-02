@@ -16,6 +16,7 @@ import SpinnerGlobal from "../spinner/SpinnerGlobal";
 import { PiEmptyThin } from "react-icons/pi";
 import Link from "next/link";
 import { Input, Spinner, Tooltip } from "@chakra-ui/react";
+import SwitchMode from "../navbar/switch/Switch";
 
 const Generos = () => {
   const [buscar, setBuscar] = useState("");
@@ -93,13 +94,13 @@ const Generos = () => {
   return (
     <div className="w-full h-svh p-2">
       <div className="w-full h-full border-[1px] border-zinc-700 rounded-md flex flex-row justify-between items-start">
-        <div className="w-40 bg-zinc-950 flex flex-col justify-between border-r-[1px] border-zinc-700 h-full rounded-md">
+        <div className="w-40 dark:bg-zinc-950 flex flex-col justify-between border-r-[1px] border-zinc-700 h-full rounded-md">
           {/* Asidebar */}
-          <div>
-            <div className="m-2 mb-4">
+          <div className="w-full">
+            <div className="flex flex-row justify-between items-center w-full">
               <Link
                 href="/"
-                className="flex flex-row justify-start items-center cursor-pointer"
+                className="flex flex-row justify-center items-center cursor-pointer m-2"
               >
                 <Image
                   src={logo.src}
@@ -108,15 +109,19 @@ const Generos = () => {
                   alt="logo"
                   className="w-20 h-9"
                 />
+                
               </Link>
+              <div className="mx-1">
+              <SwitchMode />
+              </div>
             </div>
             <div className="flex flex-row justify-start items-center m-1">
               <div className="flex flex-row justify-center items-center p-1 rounded-full">
                 <FcGenealogy className="text-black lx:text-xl lg:text-xl md:text-xl smd:text-base sm:text-base" />
               </div>
               <div className="flex flex-col justify-center items-start mx-1">
-                <h2 className="text-white text-xs">Generos</h2>
-                <p className="text-gray-300 text-[10px] italic font-semibold">
+                <h2 className="dark:text-white text-xs">Generos</h2>
+                <p className="dark:text-gray-300 text-[10px] italic font-semibold">
                   Industrias LZO
                 </p>
               </div>
@@ -129,8 +134,8 @@ const Generos = () => {
                   id={genero.nombre}
                   className={`${
                     genero === enlace.nombre
-                      ? "bg-zinc-900 text-white"
-                      : "bg-zinc-950 text-gray-300"
+                      ? "dark:bg-zinc-900 dark:text-white"
+                      : "dark:bg-zinc-950 dark:text-gray-300"
                   } cursor-pointer hover:bg-zinc-900 hover:text-white transition duration-100 ease-in-out my-0.5 p-2 rounded-md text-xs select-none`}
                 >
                   {enlace.nombre}
@@ -142,7 +147,7 @@ const Generos = () => {
             {status === "authenticated" && (
               <Link
                 href={`/perfil/${Usuario?._id}`}
-                className="flex flex-row justify-start items-center hover:bg-zinc-900 cursor-pointer m-1 rounded-md select-none"
+                className="flex flex-row justify-start items-center dark:hover:bg-zinc-900 hover:bg-black/10 cursor-pointer m-1 rounded-md select-none"
               >
                 <Image
                   src={session?.user?.image}
@@ -152,7 +157,7 @@ const Generos = () => {
                   className="rounded-full xl:w-7 lg:w-7 md:w-7 smd:w-5 sm:w-5 xl:h-7 lg:h-7 md:h-7 smd:h-5 sm:h-5 m-2"
                 />
                 <div className="flex flex-row justify-between items-center w-full">
-                  <div className="text-white flex flex-col justify-center items-start">
+                  <div className="dark:text-white flex flex-col justify-center items-start">
                     <span className="text-[10px] font-semibold">
                       {primerNombre(session?.user?.name)}
                     </span>
@@ -189,10 +194,10 @@ const Generos = () => {
         <div className="w-full">
           {/* Contenido */}
           <div className="flex flex-row justify-between items-center w-full h-10 text-white lg:mb-0 sm:mb-5 px-3 mt-3">
-            <div className="text-white p-2 flex flex-row justify-start items-center">
-              <CgListTree className="lx:text-xl lg:text-xl md:text-xl smd:text-base sm:text-base mx-2 text-zinc-200" />
+            <div className="dark:text-white text-black p-2 flex flex-row justify-start items-center">
+              <CgListTree className="lx:text-xl lg:text-xl md:text-xl smd:text-base sm:text-base mx-2 dark:text-zinc-200 text-black" />
               <hr className="h-4 border-[0.5px] border-zinc-500 mx-2" />
-              <span className="xl:text-sm lg:text-sm md:text-sm smd:text-xs sm:text-xs mx-2 text-zinc-200">
+              <span className="xl:text-sm lg:text-sm md:text-sm smd:text-xs sm:text-xs mx-2 dark:text-zinc-200 text-black">
                 Generos
               </span>
               <RiArrowDropRightLine className="text-2xl" />
@@ -202,7 +207,7 @@ const Generos = () => {
             </div>
             <div className="flex flex-row justify-center items-center mx-2">
               <Input
-                className="placeholder-gray-400 text-white"
+                className="placeholder-gray-400 dark:text-white text-black"
                 type="text"
                 placeholder="Buscar"
                 border="none"
@@ -233,7 +238,7 @@ const Generos = () => {
                 >
                   <div
                     key={index}
-                    className="flex flex-col justify-start items-center lg:my-5 md:my-5 sm:my-2 lg:mx-4 md:mx-4 sm:mx-2 cursor-pointer active:scale-95 transition-all duration-300 bg-zinc-900 pb-2 rounded-md"
+                    className="flex flex-col justify-start items-center lg:my-5 md:my-5 sm:my-2 lg:mx-4 md:mx-4 sm:mx-2 cursor-pointer active:scale-95 transition-all duration-300 dark:bg-zinc-900 pb-2 rounded-md"
                     onClick={(e) => {
                       e.preventDefault();
                       router.push(`/peliculas/${pelicula.id}`);
@@ -253,7 +258,7 @@ const Generos = () => {
                       id={pelicula.id}
                       className="w-full h-full object-cover hover:opacity-50"
                     />
-                    <p className="xl:text-xs lg:text-xs md:text-xs sm:text-[10px] lg:mt-2 md:mt-2 sm:mt-1.5 text-gray-400">
+                    <p className="xl:text-xs lg:text-xs md:text-xs sm:text-[10px] lg:mt-2 md:mt-2 sm:mt-1.5 dark:text-gray-400 text-black">
                       {acortarNombre(pelicula.titulo, 20)}
                     </p>
                   </div>
