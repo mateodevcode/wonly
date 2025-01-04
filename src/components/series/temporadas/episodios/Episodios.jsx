@@ -69,7 +69,7 @@ const Episodios = () => {
 
 
   return (
-    <div className="bg-black w-full flex flex-col justify-center items-center pt-14">
+    <div className="dark:bg-black w-full flex flex-col justify-center items-center pt-16">
       {temporadaActual && temporadaActual.length === 0 && (
         <div className="flex justify-center items-center w-full my-40">
         <SpinnerGlobal />

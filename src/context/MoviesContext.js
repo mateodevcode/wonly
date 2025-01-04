@@ -15,7 +15,7 @@ export const MoviesProvider = ({ children }) => {
   const [User, setUser] = useState([]);
 
   const [peticiones, setPeticiones] = useState([]);
-  const [darkMode, setDarkMode] = useState(document.body.classList.contains("light"));
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     if (document.body.classList.contains("dark")) {

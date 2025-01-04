@@ -41,7 +41,7 @@ const CardMovie = ({ index, imagen_perfil, titulo, id, year, _id }) => {
           miLista={miLista}
         />
         <div className="w-full">
-          <p className="absolute dark:bg-black/50 bg-white/50 lg:px-3 md:px-1.5 sm:px-1.5 lg:py-1 md:py-1 sm:py-0.5 lg:rounded-md md:rounded-md sm:rounded-sm xl:text-xs lg:text-xs md:text-xs sm:text-[10px] lg:m-2 md:m-2 sm:m-1 font-mono lg:mx-2 md:mx-3 sm:mx-1 font-bold">
+          <p className="absolute dark:bg-black/50 bg-white/50 lg:px-3 md:px-1.5 sm:px-1.5 lg:py-1 md:py-1 sm:py-0.5 lg:rounded-md md:rounded-md sm:rounded-sm xl:text-xs lg:text-xs md:text-xs sm:text-[10px] lg:m-2 md:m-2 sm:m-1 font-mono lg:mx-2 md:mx-3 sm:mx-1 font-bold dark:text-white text-black">
             {year}
           </p>
         </div>

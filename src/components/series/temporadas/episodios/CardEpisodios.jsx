@@ -26,10 +26,10 @@ const CardEpisodios = ({
         router.push(Url);
       }}
       key={index}
-      className={`w-full xl:h-56 lg:h-56 md:h-40 sm:h-32 flex flex-row items-center justify-center my-2 rounded-xl hover:bg-zinc-700 cursor-pointer ${
+      className={`w-full xl:h-56 lg:h-56 md:h-40 sm:h-32 flex flex-row items-center justify-center my-2 rounded-xl dark:hover:bg-zinc-700 hover:bg-zinc-300 cursor-pointer ${
         params.episodio === episodio
-          ? "bg-zinc-800 text-white"
-          : "bg-zinc-900 text-white"
+          ? "dark:bg-zinc-800 bg-zinc-200 text-white"
+          : "dark:bg-zinc-900 bg-zinc-100 text-white"
       }`}
     >
       <div className="flex flex-row justify-start items-center w-full">
@@ -45,7 +45,7 @@ const CardEpisodios = ({
         <div className="w-10/12 flex flex-col justify-between items-start mx-2 lg:h-60 md:h-40 sm:h-28 select-none xl:py-5 lg:py-5 md:py-2 sm:py-2 ">
           <div className="flex flex-col justify-start items-start lg:mt-4 md:mt-4 sm:mt-0">
             <div className="flex flex-row justify-center items-center">
-              <h1 className="lg:text-xl md:text-base sm:text-[10px] font-bold lg:mx-2 md:mx-2 sm:mx-0">
+              <h1 className="lg:text-xl md:text-base sm:text-[10px] font-bold lg:mx-2 md:mx-2 sm:mx-0 dark:text-white text-black">
                 {temporada} {episodio} - {titulo}
               </h1>
               <p className="text-white mx-2 font-bold bg-red-600 lg:px-2 md:px-2 sm:px-1 rounded-full py-0.5 lg:text-xs md:text-xs sm:text-[7px]">
@@ -53,12 +53,12 @@ const CardEpisodios = ({
                 {"+"}
               </p>
             </div>
-            <div className="flex flex-row justify-center items-center">
+            <div className="flex flex-row justify-center items-center dark:text-white text-black">
               <p className="lg:mx-2 md:mx-2 sm:mx-0 font-bold lg:my-2 md:my-1 sm:my-0 py-1 md:text-sm sm:text-[8px]">
                 {convertirMinutos(duracion)} min
               </p>
             </div>
-            <p className="lg:mx-2 md:mx-2 sm:mx-0 lg:text-base md:text-xs smd:text-sm sm:text-[8px] font-semibold text-gray-400">
+            <p className="lg:mx-2 md:mx-2 sm:mx-0 lg:text-base md:text-xs smd:text-sm sm:text-[8px] font-semibold dark:text-gray-400 text-gray-700">
               {acortarDescripcion(descripcion)}
             </p>
           </div>

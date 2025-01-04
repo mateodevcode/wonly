@@ -5,7 +5,7 @@ import Principal from "@/components/homepage/Principal";
 
 export default function Home() {
   return (
-    <main className="w-full flex-col justify-center items-center bg-black">
+    <main className="w-full flex-col justify-center items-center dark:bg-black">
       <Navbar />
       <Principal />
       <CarruselCards /> 

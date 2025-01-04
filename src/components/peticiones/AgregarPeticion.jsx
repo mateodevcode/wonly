@@ -257,9 +257,9 @@ const AgregarPeticion = () => {
   };
 
   return (
-    <div className="pt-20 w-full bg-black h-full flex flex-col justify-start items-center">
-      <div className="w-10/12 text-white font-mono mb-5 border-b-2 border-gray-700 pb-5">
-        <h3 className="text-white text-3xl mb-5 font-extrabold">
+    <div className="pt-20 w-full dark:bg-black h-full flex flex-col justify-start items-center">
+      <div className="w-10/12 dark:text-white font-mono mb-5 border-b-2 border-gray-700 pb-5">
+        <h3 className="dark:text-white text-3xl mb-5 font-extrabold">
           Datos de petición
         </h3>
         <p className="text-lg">
@@ -272,7 +272,7 @@ const AgregarPeticion = () => {
         </p>
       </div>
 
-      <div className="w-10/12 text-white font-mono">
+      <div className="w-10/12 dark:text-white font-mono">
         <p className="mb-2">Por favor indique si es pelicula o Serie</p>
         <input
           type="radio"
@@ -293,7 +293,7 @@ const AgregarPeticion = () => {
         />
         <label htmlFor="serie">Serie</label>
       </div>
-      <div className="w-10/12 text-white font-mono mt-5">
+      <div className="w-10/12 dark:text-white font-mono mt-5">
         {tipo === "pelicula" ? (
           <form
             onSubmit={handleCreatePelicula}

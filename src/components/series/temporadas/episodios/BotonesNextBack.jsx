@@ -39,11 +39,11 @@ const BotonesNextBack = ({ temporadaActual }) => {
   }, []);
 
   return (
-    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center w-[750px] text-xl font-semibold text-white w-full">
+    <div className="lg:h-14 md:h-14 sm:h-10 flex flex-row justify-between items-center text-xl font-semibold dark:text-white w-full">
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-black hover:bg-white lg:text-sm md:text-sm sm:text-xs ${
+        className={`flex flex-row justify-center items-center cursor-pointer select-none dark:hover:text-black dark:hover:bg-white hover:bg-black hover:text-white text-xs ${
           numeroEpisodio === 1 ? "hidden" : ""
-        } py-2 px-3 rounded-md`}
+        } py-2 px-3 rounded-md pr-4`}
         onClick={() => {
           if (numeroEpisodio === 1) {
             router.push(`/series/${params.serie}/${params.temporada}`);
@@ -57,11 +57,11 @@ const BotonesNextBack = ({ temporadaActual }) => {
           }
         }}
       >
-        <IoIosArrowBack className="lg:text-base md:text-base sm:text-base mr-2" />{" "}
+        <IoIosArrowBack className="text-xs mr-2" />{" "}
         <p className="">Episodio Anterior</p>
       </div>
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:bg-white hover:text-black lg:text-lg md:text-lg sm:text-xs ${
+        className={`flex flex-row justify-center items-center cursor-pointer select-none dark:hover:text-black dark:hover:bg-white hover:bg-black hover:text-white lg:text-lg md:text-lg sm:text-xs ${
           temporadaActual?.length === numeroEpisodio || numeroEpisodio === 1
             ? ""
             : "hidden"
@@ -84,9 +84,9 @@ const BotonesNextBack = ({ temporadaActual }) => {
         </Tooltip>
       </div>
       <div
-        className={`flex flex-row justify-center items-center cursor-pointer select-none hover:text-black hover:bg-white lg:text-sm md:text-sm sm:text-xs ${
+        className={`flex flex-row justify-center items-center cursor-pointer select-none dark:hover:text-black dark:hover:bg-white hover:bg-black hover:text-white lg:text-xs md:text-sm sm:text-xs ${
           temporadaActual?.length === numeroEpisodio ? "hidden" : ""
-        } py-2 px-3 rounded-md`}
+        } py-2 px-3 rounded-md pl-4`}
         onClick={() => {
           if (numeroEpisodio === numeroEpisodios) {
             router.push(`/series/${params.serie}/${params.temporada}`);
@@ -101,7 +101,7 @@ const BotonesNextBack = ({ temporadaActual }) => {
         }}
       >
         Episodio Siguiente
-        <IoIosArrowBack className="lg:text-base md:text-base sm:text-base ml-2 rotate-180" />
+        <IoIosArrowBack className="text-xs ml-2 rotate-180" />
       </div>
     </div>
   );
