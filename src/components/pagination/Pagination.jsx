@@ -33,7 +33,7 @@ const Pagination = ({
               <MdKeyboardArrowLeft className="text-xl mr-1" /> Anterior
             </li>
             <li
-              className={`py-2 px-4 dark:hover:bg-white/10 rounded-md ${
+              className={`py-2 px-4 dark:hover:bg-white/10 hover:bg-black/10 rounded-md ${
                 inicio === 0 ? "hidden" : ""
               }`}
               onClick={() => {
