@@ -1,9 +1,10 @@
 "use client";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import CardEpisodios from "./CardEpisodios";
+import CardEpisodios from "./CardEpisodio";
 import { PiCardsFill } from "react-icons/pi";
 import SpinnerGlobal from "@/components/spinner/SpinnerGlobal";
+import CardEpisodio from "./CardEpisodio";
 
 const Episodios = () => {
   const [imagenFondo, setImagenFondo] = useState([]);
@@ -98,7 +99,7 @@ const Episodios = () => {
       </div>
       <div className="w-full flex flex-col justify-center items-center xl:px-40 lg:px-5 md:px-10 sm:px-2">
         {temporadaActual.map((epi, index) => (
-          <CardEpisodios
+          <CardEpisodio
             key={index}
             imagen_perfil={epi.imagen_perfil}
             temporada={epi.temporada}

@@ -1,68 +1,66 @@
-import { acortarDescripcion } from "@/config/acortarDescripcion";
-import { convertirMinutos } from "@/config/convertirMinutos";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useParams } from "next/navigation";
+"use client";
+import CardEpisodio from "./CardEpisodio";
+import { useEffect, useState } from "react";
+import ReproductorVideo from "@/components/reproductorVideo/ReproductorVideo";
 
 const CardEpisodios = ({
-  index,
-  imagen_perfil,
-  temporada,
-  episodio,
   titulo,
-  duracion,
   descripcion,
-  Url,
+  url,
+  duracion,
+  temporadaActual,
+  urlTemporada,
   edad,
+  Id,
+  temporada,
+  episodio
 }) => {
-  const router = useRouter();
-  const params = useParams();// Tipar params según la estructura esperada
+  const [ListaEpisodios, setListaEpisodios] = useState([]);
+  const [UrlSeleccionada, setUrlSeleccionada] = useState(url[0]);
+
+  useEffect(() => {
+    const cargarEpisodios = async () => {
+      const res = await fetch(`/api/series`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      setListaEpisodios(data);
+    };
+    cargarEpisodios();
+  }, []);
+  
 
   return (
-    <div
-      id={episodio}
-      onClick={(e) => {
-        e.preventDefault();
-        router.push(Url);
-      }}
-      key={index}
-      className={`w-full xl:h-56 lg:h-56 md:h-40 sm:h-32 flex flex-row items-center justify-center my-2 rounded-xl dark:hover:bg-zinc-700 hover:bg-zinc-300 cursor-pointer ${
-        params.episodio === episodio
-          ? "dark:bg-zinc-800 bg-zinc-200 text-white"
-          : "dark:bg-zinc-900 bg-zinc-100 text-white"
-      }`}
-    >
-      <div className="flex flex-row justify-start items-center w-full">
-        <div className="rounded-lg xl:w-60 lg:w-60 md:w-40 smd:w-32 sm:w-40 lg:p-5 md:p-2 sm:p-2 lg:h-60 md:h-40 sm:h-24 flex flex-row items-center justify-center">
-          <Image
-            src={imagen_perfil}
-            alt="imagen"
-            width={500}
-            height={500}
-            className="w-full rounded-full"
+    <div className="flex flex-col justify-center items-center w-full">
+      <ReproductorVideo
+        tipoMovie={"serie"}
+        titulo={titulo}
+        descripcion={descripcion}
+        duracion={duracion}
+        url={url}
+        setUrlSeleccionada={setUrlSeleccionada}
+        UrlSeleccionada={UrlSeleccionada}
+        temporadaActual={temporadaActual}
+        temporada={temporada}
+        episodio={episodio}
+      />
+      <div className="w-full xl:px-40 lg:px-5 md:px-5 smd:px-5 sm:px-5">
+        {temporadaActual.map((epi, index) => (
+          <CardEpisodio
+            key={index}
+            imagen_perfil={epi.imagen_perfil}
+            temporada={epi.temporada}
+            episodio={epi.episodio}
+            titulo={epi.titulo}
+            duracion={epi.duracion}
+            descripcion={epi.descripcion}
+            Url={`/series/${Id}/${urlTemporada}/${epi.episodio}`}
+            edad={edad}
           />
-        </div>
-        <div className="w-10/12 flex flex-col justify-between items-start mx-2 lg:h-60 md:h-40 sm:h-28 select-none xl:py-5 lg:py-5 md:py-2 sm:py-2 ">
-          <div className="flex flex-col justify-start items-start lg:mt-4 md:mt-4 sm:mt-0">
-            <div className="flex flex-row justify-center items-center">
-              <h1 className="lg:text-xl md:text-base sm:text-[10px] font-bold lg:mx-2 md:mx-2 sm:mx-0 dark:text-white text-black">
-                {temporada} {episodio} - {titulo}
-              </h1>
-              <p className="text-white mx-2 font-bold bg-red-600 lg:px-2 md:px-2 sm:px-1 rounded-full py-0.5 lg:text-xs md:text-xs sm:text-[7px]">
-                {edad}
-                {"+"}
-              </p>
-            </div>
-            <div className="flex flex-row justify-center items-center dark:text-white text-black">
-              <p className="lg:mx-2 md:mx-2 sm:mx-0 font-bold lg:my-2 md:my-1 sm:my-0 py-1 md:text-sm sm:text-[8px]">
-                {convertirMinutos(duracion)} min
-              </p>
-            </div>
-            <p className="lg:mx-2 md:mx-2 sm:mx-0 lg:text-base md:text-xs smd:text-sm sm:text-[8px] font-semibold dark:text-gray-400 text-gray-700">
-              {acortarDescripcion(descripcion)}
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

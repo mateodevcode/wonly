@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import CardEpisodio from "./CardEpisodio";
+import CardEpisodio from "./CardEpisodios";
 import { useParams } from "next/navigation";
 import SpinnerGlobal from "@/components/spinner/SpinnerGlobal";
 
