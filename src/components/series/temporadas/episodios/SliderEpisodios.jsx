@@ -1,4 +1,5 @@
 "use client";
+import { acortarDescripcion } from "@/config/acortarDescripcion";
 import { Icono } from "@/data/logo";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -57,7 +58,7 @@ export default function SliderEpisodios({ contenido }) {
               </div>
               <h3 className="mt-2 text-base font-medium mb-1">{index + 1}. {" "}{movie.titulo}</h3>
               <p className="text-xs dark:text-zinc-200">
-                {movie.descripcion}
+                {acortarDescripcion(movie.descripcion, 100)}
               </p>
             </Link>
           ))}
