@@ -2,6 +2,8 @@
 import CardEpisodio from "./CardEpisodio";
 import { useEffect, useState } from "react";
 import ReproductorVideo from "@/components/reproductorVideo/ReproductorVideo";
+import SliderEpisodios from "./SliderEpisodios";
+import SliderEpisodiosTemp from "./SliderEpisodiosTemp";
 
 const CardEpisodios = ({
   titulo,
@@ -47,7 +49,14 @@ const CardEpisodios = ({
         temporada={temporada}
         episodio={episodio}
       />
-      <div className="w-full xl:px-40 lg:px-5 md:px-5 smd:px-5 sm:px-5">
+      <div className="xl:w-10/12 lg:w-11/12 w-full">
+        <SliderEpisodios contenido={temporadaActual} />
+      </div>
+      <div className="xl:w-10/12 lg:w-11/12 w-full">
+        <SliderEpisodiosTemp />
+      </div>
+
+      {/* <div className="w-full xl:px-40 lg:px-5 md:px-5 smd:px-5 sm:px-5">
         {temporadaActual.map((epi, index) => (
           <CardEpisodio
             key={index}
@@ -61,7 +70,7 @@ const CardEpisodios = ({
             edad={edad}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
