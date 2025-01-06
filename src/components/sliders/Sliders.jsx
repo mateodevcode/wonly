@@ -1,5 +1,5 @@
-import TrendingSection from "../TrendingSection";
 import { SlidersData } from "@/data/SlidersData";
+import SlidersCard from "./SlidersCard";
 
 const Sliders = () => {
   const data1 = SlidersData[0];
@@ -8,9 +8,9 @@ const Sliders = () => {
 
   return (
     <div className="mb-10">
-      <TrendingSection contenido={data1} />
-      <TrendingSection contenido={data2} />
-      <TrendingSection contenido={data3} />
+      <SlidersCard contenido={data1} />
+      <SlidersCard contenido={data2} />
+      <SlidersCard contenido={data3} />
     </div>
   );
 };

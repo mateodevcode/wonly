@@ -9,7 +9,7 @@ const ImgMediana = ({ imagen, nombre, Url }) => {
         alt={nombre}
         width={400}
         height={400}
-        className="w-40 h-40 mx-2"
+        className="w-32 h-32 m-4"
       />
     </Link>
   );

@@ -5,11 +5,11 @@ import { FaRegComments } from "react-icons/fa";
 
 const Articulo = () => {
   return (
-    <div className="w-full h-full flex flex-col justify-start items-center bg-black">
+    <div className="w-full h-full flex flex-col justify-start items-center bg-black pt-16">
       <div className="grid grid-cols-5 grid-rows-5 gap-0 lg:h-[500px] md:h-[500px] sm:h-[150px] lg:w-9/12 md:w-9/12 sm:w-full">
         <Link
           href={`/blog/${articulos[0].url}`}
-          className="col-span-3 row-span-5 flex items-end justify-start"
+          className="col-span-3 row-span-5 flex items-end justify-start hover:opacity-80"
           style={{
             backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)),url(${articulos[0].imagen})`,
             backgroundSize: "cover",
@@ -21,7 +21,7 @@ const Articulo = () => {
         </Link>
         <Link
           href={`/blog/${articulos[1].url}`}
-          className="col-span-2 row-span-3 col-start-4 flex items-end justify-start"
+          className="col-span-2 row-span-3 col-start-4 flex items-end justify-start hover:opacity-80"
           style={{
             backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)),url(${articulos[1].imagen})`,
             backgroundSize: "cover",
@@ -33,7 +33,7 @@ const Articulo = () => {
         </Link>
         <Link
           href={`/blog/${articulos[2].url}`}
-          className="col-span-2 row-span-2 col-start-4 row-start-4 flex items-end justify-start"
+          className="col-span-2 row-span-2 col-start-4 row-start-4 flex items-end justify-start hover:opacity-80"
           style={{
             backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)),url(${articulos[2].imagen})`,
             backgroundSize: "cover",

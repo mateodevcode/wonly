@@ -8,6 +8,7 @@ import Titulo from "@/components/blog/Titulo";
 import HeaderTop from "../HeaderTop";
 import Link from "next/link";
 import PathToBlog from "../PathToBlog";
+import { Icono } from "@/data/logo";
 
 const VerHarryPotter = () => {
   return (
@@ -156,8 +157,8 @@ const VerHarryPotter = () => {
           }
         />
         <ImgMediana
-          imagen={"https://i.postimg.cc/JzKQwjc7/logo-wonly-4.png"}
-          nombre={"Logo de Wonly"}
+          imagen={Icono.src}
+          nombre={Icono.alt}
           Url={"https://wonly.vercel.app"}
         />
         <LinkBlog

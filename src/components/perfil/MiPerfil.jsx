@@ -165,7 +165,7 @@ const MiPerfil = () => {
           id={formData._id}
           action={`/api/user/${params._id}`}
           method="PUT"
-          className="flex flex-col justify-start items-center w-[280px] h-full rounded-lg border-gray-300 border-[1px]"
+          className="flex flex-col justify-start items-center w-[380px] h-full rounded-lg border-gray-300 border-[1px]"
         >
           <h3 className="text-2xl font-bold mt-7 mb-1">Perfil de Usuario</h3>
           <div className="w-full flex flex-row justify-center items-center">
@@ -222,7 +222,7 @@ const MiPerfil = () => {
 
           <div className="w-full flex flex-row justify-end items-center px-6">
             <button
-              className="text-black border-gray-300 hover:bg-gray-200 border-[1px] py-2 px-4 rounded-md my-5 mr-1"
+              className="text-black border-gray-300 hover:bg-gray-200 border-[1px] py-2 px-4 rounded-md my-5 mr-1 text-sm"
               onClick={(e) => {
                 e.stopPropagation();
                 setIsEditing(!isEditing);
@@ -230,7 +230,7 @@ const MiPerfil = () => {
             >
               Cancelar
             </button>
-            <button className="bg-black hover:bg-black/80 text-white py-2 px-4 rounded-md my-5 ml-1">
+            <button className="bg-black hover:bg-black/80 text-white py-2 px-4 rounded-md my-5 ml-1 text-sm">
               Guardar
             </button>
           </div>
@@ -268,13 +268,13 @@ const MiPerfil = () => {
           </div>
           <div className="w-full flex flex-row justify-end items-center px-6 my-5">
             <button
-              className="bg-red-600 hover:bg-red-500 text-white py-1.5 px-3 rounded-lg text-sm mr-1"
+              className="bg-red-600 hover:bg-red-500 text-white py-2 px-4 rounded-md my-5 mr-1 text-sm"
               onClick={eliminarUsuario}
             >
               Eliminar
             </button>
             <button
-              className="bg-black hover:bg-black/80 text-white py-1.5 px-3 rounded-lg text-sm ml-1"
+              className="bg-black hover:bg-black/80 text-white py-2 px-4 rounded-md my-5 ml-1 text-sm"
               onClick={() => setIsEditing(!isEditing)}
             >
               Editar
