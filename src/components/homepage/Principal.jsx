@@ -4,9 +4,14 @@ import { useState, useEffect } from "react";
 import Botones from "./Botones";
 import { slides } from "@/data/slide.principal";
 import CardInfo from "./CardInformativo";
+import { MoviesContext } from "@/context/MoviesContext";
+import { useContext } from "react";
 
 const Principal = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { darkMode } = useContext(MoviesContext);
+
+
 
   slides.map((slide) => {
     return slide.generos.sort();
@@ -22,12 +27,16 @@ const Principal = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const degradadoOscuro = `linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)),url(${slides[currentIndex].image})`
+  const degradadoClaro = `linear-gradient(180deg, rgba(0,0,0,0) 80%, rgba(255,255,255,1) 100%),url(${slides[currentIndex].image})`
+
+
   return (
     <div className="slider">
       <div
         className="slider-image"
         style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)),url(${slides[currentIndex].image})`,
+          backgroundImage: `${darkMode ? degradadoClaro : degradadoOscuro}`,
         }}
       >
         <div className="absolute top-[350px] lg:w-[800px] md:w-[800px] sm:w-[380px] lg:mx-10 md:mx-10 sm:mx-0">
