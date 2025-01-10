@@ -47,13 +47,13 @@ export default function SliderEpisodiosTemp() {
 
   return (
     <div className="w-full dark:bg-black dark:text-white p-4 h-[420px] mb-20">
-      <div className="mb-4 flex flex-row justify-between items-center">
-        <h2 className="font-bold text-3xl">Episodios</h2>
+      <div className="mb-4 flex flex-row justify-between items-center w-full">
+        {/* <h2 className="font-bold text-3xl">Episodios</h2> */}
       <div>
         {serie?.temporadas.map((movie, index) => (
           <button key={index} id={movie.linkTo} value={movie.linkTo} onClick={() => {
             setTemp(movie.linkTo);
-          }} className={`mx-1 p-2 rounded-md font-semibold border-[1px] border-zinc-700 dark:bg-black dark:hover:bg-white/10 hover:bg-black/10 text-xs dark:text-white ${temp === movie.linkTo ? "dark:bg-zinc-700 bg-zinc-100 text-black" : ""}`}>{movie.temporada}</button>
+          }} className={`m-1 p-2 rounded-md font-semibold border-[1px] border-zinc-700 dark:bg-black dark:hover:bg-white/10 hover:bg-black/10 text-xs dark:text-white ${temp === movie.linkTo ? "dark:bg-zinc-700 bg-zinc-100 text-black" : ""}`}>{movie.temporada}</button>
         ))}
       </div>
       </div>
@@ -67,7 +67,7 @@ export default function SliderEpisodiosTemp() {
             <Link
               href={`https://wonly.vercel.app/series/${serie.id}/${temporada.linkTo}/${movie.episodio}`}
               key={index}
-              className={`relative flex-none w-[250px] bg-white/10 rounded-lg p-4 border-[1px] border-zinc-700 dark:hover:bg-white/20 hover:bg-black/10`}
+              className={`relative flex-none w-[250px] max-h-96 bg-white/10 rounded-lg p-4 border-[1px] border-zinc-700 dark:hover:bg-white/20 hover:bg-black/10`}
             >
               <div className="relative rounded-lg overflow-hidden">
                 <Image

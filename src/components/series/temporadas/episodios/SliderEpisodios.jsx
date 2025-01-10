@@ -39,7 +39,7 @@ export default function SliderEpisodios({ contenido }) {
             <Link
               href={`${movie.episodio}`}
               key={index}
-              className={`relative flex-none w-[250px] bg-white/10 rounded-lg p-4 border-[1px] border-zinc-700 dark:hover:bg-white/20 hover:bg-black/10 ${params.episodio === movie.episodio ? "bg-white/20" : ""}`}
+              className={`relative flex-none w-[250px] max-h-96 bg-white/10 rounded-lg p-4 border-[1px] border-zinc-700 dark:hover:bg-white/20 hover:bg-black/10 ${params.episodio === movie.episodio ? "bg-white/20" : ""}`}
             >
               <div className="relative rounded-lg overflow-hidden">
                 <Image

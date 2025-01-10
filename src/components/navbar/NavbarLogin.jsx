@@ -70,7 +70,9 @@ const NavbarLogin = ({ menuResponsive }) => {
                 >
                   <div
                     className="dark:bg-white/10 dark:hover:bg-white/20 bg-black/10 hover:bg-black/20 dark:text-white font-bold py-2 px-2 rounded mx-0 flex flex-row justify-center items-center"
-                    onClick={() => signOut()}
+                    onClick={() => {
+                      confirm("¿Estás seguro de cerrar sesión?") && signOut();
+                    }}
                   >
                     <LuLogOut className="text-base" />
                   </div>
@@ -96,7 +98,9 @@ const NavbarLogin = ({ menuResponsive }) => {
                     className={`bg-white hover:bg-white/90 text-black font-bold py-2 px-4 rounded mx-2 lg:text-base md:text-sm sm:text-xs lg:flex md:flex ${
                       menuResponsive ? "sm:flex" : "sm:hidden"
                     }`}
-                    onClick={() => signOut()}
+                    onClick={() => {
+                      confirm("¿Estás seguro de cerrar sesión?") && signOut();
+                    }}
                   >
                     Cerrar Sesión
                   </button>
@@ -106,7 +110,7 @@ const NavbarLogin = ({ menuResponsive }) => {
           ) : (
             <div className="flex flex-row justify-center items-center">
               <button
-                className={`bg-white/10 hover:bg-white/20 text-white font-semibold py-2 px-4 rounded mx-1 lg:text-xs md:text-xs sm:text-xs lg:flex md:flex ${
+                className={`dark:bg-white/10 dark:hover:bg-white/20 bg-black/10 hover:bg-black/20 dark:text-white font-semibold py-2 px-4 rounded mx-1 lg:text-xs md:text-xs sm:text-xs lg:flex md:flex ${
                   menuResponsive ? "sm:flex my-5" : "sm:hidden"
                 }`}
                 onClick={() => router.push("/login")}
@@ -114,7 +118,7 @@ const NavbarLogin = ({ menuResponsive }) => {
                 Iniciar Sesión
               </button>
               <button
-                className={`bg-white hover:bg-white/90 text-black font-semibold py-2 px-4 rounded mx-1 lg:text-xs md:text-xs sm:text-xs xl:flex lg:hidden md:flex smd:hidden ${
+                className={`dark:bg-white dark:hover:bg-white/90 border-[1px] hover:bg-black/10 dark:text-black font-semibold py-2 px-4 rounded mx-1 lg:text-xs md:text-xs sm:text-xs xl:flex lg:hidden md:flex smd:hidden ${
                   menuResponsive ? "sm:flex my-5" : "sm:hidden"
                 }`}
                 onClick={() => router.push("/register")}
