@@ -151,7 +151,7 @@ export default function NewFooter() {
                 Suscríbete a nuestro newsletter para recibir las últimas
                 noticias y ofertas exclusivas.
               </p>
-              <form className="mt-2 flex">
+              <form className="mt-2 xl:flex lg:hidden md:hidden sm:hidden smd:hidden">
                 <input
                   type="email"
                   placeholder="Tu email"
