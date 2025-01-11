@@ -22,7 +22,7 @@ export default function SlidersCard({ contenido }) {
   };
 
   return (
-    <div className="w-full dark:bg-black dark:text-white p-4 px-10 h-[420px]">
+    <div className="w-full dark:bg-black dark:text-white p-4 px-10 h-[480px]">
       <h2 className="text-3xl font-bold mb-4">{contenido.titulo}</h2>
       <div className="relative group">
         <div

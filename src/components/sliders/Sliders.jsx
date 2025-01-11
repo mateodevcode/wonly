@@ -7,7 +7,7 @@ const Sliders = () => {
   const data3 = SlidersData[2];
 
   return (
-    <div className="mb-10">
+    <div className="pb-20">
       <SlidersCard contenido={data1} />
       <SlidersCard contenido={data2} />
       <SlidersCard contenido={data3} />
