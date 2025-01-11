@@ -1,5 +1,4 @@
 import Navbar from "@/components/navbar/Navbar";
-import Footer from "@/components/footer/Footer";
 import Principal from "@/components/homepage/Principal";
 import Sliders from "@/components/sliders/Sliders";
 import NewFooter from "@/components/footer/NewFooter";
@@ -10,7 +9,6 @@ export default function Home() {
       <Navbar />
       <Principal />
       <Sliders />
-      {/* <Footer /> */}
       <NewFooter />
     </main>
   );

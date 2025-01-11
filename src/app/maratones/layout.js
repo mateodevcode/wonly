@@ -1,4 +1,4 @@
-import Footer from "@/components/footer/Footer";
+import NewFooter from "@/components/footer/NewFooter";
 import Navbar from "@/components/navbar/Navbar";
 
 export const metadata = {
@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     <>
       <Navbar />
       {children}
-      <Footer />
+      <NewFooter />
     </>
   );
 }

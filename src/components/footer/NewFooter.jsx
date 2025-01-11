@@ -146,14 +146,6 @@ export default function NewFooter() {
                 >
                   <Mail className="h-6 w-6" />
                 </a>
-                {/* <a
-                  href="https://github.com/cinestream"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  <Github className="h-6 w-6" />
-                </a> */}
               </div>
               <p className="mt-4 text-sm dark:text-gray-400 text-gray-700">
                 Suscríbete a nuestro newsletter para recibir las últimas
