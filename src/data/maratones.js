@@ -1159,5 +1159,50 @@ export const maratones = {
         enlace: "https://wonly.vercel.app/peliculas/john-wick-4"
       },
     ],
+  },
+  piratas_del_caribe: {
+    titulo: "Maratón de Piratas del Caribe",
+    contenido: [
+      {
+        nombre: "Piratas del Caribe: La maldición de la Perla Negra",
+        fecha: "2003",
+        TipoMovie: "pelicula",
+        TipoLado: "izquierda",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/piratas-del-caribe-la-maldicion-de-la-perla-negra"
+      },
+      {
+        nombre: "Piratas del Caribe: El cofre de la muerte",
+        fecha: "2006",
+        TipoMovie: "pelicula",
+        TipoLado: "derecha",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/piratas-del-caribe-el-cofre-de-la-muerte"
+      },
+      {
+        nombre: "Piratas del Caribe: En el fin del mundo",
+        fecha: "2007",
+        TipoMovie: "pelicula",
+        TipoLado: "izquierda",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/piratas-del-caribe-en-el-fin-del-mundo"
+      },
+      {
+        nombre: "Piratas del Caribe: Navegando aguas misteriosas",
+        fecha: "2011",
+        TipoMovie: "pelicula",
+        TipoLado: "derecha",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/piratas-del-caribe-en-mareas-misteriosas"
+      },
+      {
+        nombre: "Piratas del Caribe: La venganza de Salazar",
+        fecha: "2017",
+        TipoMovie: "pelicula",
+        TipoLado: "izquierda",
+        temporada: null,
+        enlace: "https://wonly.vercel.app/peliculas/piratas-del-caribe-la-venganza-de-salazar"
+      },
+    ],
   }
 };

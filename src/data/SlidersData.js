@@ -183,4 +183,37 @@ export const SlidersData = [
     ],
     __v: 0,
   },
+  {
+    _id: "66f1c39c7debe5a55c718a3b",
+    id: "maraton-de-piratas-del-caribe",
+    titulo: "Maratón de Piratas del Caribe",
+    url: "/peliculas",
+    cards: [
+      {
+        imagen_perfil: "https://i.postimg.cc/htcrsBfZ/Piratas_del_Caribe_La_maldiciaon_de_la_Perla_Negra.jpg",
+        pelicula: "Piratas del Caribe: La maldición de la Perla Negra",
+        Url: "/peliculas/piratas-del-caribe-la-maldicion-de-la-perla-negra",
+      },
+      {
+        imagen_perfil: "https://i.postimg.cc/Pr4Zt85K/498694.jpg",
+        pelicula: "Piratas del Caribe: El cofre de la muerte",
+        Url: "/peliculas/piratas-del-caribe-el-cofre-de-la-muerte",
+      },
+      {
+        imagen_perfil: "https://i.postimg.cc/c4XgqyFb/249141.png",
+        pelicula: "Piratas del Caribe: En el fin del mundo",
+        Url: "/peliculas/piratas-del-caribe-en-el-fin-del-mundo",
+      },
+      {
+        imagen_perfil: "https://i.postimg.cc/BbjyqGxB/navegando-en-aguas-misteriosas.jpg",
+        pelicula: "Piratas del Caribe: Navegando aguas misteriosas",
+        Url: "/peliculas/piratas-del-caribe-navegando-aguas-misteriosas",
+      },
+      {
+        imagen_perfil: "https://i.postimg.cc/t4pKx8yp/Piratas_del_Caribe_La_venganza_de_Salazar.jpg",
+        pelicula: "Piratas del Caribe: La venganza de Salazar",
+        Url: "/peliculas/piratas-del-caribe-la-venganza-de-salazar",
+      }
+    ],
+  }
 ];

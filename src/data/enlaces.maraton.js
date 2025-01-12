@@ -24,4 +24,9 @@ export const maraton = [
     link: "/maratones/rapidos-y-furiosos",
     description: "La saga completa de Rápidos y Furiosos",
   },
+  {
+    name: "Piratas del Caribe",
+    link: "/maratones/piratas-del-caribe",
+    description: "La saga de Jack Sparrow y sus aventuras en el mar",
+  }
 ];

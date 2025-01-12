@@ -22,6 +22,10 @@ const SwitchMaraton = () => {
       return (
         <MaratonCard titulo={maratones.john_wick.titulo} height={"h-[800px]"} contenido={maratones.john_wick.contenido} />
       )
+    case "piratas-del-caribe":
+      return (
+        <MaratonCard titulo={maratones.piratas_del_caribe.titulo} height={"h-[700px]"} contenido={maratones.piratas_del_caribe.contenido} />
+      )
 
     default:
       return <div className='h-screen text-white grid place-content-center text-2xl'>No se encontró el maratón solicitado.</div>
