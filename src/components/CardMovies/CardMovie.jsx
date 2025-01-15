@@ -31,7 +31,7 @@ const CardMovie = ({ index, imagen_perfil, titulo, id, year, _id }) => {
         onClick={(e) => {
           e.preventDefault();
           const idUrl = e.target.id;
-          router.push(`/${ruta}/${idUrl}`);
+          router.push(`${idUrl}`);
         }}
       >
         <AgregarLista
