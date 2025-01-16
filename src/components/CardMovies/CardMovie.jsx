@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, } from "next/navigation";
 import { useContext } from "react";
 import { MoviesContext } from "@/context/MoviesContext";
 import AgregarLista from "../AgregarLista/AgregarLista";
@@ -13,7 +13,8 @@ const CardMovie = ({ index, imagen_perfil, titulo, id, year, _id }) => {
     useContext(MoviesContext);
 
   const path = usePathname();
-  const ruta = path.replace("/", "");
+  const tipo = path.split("/")[1];
+  
 
   return (
     <Tooltip
@@ -31,7 +32,7 @@ const CardMovie = ({ index, imagen_perfil, titulo, id, year, _id }) => {
         onClick={(e) => {
           e.preventDefault();
           const idUrl = e.target.id;
-          router.push(`${idUrl}`);
+          router.push(`/${tipo}/${idUrl}`);
         }}
       >
         <AgregarLista
