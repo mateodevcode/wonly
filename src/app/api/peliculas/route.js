@@ -21,6 +21,7 @@ export async function POST(request) {
     linkTo,
     duracion,
     url,
+    keyFiltrar
   } = await request.json();
   await connectMongoDB();
   await Pelicula.create({
@@ -35,6 +36,7 @@ export async function POST(request) {
     linkTo,
     duracion,
     url,
+    keyFiltrar
   });
   return NextResponse.json({ message: "Pelicula creada" }, { status: 201 });
 }

@@ -46,6 +46,10 @@ const peliculaSchema = new Schema(
       type: Array,
       required: true,
     },
+    keyFiltrar: {
+      type: String,
+      required: false,
+    }
   },
   { timestamps: true }
 );

@@ -7,14 +7,19 @@ import AgregarLista from "../AgregarLista/AgregarLista";
 import { acortarNombre } from "@/config/acortarNombre";
 import { Tooltip } from "@chakra-ui/react";
 
-const CardMovie = ({ index, imagen_perfil, titulo, id, year, _id }) => {
+const CardMovie = ({ index, imagen_perfil, titulo, id, year, _id, temporadas }) => {
   const router = useRouter();
   const { miLista, handleAgregarMiLista, handleDeletePelicula } =
     useContext(MoviesContext);
 
   const path = usePathname();
-  const tipo = path.split("/")[1];
+  let tipo = path.split("/")[1];
   
+  if (temporadas) {
+    tipo = "series";
+  } else {
+    tipo = "peliculas";
+  }
 
   return (
     <Tooltip

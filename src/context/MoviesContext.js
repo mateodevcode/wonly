@@ -17,6 +17,9 @@ export const MoviesProvider = ({ children }) => {
   const [peticiones, setPeticiones] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
 
+  const [peliculas, setPeliculas] = useState([]);
+  const [series, setSeries] = useState([]);
+
 
   useEffect(() => {
     if (document.body.classList.contains("dark")) {
@@ -224,7 +227,60 @@ export const MoviesProvider = ({ children }) => {
     cargarPeticiones();
   }, []);
 
-  // Manejar peticiones end
+  // cargar lista de peliculas y series
+
+  useEffect(() => {
+    const cargarPeliculas = async () => {
+      try {
+        const res = await fetch(`/api/peliculas`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await res.json();
+        setPeliculas(data);
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Error al cargar las peliculas",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+      }
+    };
+    cargarPeliculas();
+  }, []);
+
+  useEffect(() => {
+    const CargarSeries = async () => {
+      try {
+        const res = await fetch(`/api/series`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await res.json();
+        setSeries(data);
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Error al cargar las series",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+      }
+    };
+    CargarSeries();
+  }, []);
+
+  let seriesYpeliculas = [...peliculas, ...series];
+
 
   return (
     <MoviesContext.Provider
@@ -240,6 +296,7 @@ export const MoviesProvider = ({ children }) => {
         peticiones,
         darkMode,
         handleDarkMode,
+        seriesYpeliculas,
       }}
     >
       {children}

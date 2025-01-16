@@ -1,9 +1,9 @@
 "use client";
 import { generos } from "@/data/navbar";
-import { Menu, MenuButton, MenuList, Tooltip, useToast } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, Tooltip } from "@chakra-ui/react";
 import Image from "next/image";
 import { BsInfoCircleFill } from "react-icons/bs";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import Link from "next/link";
 import { MoviesContext } from "@/context/MoviesContext";
 import { signIn, useSession } from "next-auth/react";
@@ -14,65 +14,13 @@ import { MdDeleteForever } from "react-icons/md";
 import { LuListPlus, LuPlus } from "react-icons/lu";
 
 const MiLista = ({ menuResponsive, onClose }) => {
-  const [peliculas, setPeliculas] = useState([]);
-  const [series, setSeries] = useState([]);
-  const toast = useToast();
-  const { miLista, handleDeletePelicula } = useContext(MoviesContext);
+  const { miLista, handleDeletePelicula, seriesYpeliculas } =
+    useContext(MoviesContext);
   const { status } = useSession();
   const router = useRouter();
 
-  useEffect(() => {
-    const cargarPeliculas = async () => {
-      try {
-        const res = await fetch(`/api/peliculas`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await res.json();
-        setPeliculas(data);
-      } catch (error) {
-        toast({
-          title: "Error",
-          description: "Error al cargar las peliculas",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-          position: "top",
-        });
-      }
-    };
-    cargarPeliculas();
-  }, []);
 
-  useEffect(() => {
-    const CargarSeries = async () => {
-      try {
-        const res = await fetch(`/api/series`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await res.json();
-        setSeries(data);
-      } catch (error) {
-        toast({
-          title: "Error",
-          description: "Error al cargar las series",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-          position: "top",
-        });
-      }
-    };
-    CargarSeries();
-  }, []);
-
-  let seriesYpeliculas = [...peliculas, ...series];
-
+  
   const prueba = miLista?.sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   );
@@ -170,42 +118,42 @@ const MiLista = ({ menuResponsive, onClose }) => {
                 >
                   <div className="flex flex-row justify-between items-center w-full">
                     <Tooltip
-                    label={pelicula.titulo}
-                    fontSize="small"
-                    bg="black"
-                    color="white"
-                    rounded={5}
-                    paddingBottom={1}
+                      label={pelicula.titulo}
+                      fontSize="small"
+                      bg="black"
+                      color="white"
+                      rounded={5}
+                      paddingBottom={1}
                     >
-                    <Link
-                      href={`/${pelicula.temporadas ? "series" : "peliculas"}/${
-                        pelicula.id
-                      }`}
-                      onClick={() => onClose}
-                      className="flex flex-row justify-start items-center w-full"
-                    >
-                      <Image
-                        src={pelicula.imagen_perfil}
-                        alt="logo"
-                        height={150}
-                        width={150}
-                        className="rounded-md w-9 h-9"
-                      />
-                      <div className="mx-2 flex flex-col justify-center items-start my-1">
-                        <p className="text-white font-semibold text-xs">
-                          {acortarNombre(pelicula.titulo, 18)}
-                        </p>
-                        <span
-                          className={`text-white text-[10px] font-semibold rounded-md px-1 ${
-                            pelicula.temporadas
-                              ? "bg-red-500/50"
-                              : "bg-blue-500/50"
-                          }`}
-                        >
-                          {pelicula.temporadas ? "Serie" : "Pelicula"}
-                        </span>
-                      </div>
-                    </Link>
+                      <Link
+                        href={`/${
+                          pelicula.temporadas ? "series" : "peliculas"
+                        }/${pelicula.id}`}
+                        onClick={() => onClose}
+                        className="flex flex-row justify-start items-center w-full"
+                      >
+                        <Image
+                          src={pelicula.imagen_perfil}
+                          alt="logo"
+                          height={150}
+                          width={150}
+                          className="rounded-md w-9 h-9"
+                        />
+                        <div className="mx-2 flex flex-col justify-center items-start my-1">
+                          <p className="text-white font-semibold text-xs">
+                            {acortarNombre(pelicula.titulo, 18)}
+                          </p>
+                          <span
+                            className={`text-white text-[10px] font-semibold rounded-md px-1 ${
+                              pelicula.temporadas
+                                ? "bg-red-500/50"
+                                : "bg-blue-500/50"
+                            }`}
+                          >
+                            {pelicula.temporadas ? "Serie" : "Pelicula"}
+                          </span>
+                        </div>
+                      </Link>
                     </Tooltip>
                     <Tooltip
                       label="Eliminar de la lista"
@@ -216,16 +164,16 @@ const MiLista = ({ menuResponsive, onClose }) => {
                       paddingBottom={1}
                     >
                       <button
-                      className="w-8 h-8 hover:bg-white/10 flex flex-row justify-center items-center rounded-md"
-                      id={pelicula._id}
-                      onClick={handleDeletePelicula}
-                    >
-                      <MdDeleteForever
-                        className="text-white text-xl mx-2"
+                        className="w-8 h-8 hover:bg-white/10 flex flex-row justify-center items-center rounded-md"
                         id={pelicula._id}
                         onClick={handleDeletePelicula}
-                      />
-                    </button>
+                      >
+                        <MdDeleteForever
+                          className="text-white text-xl mx-2"
+                          id={pelicula._id}
+                          onClick={handleDeletePelicula}
+                        />
+                      </button>
                     </Tooltip>
                   </div>
                 </li>

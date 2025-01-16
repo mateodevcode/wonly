@@ -55,6 +55,10 @@ const serieSchema = new Schema(
         ],
       },
     },
+    keyFiltrar: {
+      type: String,
+      required: false,
+    },
   },
   { timestamps: true }
 );

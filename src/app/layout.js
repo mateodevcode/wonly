@@ -7,7 +7,7 @@ import { MoviesProvider } from "@/context/MoviesContext";
 import { AuthProvider } from "./Providers";
 
 export const metadata = {
-  title: "Wonly - Peliculas y Series",
+  title: "Wonly",
   description: "Peliculas y series gratis en un solo lugar",
 };
 
