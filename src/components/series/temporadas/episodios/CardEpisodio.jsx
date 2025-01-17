@@ -26,7 +26,7 @@ const CardEpisodio = ({
         router.push(Url);
       }}
       key={index}
-      className={`w-full xl:h-56 lg:h-56 md:h-40 sm:h-32 flex flex-row items-center justify-center my-2 rounded-xl dark:hover:bg-zinc-700 hover:bg-zinc-300 cursor-pointer ${
+      className={`w-full xl:h-56 lg:h-56 md:h-40 sm:h-32 flex flex-row items-center justify-center my-2 rounded-xl dark:hover:bg-zinc-700 border-[1px] border-zinc-600 hover:bg-zinc-300 cursor-pointer ${
         params.episodio === episodio
           ? "dark:bg-zinc-800 bg-zinc-200 text-white"
           : "dark:bg-zinc-900 bg-zinc-100 text-white"
@@ -59,7 +59,7 @@ const CardEpisodio = ({
               </p>
             </div>
             <p className="lg:mx-2 md:mx-2 sm:mx-0 lg:text-base md:text-xs smd:text-sm sm:text-[8px] font-semibold dark:text-gray-400 text-gray-700">
-              {acortarDescripcion(descripcion)}
+              {acortarDescripcion(descripcion, 160)}
             </p>
           </div>
         </div>

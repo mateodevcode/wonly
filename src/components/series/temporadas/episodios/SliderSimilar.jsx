@@ -37,7 +37,7 @@ export default function SliderSimiliar({ contenido }) {
         >
           {contenido?.map((movie, index) => (
             <Link
-              href={`${movie.episodio}`}
+              href={`${movie.linkTo}`}
               key={index}
               className={`relative flex-none w-[250px] max-h-96 bg-white/10 rounded-lg p-4 border-[1px] border-zinc-700 dark:hover:bg-white/20 hover:bg-black/10 ${params.pelicula === movie.linkTo ? "bg-white/20" : ""}`}
             >

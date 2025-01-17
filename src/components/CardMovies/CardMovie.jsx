@@ -13,12 +13,12 @@ const CardMovie = ({ index, imagen_perfil, titulo, id, year, _id, temporadas }) 
     useContext(MoviesContext);
 
   const path = usePathname();
-  let tipo = path.split("/")[1];
+  let tipo;
   
   if (temporadas) {
     tipo = "series";
   } else {
-    tipo = "peliculas";
+    tipo = path.split("/")[1];
   }
 
   return (
