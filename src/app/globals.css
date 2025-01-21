@@ -73,3 +73,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(32, 32, 32); /* Color del pulgar al pasar el mouse */
 }
+
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scrolll {
+  animation: scroll 30s linear infinite;
+}

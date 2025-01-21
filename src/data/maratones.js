@@ -1193,7 +1193,7 @@ export const maratones = {
         TipoMovie: "pelicula",
         TipoLado: "derecha",
         temporada: null,
-        enlace: "https://wonly.vercel.app/peliculas/piratas-del-caribe-en-mareas-misteriosas"
+        enlace: "https://wonly.vercel.app/peliculas/piratas-del-caribe-navegando-aguas-misteriosas"
       },
       {
         nombre: "Piratas del Caribe: La venganza de Salazar",

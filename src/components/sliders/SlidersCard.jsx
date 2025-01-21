@@ -3,7 +3,7 @@ import { Icono } from "@/data/logo";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export default function SlidersCard({ contenido }) {
   const scrollContainerRef = useRef();
@@ -21,26 +21,27 @@ export default function SlidersCard({ contenido }) {
     }
   };
 
+  const movies = [...contenido.cards, ...contenido.cards, ...contenido.cards];
+
   return (
     <div className="w-full dark:bg-black dark:text-white p-4 px-10 h-[480px]">
       <h2 className="text-3xl font-bold mb-4">{contenido.titulo}</h2>
       <div className="relative group">
         <div
           ref={scrollContainerRef}
-          className="flex overflow-x-auto gap-4 pb-8 scrollbar-hide"    
+          className="flex overflow-x-auto gap-4 pb-8 scrollbar-hide"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {contenido.cards.map((movie, index) => (
+          {movies.map((movie, index) => (
             <Link
               href={movie.Url}
               key={index}
-              className="relative flex-none w-[300px] transition-transform duration-300 hover:scale-105"
+              className={`relative flex-none w-[300px] transition-transform duration-300 hover:scale-105 animate-scrolll  ${
+                index % 2 === 0
+                  ? "scroll" // Clase para elementos pares
+                  : "scrolll" // Clase para elementos impares
+              }`}
             >
-              {/* <div className="absolute -left-4 -top-6 z-10">
-                <span className="text-[120px] font-bold opacity-80 leading-none absolute top-56 -left-2">
-                  {index + 1}
-                </span>
-              </div> */}
               <div className="relative rounded-lg overflow-hidden">
                 <Image
                   src={movie.imagen_perfil}
@@ -59,14 +60,14 @@ export default function SlidersCard({ contenido }) {
         </div>
         <button
           onClick={() => scroll("left")}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity text-white"
           aria-label="Scroll left"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button
           onClick={() => scroll("right")}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity text-white"
           aria-label="Scroll right"
         >
           <ChevronRight className="w-6 h-6" />

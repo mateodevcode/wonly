@@ -105,9 +105,9 @@ const AgregarPeliculas = () => {
           onClick={() => {
             onOpen();
           }}
-          className="fixed z-50 bg-blue-600 hover:bg-blue-500 p-2 lg:right-5 md:right-5 sm:right-0 top-64 rounded-full cursor-pointer"
+          className="fixed z-50 bg-blue-600 hover:bg-blue-500 p-2 lg:right-5 md:right-5 sm:right-0 top-64 rounded-full cursor-pointer border-[1px] dark:border-white border-black"
         >
-          <RiVideoAddLine className="text-base text-white hover:text-xl transition-all ease-out duration-150" />
+          <RiVideoAddLine className="text-base text-white" />
         </span>
       </Tooltip>
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
