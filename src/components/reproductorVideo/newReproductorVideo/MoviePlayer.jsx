@@ -349,9 +349,8 @@ export default function MoviePlayer({ UrlSeleccionada, titulo }) {
       <div className="relative">
         <video
           ref={videoRef}
-          className="sm:w-full xl:w-[1440px] lg:w-[1150px] md:w-[750px] xl:h-[900px] lg:h-[400px] md:h-[500px] sm:h-[160px]"
-          src={UrlModificada("https://www.dropbox.com/scl/fi/fa5hxuiiwlipswbg78xte/Ver-Capitan-America-Civil-War-Online-Completa-Gratis-en-HD.mp4?rlkey=qxuqji84k2oqinwsoedonz6c6&st=y3k4u1e8&dl=0")}
-        />
+          className="sm:w-full xl:w-[1440px] lg:w-[1150px] md:w-[750px] xl:h-[420px] lg:h-[420px] md:h-[500px] sm:h-[160px]"
+          src={UrlModificada("https://www.dropbox.com/scl/fi/fa5hxuiiwlipswbg78xte/Ver-Capitan-America-Civil-War-Online-Completa-Gratis-en-HD.mp4?rlkey=qxuqji84k2oqinwsoedonz6c6&st=y3k4u1e8&dl=0")} />
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
           <div className="text-white lg:text-xl md:text-xl sm:text-sm font-bold mb-2">{titulo}</div>
           <div className="flex items-center space-x-4">

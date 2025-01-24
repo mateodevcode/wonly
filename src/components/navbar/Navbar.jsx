@@ -25,12 +25,12 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div
+    <header
       className={`${estilosBase} ${estilos} transition-all duration-200 ease-in-out`}
     >
       <NavbarLeft />
       <NavbarRight />
-    </div>
+    </header>
   );
 };
 
