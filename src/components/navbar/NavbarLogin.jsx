@@ -15,7 +15,6 @@ const NavbarLogin = ({ menuResponsive }) => {
   const router = useRouter();
   const { Usuario } = useContext(MoviesContext);
   
-
   return (
     <>
       {status === "loading" ? (

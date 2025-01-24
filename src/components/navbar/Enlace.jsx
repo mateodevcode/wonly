@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Enlace = ({ nombre, Url }) => {
+const Enlace = ({ nombre, Url, onClose }) => {
   const path = usePathname().slice(1).toLowerCase();
   const isActive = path === nombre?.toLowerCase();
   const baseClasses =

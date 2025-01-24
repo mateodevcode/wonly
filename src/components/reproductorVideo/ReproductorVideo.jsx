@@ -5,7 +5,7 @@ import CardDescripcion from "../peliculas/pelicula/CardDescripcion";
 // import MoviePlayer from "./newReproductorVideo/MoviePlayer";
 // import dynamic from "next/dynamic";
 
-const ReproductorVideo = ({tipoMovie, titulo, descripcion, duracion, UrlSeleccionada, temporadaActual, temporada, episodio}) => {
+const ReproductorVideo = ({tipoMovie, titulo, descripcion, duracion, url, temporadaActual, temporada, episodio}) => {
 // const MoviePlayer = dynamic(() => import('./newReproductorVideo/MoviePlayer'), { ssr: false })
 
   return (
@@ -15,7 +15,7 @@ const ReproductorVideo = ({tipoMovie, titulo, descripcion, duracion, UrlSeleccio
           url={url}
           setUrlSeleccionada={setUrlSeleccionada}
         /> */}
-        <IframeVideo UrlSeleccionada={UrlSeleccionada} />
+        <IframeVideo url={url} />
         {/* <MoviePlayer UrlSeleccionada={UrlSeleccionada} titulo={titulo} /> */}
       </div>
       {/* <BotonPantallaCompleta /> */}

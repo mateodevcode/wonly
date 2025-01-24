@@ -19,6 +19,7 @@
   background-size: cover;
   background-position: center;
   transition: background-image 0.5s ease-in-out;
+  margin-top: 20px;
 }
 
 .slider-controls {

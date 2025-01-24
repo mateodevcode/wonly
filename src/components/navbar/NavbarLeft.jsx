@@ -11,7 +11,6 @@ const NavbarLeft = () => {
         {enlaces.map((enlace, index) => (
           <Enlace key={index} nombre={enlace.nombre} Url={enlace.Url} />
         ))}
-        {/* <Generos /> */}
       </div>
     </div>
   );

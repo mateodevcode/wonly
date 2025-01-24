@@ -1,104 +1,51 @@
 "use client";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import CardEpisodios from "./CardEpisodio";
-import { PiCardsFill } from "react-icons/pi";
+import { useContext } from "react";
 import SpinnerGlobal from "@/components/spinner/SpinnerGlobal";
 import CardEpisodio from "./CardEpisodio";
+import { MoviesContext } from "@/context/MoviesContext";
 
 const Episodios = () => {
-  const [imagenFondo, setImagenFondo] = useState([]);
-  const [temporada, setTemporada] = useState([]);
-  const [datosSeries, setDatosSeries] = useState([]);
-  const [url, setUrl] = useState("");
-  const [episodio, setEpisodio] = useState([]);
-  const [temporadaActual, setTemporadaActual] = useState([]);
-  const [episodioActual, setEpisodioActual] = useState([]);
-  const [urlTemporada, setUrlTemporada] = useState("");
-  const [tempActual, setTempActual] = useState("");
-  const [numeroEpisodios, setNumeroEpisodios] = useState(0);
-  const [edad, setEdad] = useState("");
-
+  const { series } = useContext(MoviesContext);
   const params = useParams();
 
-  useEffect(() => {
-    const cargarTemporada = async () => {
-      const res = await fetch(`/api/series`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
-
-      const key = "id";
-      const value = params.serie;
-      const resultado = data.find((objeto) => objeto[key] === value);
-      setDatosSeries(resultado);
-      setTemporada(resultado.temporadas);
-
-      setEdad(resultado.publico);
-
-      const url = window.location.href;
-      const segments = url.split("/");
-      const SeriesName = segments[segments.length - 2];
-      setUrl(SeriesName);
-      setEpisodio(resultado.temporadas[0].episodios);
-
-      const key2 = "linkTo";
-      const value2 = segments[segments.length - 1];
-      const resultado2 = resultado.temporadas.find(
-        (objeto) => objeto[key2] === value2
-      );
-      setImagenFondo(resultado2);
-      setTemporadaActual(resultado2.episodios);
-      setUrlTemporada(value2);
-
-      setTempActual(resultado2.temporada);
-      setNumeroEpisodios(resultado2.episodios.length);
-
-      const key3 = "episodio";
-      const value3 = "E1";
-      const resultado3 = resultado2.episodios.find(
-        (objeto) => objeto[key3] === value3
-      );
-      setEpisodioActual(resultado3);
-    };
-    cargarTemporada();
-  }, []);
-  
-
+  const serieActual = series.find((objeto) => objeto.id === params.serie);
+  const temporadaActual = serieActual?.temporadas.find(
+    (objeto) => objeto.linkTo === params.temporada
+  );
+  const listaEpisodios = temporadaActual?.episodios;
+  const imagenFondo = temporadaActual?.imagen_fondo;
 
   return (
     <div className="dark:bg-black w-full flex flex-col justify-center items-center pt-16">
-      {temporadaActual && temporadaActual.length === 0 && (
-        <div className="flex justify-center items-center w-full my-40">
-        <SpinnerGlobal />
-      </div>
-      )}
+      {(temporadaActual && temporadaActual.length === 0) ||
+        (temporadaActual === undefined && (
+          <div className="flex justify-center items-center w-full my-40">
+            <SpinnerGlobal />
+          </div>
+        ))}
       <div
-        className="w-full h-[500px]"
+        className="w-full h-[450px]"
         style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)),url('${imagenFondo.imagen_fondo}')`,
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)),url('${imagenFondo}')`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
         }}
       >
-        {tempActual && (
-          <div className="flex flex-col justify-center items-center h-[500px]">
-            <h2 className="lg:text-7xl md:text-7xl smd:text-5xl sm:text-4xl text-white font-semibold">{tempActual}</h2>
-            <div className="text-white text-6xl flex flex-row justify-center items-center mt-5">
-              <span className="bg-blue-600 lg:px-4 md:px-4 sm:px-2 lg:py-2 md:py-2 sm:py-1 rounded-xl font-semibold lg:text-5xl md:text-4xl smd:text-3xl sm:text-base font-mono">
-                {numeroEpisodios}
-              </span>{" "}
-              <p className="mx-4 lg:text-5xl md:text-5xl smd:text-3xl sm:text-2xl font-semibold">Episodios</p>{" "}
-              <PiCardsFill className="lg:text-8xl md:text-8xl smd:text-5xl sm:text-4xl text-yellow-400" />
-            </div>
-          </div>
-        )}
+        <div className="flex flex-row justify-around items-end h-[450px] pb-5">
+          <h2 className="font-extrabold text-4xl uppercase text-white">
+            {temporadaActual?.titulo}
+          </h2>
+          <p className="font-semibold text-2xl text-white mx-5">
+            {temporadaActual?.temporada} -{" "}
+            <span className="bg-blue-600 px-2 rounded-md">
+              {temporadaActual?.episodios.length}
+            </span>{" "}
+            Episodios
+          </p>
+        </div>
       </div>
       <div className="w-full flex flex-col justify-center items-center xl:px-40 lg:px-5 md:px-10 sm:px-2">
-        {temporadaActual.map((epi, index) => (
+        {listaEpisodios?.map((epi, index) => (
           <CardEpisodio
             key={index}
             imagen_perfil={epi.imagen_perfil}
@@ -107,8 +54,7 @@ const Episodios = () => {
             titulo={epi.titulo}
             duracion={epi.duracion}
             descripcion={epi.descripcion}
-            Url={`/series/${url}/${urlTemporada}/${epi.episodio}`}
-            edad={edad}
+            edad={serieActual.publico}
           />
         ))}
       </div>

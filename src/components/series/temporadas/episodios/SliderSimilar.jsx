@@ -53,7 +53,7 @@ export default function SliderSimiliar({ contenido }) {
                   <Image src={Icono.src} alt="Netflix" width={40} height={40} />
                 </div>
               </div>
-              <h3 className="mt-2 text-base font-medium mb-1">{index + 1}. {" "}{acortarNombre(movie.titulo, 24)}</h3>
+              <h3 className="mt-2 text-base font-medium mb-1">{acortarNombre(movie.titulo, 24)}</h3>
               <p className="text-xs dark:text-zinc-200">
                 {acortarDescripcion(movie.descripcion, 140)}
               </p>

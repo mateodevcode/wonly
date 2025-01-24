@@ -6,8 +6,10 @@ import { useEffect, useState } from "react";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const estilosBase =
-    "flex flex-row justify-between items-center w-full fixed z-40 lg:h-16 sm:h-12";
-  const estilos = isScrolled ? "bg-zinc-900/30 backdrop-blur-sm text-white" : "dark:bg-black bg-white";
+    "flex flex-row justify-between items-center w-full fixed z-40 lg:h-16 sm:h-12 transition-all duration-200 ease-in-out";
+  const estilos = isScrolled
+    ? "bg-zinc-900/30 backdrop-blur-sm text-white"
+    : "dark:bg-black bg-white";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +19,6 @@ const Navbar = () => {
         setIsScrolled(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -25,11 +26,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header
-      className={`${estilosBase} ${estilos} transition-all duration-200 ease-in-out`}
-    >
-      <NavbarLeft />
-      <NavbarRight />
+    <header className="w-full">
+      <nav className={`${estilosBase} ${estilos}`}>
+        <NavbarLeft />
+        <NavbarRight />
+      </nav>
     </header>
   );
 };

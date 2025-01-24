@@ -12,7 +12,6 @@ const CardEpisodio = ({
   titulo,
   duracion,
   descripcion,
-  Url,
   edad,
 }) => {
   const router = useRouter();
@@ -23,7 +22,7 @@ const CardEpisodio = ({
       id={episodio}
       onClick={(e) => {
         e.preventDefault();
-        router.push(Url);
+        router.push(`/series/${params.serie}/${params.temporada}/${episodio}`);
       }}
       key={index}
       className={`w-full xl:h-56 lg:h-56 md:h-40 sm:h-32 flex flex-row items-center justify-center my-2 rounded-xl dark:hover:bg-zinc-700 border-[1px] border-zinc-600 hover:bg-zinc-300 cursor-pointer ${

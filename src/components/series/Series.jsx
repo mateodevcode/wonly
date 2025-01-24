@@ -1,38 +1,24 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { enlacesSeries } from "@/data/enlaces.series";
 import { usePathname } from "next/navigation";
 import SpinnerGlobal from "../spinner/SpinnerGlobal";
 import Pagination from "../pagination/Pagination";
 import TopSearch from "../topSearch/TopSearch";
 import CardMovie from "../CardMovies/CardMovie";
+import { MoviesContext } from "@/context/MoviesContext";
 
 const Series = () => {
   const numeroSeries = 20;
-  const [datosSeries, setDatosSeries] = useState([]);
   const [buscar, setBuscar] = useState("");
   let path = usePathname();
   path = path.replace("/", "");
   const [inicio, setInicio] = useState(0);
   const [fin, setFin] = useState(numeroSeries);
-
-  useEffect(() => {
-    // cargar las temporadas de las series
-    const cargarTemporada = async () => {
-      const res = await fetch(`/api/series`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
-      setDatosSeries(data);
-    };
-    cargarTemporada();
-  }, []);
+  const { series } = useContext(MoviesContext);
 
   // Filtrar las series por el titulo de la serie y mostrarlas en la pagina de series
-  const filtrarSeries = datosSeries.filter((pelicula) =>
+  const filtrarSeries = series?.filter((pelicula) =>
     pelicula.titulo.toLowerCase().includes(buscar.toLowerCase())
   );
 
@@ -64,7 +50,7 @@ const Series = () => {
         ))}
       </div>
       {/* Paginacion */}
-      {datosSeries && datosSeries.length > 0 && (
+      {series && series.length > 0 && (
         <Pagination
           filtrarPeliculas={filtrarSeries}
           peliculasCargadas={SeriesCargadas}
@@ -76,7 +62,7 @@ const Series = () => {
         />
       )}
       {/* Spinner */}
-      {datosSeries && datosSeries.length === 0 && (
+      {series && series.length === 0 && (
         <div className="flex justify-center items-center w-full my-40">
           <SpinnerGlobal />
         </div>

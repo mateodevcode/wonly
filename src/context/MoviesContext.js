@@ -297,6 +297,8 @@ export const MoviesProvider = ({ children }) => {
         darkMode,
         handleDarkMode,
         seriesYpeliculas,
+        series,
+        peliculas,
       }}
     >
       {children}

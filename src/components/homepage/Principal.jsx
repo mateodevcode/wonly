@@ -11,8 +11,6 @@ const Principal = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { darkMode } = useContext(MoviesContext);
 
-
-
   slides.map((slide) => {
     return slide.generos.sort();
   });
@@ -27,9 +25,8 @@ const Principal = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const degradadoOscuro = `linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)),url(${slides[currentIndex].image})`
-  const degradadoClaro = `linear-gradient(180deg, rgba(0,0,0,0) 80%, rgba(255,255,255,1) 100%),url(${slides[currentIndex].image})`
-
+  const degradadoOscuro = `linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)),url(${slides[currentIndex].image})`;
+  const degradadoClaro = `linear-gradient(180deg, rgba(0,0,0,0) 80%, rgba(255,255,255,1) 100%),url(${slides[currentIndex].image})`;
 
   return (
     <div className="slider">

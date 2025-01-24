@@ -9,8 +9,7 @@ import { useRef } from "react";
 
 export default function SliderEpisodios({ contenido }) {
   const scrollContainerRef = useRef();
-  const params = useParams()
-
+  const params = useParams();
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
@@ -24,7 +23,6 @@ export default function SliderEpisodios({ contenido }) {
       });
     }
   };
-  
 
   return (
     <div className="w-full dark:bg-black dark:text-white p-4 h-[420px] mb-20">
@@ -39,7 +37,9 @@ export default function SliderEpisodios({ contenido }) {
             <Link
               href={`${movie.episodio}`}
               key={index}
-              className={`relative flex-none w-[250px] max-h-96 bg-white/10 rounded-lg p-4 border-[1px] border-zinc-700 dark:hover:bg-white/20 hover:bg-black/10 ${params.episodio === movie.episodio ? "bg-white/20" : ""}`}
+              className={`relative flex-none w-[250px] max-h-96 bg-white/10 rounded-lg p-4 border-[1px] border-zinc-700 dark:hover:bg-white/20 hover:bg-black/10 ${
+                params.episodio === movie.episodio ? "bg-white/20" : ""
+              }`}
             >
               <div className="relative rounded-lg overflow-hidden">
                 <Image
@@ -56,7 +56,9 @@ export default function SliderEpisodios({ contenido }) {
                   {movie.duracion} min
                 </div>
               </div>
-              <h3 className="mt-2 text-base font-medium mb-1">{index + 1}. {" "}{movie.titulo}</h3>
+              <h3 className="mt-2 text-base font-medium mb-1">
+                {movie.episodio} - {movie.titulo}
+              </h3>
               <p className="text-xs dark:text-zinc-200">
                 {acortarDescripcion(movie.descripcion, 100)}
               </p>

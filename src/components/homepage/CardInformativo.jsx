@@ -1,11 +1,13 @@
+import { acortarDescripcion } from "@/config/acortarDescripcion";
+
 const CardInfo = ({ titulo, descripcion, generos }) => {
   return (
     <div className="lg:w-[700px] sm:w-full lg:h-[190px] md:h-[190px] sm:h-[135px]">
-      <h1 className="lg:text-6xl md:text-6xl sm:text-4xl text-white font-bold font-serif text-left px-4">
+      <h1 className="lg:text-6xl md:text-6xl smd:text-4xl sm:text-4xl text-white font-bold font-serif text-left px-4">
         {titulo}
       </h1>
-      <p className="text-white font-semibold px-4 lg:text-lg md:text-lg sm:text-sm mt-3 lg:w-[500px] md:w-[500px] sm:w-full">
-        {descripcion}
+      <p className="text-white font-semibold px-4 lg:text-lg md:text-lg sm:text-sm mt-2 lg:w-[500px] md:w-[500px] sm:w-full">
+        {acortarDescripcion(descripcion, 200)}
       </p>
       <div className="px-4">
         {generos.map((genero, index) => (

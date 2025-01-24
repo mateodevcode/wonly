@@ -1,36 +1,23 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { enlacesSeries } from "@/data/enlaces.series";
 import { usePathname } from "next/navigation";
 import SpinnerGlobal from "../spinner/SpinnerGlobal";
 import Pagination from "../pagination/Pagination";
 import TopSearch from "../topSearch/TopSearch";
 import CardMovie from "../CardMovies/CardMovie";
+import { MoviesContext } from "@/context/MoviesContext";
 
 const Peliculas = () => {
   const numeroPeliculas = 20;
-  const [datosPeliculas, setDatosPeliculas] = useState([]);
   const [buscar, setBuscar] = useState("");
   let path = usePathname();
   path = path.replace("/", "");
   const [inicio, setInicio] = useState(0);
   const [fin, setFin] = useState(numeroPeliculas);
+  const { peliculas } = useContext(MoviesContext);
 
-  useEffect(() => {
-    const cargarTemporada = async () => {
-      const res = await fetch(`/api/peliculas`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
-      setDatosPeliculas(data);
-    };
-    cargarTemporada();
-  }, []);
-
-  const filtrarPeliculas = datosPeliculas.filter((pelicula) =>
+  const filtrarPeliculas = peliculas.filter((pelicula) =>
     pelicula.titulo.toLowerCase().includes(buscar.toLowerCase())
   );
 
@@ -58,7 +45,7 @@ const Peliculas = () => {
           />
         ))}
       </div>
-      {datosPeliculas && datosPeliculas.length > 0 && (
+      {peliculas && peliculas.length > 0 && (
         <Pagination
           filtrarPeliculas={filtrarPeliculas}
           peliculasCargadas={peliculasCargadas}
@@ -69,7 +56,7 @@ const Peliculas = () => {
           setFin={setFin}
         />
       )}
-      {datosPeliculas && datosPeliculas.length === 0 && (
+      {peliculas && peliculas.length === 0 && (
         <div className="flex justify-center items-center w-full my-40">
           <SpinnerGlobal />
         </div>

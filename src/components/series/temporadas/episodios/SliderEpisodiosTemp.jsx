@@ -1,36 +1,23 @@
 "use client";
 import { acortarDescripcion } from "@/config/acortarDescripcion";
+import { MoviesContext } from "@/context/MoviesContext";
 import { Icono } from "@/data/logo";
-import { Select } from "@chakra-ui/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 
 export default function SliderEpisodiosTemp() {
   const scrollContainerRef = useRef();
-  const params = useParams()
-  const [listaSeries, setListaSeries] = useState([]);
+  const params = useParams();
   const [temp, setTemp] = useState(params.temporada);
+  const { series } = useContext(MoviesContext);
 
-
-  useEffect(() => {
-    const cargarSeries = async () => {
-      const res = await fetch(`/api/series`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
-      setListaSeries(data);
-    }
-    cargarSeries();
-  }, []);
-  
-  const serie = listaSeries.find((serie) => serie.id === params.serie);
-  const temporada = serie?.temporadas.find((temporada) => temporada.linkTo === temp);
+  const serie = series.find((serie) => serie.id === params.serie);
+  const temporada = serie?.temporadas.find(
+    (temporada) => temporada.linkTo === temp
+  );
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
@@ -48,14 +35,25 @@ export default function SliderEpisodiosTemp() {
   return (
     <div className="w-full dark:bg-black dark:text-white p-4 h-[420px] mb-20">
       <div className="mb-4 flex flex-row justify-between items-center w-full">
-        {/* <h2 className="font-bold text-3xl">Episodios</h2> */}
-      <div>
-        {serie?.temporadas.map((movie, index) => (
-          <button key={index} id={movie.linkTo} value={movie.linkTo} onClick={() => {
-            setTemp(movie.linkTo);
-          }} className={`m-1 p-2 rounded-md font-semibold border-[1px] border-zinc-700 dark:bg-black dark:hover:bg-white/10 hover:bg-black/10 text-xs dark:text-white ${temp === movie.linkTo ? "dark:bg-zinc-700 bg-zinc-100 text-black" : ""}`}>{movie.temporada}</button>
-        ))}
-      </div>
+        <div>
+          {serie?.temporadas.map((movie, index) => (
+            <button
+              key={index}
+              id={movie.linkTo}
+              value={movie.linkTo}
+              onClick={() => {
+                setTemp(movie.linkTo);
+              }}
+              className={`m-1 p-2 rounded-md font-semibold border-[1px] border-zinc-700 dark:bg-black dark:hover:bg-blue-500 hover:bg-blue-500 text-xs dark:text-white hover:text-white ${
+                temp === movie.linkTo
+                  ? "dark:bg-blue-600 bg-blue-600 text-white"
+                  : ""
+              }`}
+            >
+              {movie.temporada}
+            </button>
+          ))}
+        </div>
       </div>
       <div className="relative group">
         <div
@@ -65,9 +63,9 @@ export default function SliderEpisodiosTemp() {
         >
           {temporada?.episodios.map((movie, index) => (
             <Link
-              href={`https://wonly.vercel.app/series/${serie.id}/${temporada.linkTo}/${movie.episodio}`}
+              href={`/series/${serie.id}/${temporada.linkTo}/${movie.episodio}`}
               key={index}
-              className={`relative flex-none w-[250px] max-h-96 bg-white/10 rounded-lg p-4 border-[1px] border-zinc-700 dark:hover:bg-white/20 hover:bg-black/10`}
+              className={`relative flex-none w-[250px] max-h-96 bg-blue-600/10 rounded-lg p-4 border-[1px] border-zinc-700 dark:hover:bg-blue-600/20 hover:bg-blue-600/20`}
             >
               <div className="relative rounded-lg overflow-hidden">
                 <Image
@@ -84,7 +82,9 @@ export default function SliderEpisodiosTemp() {
                   {movie.duracion} min
                 </div>
               </div>
-              <h3 className="mt-2 text-base font-medium mb-1">{index + 1}. {" "}{movie.titulo}</h3>
+              <h3 className="mt-2 text-base font-medium mb-1">
+                {movie.episodio} - {movie.titulo}
+              </h3>
               <p className="text-xs dark:text-zinc-200">
                 {acortarDescripcion(movie.descripcion, 100)}
               </p>
@@ -109,13 +109,3 @@ export default function SliderEpisodiosTemp() {
     </div>
   );
 }
-
-
-// <select className="p-2 rounded-md font-semibold border-[1px] border-zinc-700 dark:bg-black dark:text-white" >
-//        {/* <option value="0">Selecciona un episodio</option> */}
-//   {serie?.temporadas.map((movie, index) => (
-//    <option key={index} id={movie.linkTo} value={movie.linkTo} onClick={() => {
-//      setTemp(movie.linkTo);
-//    }}>{movie.temporada}</option>
-//  ))}
-// </select>

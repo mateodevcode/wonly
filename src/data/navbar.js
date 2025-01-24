@@ -91,8 +91,8 @@ export const generos = {
   },
 };
 
-export const logo = {
-  alt: "Logo de wonly",
-  src: "https://i.postimg.cc/qBKvQZYs/Logo-wonly-5.png",
-  href: "/",
-};
+// export const logo = {
+//   alt: "Logo de wonly",
+//   src: "https://i.postimg.cc/qBKvQZYs/Logo-wonly-5.png",
+//   href: "/",
+// };
