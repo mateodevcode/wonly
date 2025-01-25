@@ -2,16 +2,12 @@
 import { validateEmail } from "@/config/validateEmail";
 import {
   Modal,
-  ModalBody,
   ModalContent,
   ModalOverlay,
-  Tooltip,
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { RiAddCircleLine } from "react-icons/ri";
-import Formulario from "./Formulario";
 import { IoIosAdd } from "react-icons/io";
 import FormAgregarContenido from "./FormAgregarContenido";
 

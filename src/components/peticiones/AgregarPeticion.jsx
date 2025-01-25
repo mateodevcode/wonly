@@ -9,7 +9,6 @@ import { IoMdAdd } from "react-icons/io";
 const AgregarPeticion = () => {
   const [peticiones, setPeticiones] = useState([]);
   const toast = useToast();
-  const router = useRouter();
   const params = useParams();
   const [tipo, setTipo] = useState("pelicula");
   const [formData, setFormData] = useState({
@@ -26,6 +25,7 @@ const AgregarPeticion = () => {
     url: "",
     temporada: "",
     cantidad: "",
+    keyFiltrar: "",
   });
   const [seriesData, setSeriesData] = useState({
     titulo: "",
@@ -36,6 +36,7 @@ const AgregarPeticion = () => {
     year: "",
     generos: "",
     publico: "",
+    keyFiltrar: "",
     temporadas: [
       {
         temporada: "",
@@ -172,6 +173,7 @@ const AgregarPeticion = () => {
           publico: formData.publico,
           duracion: formData.duracion,
           url: convertirArray(formData.url),
+          keyFiltrar: formData.keyFiltrar,
         }),
       });
       if (res.ok) {
@@ -214,6 +216,7 @@ const AgregarPeticion = () => {
           year: seriesData.year,
           generos: convertirArray(seriesData.generos),
           publico: seriesData.publico,
+          keyFiltrar: seriesData.keyFiltrar,
           temporadas: seriesData.temporadas.map((temporada, tempIndex) => ({
             temporada: `Temporada ${tempIndex + 1}`,
             titulo: temporada.titulo,
@@ -371,6 +374,13 @@ const AgregarPeticion = () => {
               value={formData.url}
               name="url"
             />
+            <Input
+              placeholder="keyFiltrar"
+              onChange={handleChange}
+              value={formData.keyFiltrar}
+              name="keyFiltrar"
+              className="my-2"
+            />
             <Boton type="submit">Crear</Boton>
           </form>
         ) : (
@@ -435,6 +445,13 @@ const AgregarPeticion = () => {
               onChange={handleChangeSerie}
               value={seriesData.publico}
               name="publico"
+            />
+            <Input
+              placeholder="keyFiltrar"
+              onChange={handleChange}
+              value={formData.keyFiltrar}
+              name="keyFiltrar"
+              className="my-2"
             />
             <div
               className="font-semibold py-2 px-4 bg-white/10 hover:bg-white/20 w-max my-1 rounded-md flex flex-r justify-center items-center select-none cursor-pointer"

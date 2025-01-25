@@ -32,10 +32,10 @@ const Episodios = () => {
         }}
       >
         <div className="flex flex-row justify-around items-end h-[450px] pb-5">
-          <h2 className="font-extrabold text-4xl uppercase text-white">
+          <h2 className="font-extrabold xl:text-4xl lg:text-2xl md:text-2xl smd:text-xl sm:text-xl uppercase text-white">
             {temporadaActual?.titulo}
           </h2>
-          <p className="font-semibold text-2xl text-white mx-5">
+          <p className="font-semibold xl:text-2xl lg:text-xl md:text-lg smd:text-base sm:text-base text-white ml-5">
             {temporadaActual?.temporada} -{" "}
             <span className="bg-blue-600 px-2 rounded-md">
               {temporadaActual?.episodios.length}
